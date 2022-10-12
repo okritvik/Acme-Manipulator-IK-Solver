@@ -1,7 +1,7 @@
 #include <matplot/matplot.h>
 
 #include "../include/VelocityIK.hpp"
-#include "../NumCpp/include/NumCpp.hpp"
+#include "NumCpp.hpp"
 
 
 std::vector<double> VelocityIK::cartesian_velocity() {

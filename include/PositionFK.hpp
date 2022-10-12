@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "../NumCpp/include/NumCpp.hpp"
+#include "NumCpp.hpp"
 
 class PositionFK{
  public:
@@ -11,9 +11,10 @@ class PositionFK{
     nc::NdArray<double> get_dh();
     nc::NdArray<double> link_transformation();
     void set_joint_angles(std::vector<double> joint_angles);
+
  private:
-    std::vector<double> m_joint_angles
-    nc::NdArray<double>(7, 4) m_dh_table;
+    std::vector<double> m_joint_angles;
+    nc::NdArray<double> m_dh_table;
     std::vector<std::vector<double>> m_joint_positions;
 };
 

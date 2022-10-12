@@ -1,7 +1,7 @@
 #include <vector>
 
 #include "../include/PositionFK.hpp"
-#include "../NumCpp/include/NumCpp.hpp"
+#include "NumCpp.hpp"
 
 PositionFK::PositionFK() {
     m_dh_table = 0;

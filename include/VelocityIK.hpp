@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <matplot/matplot.h>
-#include "../NumCpp/include/NumCpp.hpp"
+#include "NumCpp.hpp"
 
 class VelocityIK{
  public:
@@ -12,6 +12,9 @@ class VelocityIK{
                 std::vector<double> present_joint_angle);
     void compute_jacobian();
     nc::NdArray<double> get_jacobian();
+
+ private:
+    nc::NdArray<double> m_jacobian;
 };
 
 #endif  // VELOCITYIK_HPP_
