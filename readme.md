@@ -1,9 +1,8 @@
-# Acme Robotics: Manipulator Inverse Kinematics Path Planner
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.png)](https://opensource.org/licenses/MIT)
 [![Build Status](https://app.travis-ci.com/okritvik/IK-Solver.png?branch=master)](https://app.travis-ci.com/okritvik/IK-Solver)
 [![Coverage Status](https://coveralls.io/repos/github/okritvik/IK-Solver/badge.png?branch=master)](https://coveralls.io/github/okritvik/IK-Solver?branch=master)
 
+# Acme Robotics: Manipulator Inverse Kinematics Path Planner
 
 ## Overview
 
