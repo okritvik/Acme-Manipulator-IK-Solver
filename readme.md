@@ -1,9 +1,8 @@
 # Acme Robotics: Manipulator Inverse Kinematics Path Planner
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/dpiet/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/dpiet/cpp-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/dpiet/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/dpiet/cpp-boilerplate?branch=master)
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.png)](https://opensource.org/licenses/MIT)
+[![Build Status](https://app.travis-ci.com/okritvik/IK-Solver.png?branch=master)](https://app.travis-ci.com/okritvik/IK-Solver)
+[![Coverage Status](https://coveralls.io/repos/github/okritvik/IK-Solver/badge.png?branch=master)](https://coveralls.io/github/okritvik/IK-Solver?branch=master)
 
 
 ## Overview
@@ -47,28 +46,27 @@ roles are exchanged during each phase of the project to effectively develop and 
 Link: https://www.youtube.com/watch?v=WIcdu61a00w
 </p>
 
-File Tree
-    │
-    ├── app             
+## File Tree
+    ├── app                    
     │   ├── CMakeLists.txt                # Contains NumCpp and matplotplusplus dependencies defined
     │   ├── Controller.cpp                # Stub implementation for Controller class
     │   ├── PositionFK.cpp                # Stub implementation for PositionFK class
     │   ├── Robot.cpp                     # Stub implementation for Robot class
     │   ├── Simulator.cpp                 # Stub implementation for Simulator class
     │   ├── VelocityIK.cpp                # Stub implementation for VelocityIK class
-    │   ├── main.cpp                      # Main script
-    ├── include                              
+    │   └── main.cpp                      # Main script
+    ├── include                    
     │   ├── Controller.hpp                # Main script to run test
     │   ├── Kinematics.hpp                # Initial implemenatation of Google Test cases 
     │   ├── PositionFK.hpp                # Initial implemenatation of Google Test cases 
     │   ├── Robot.hpp                     # Initial implemenatation of Google Test cases 
     │   ├── Simulator.hpp                 # Initial implemenatation of Google Test cases 
-    │   ├── VelocityIK.hpp                # Initial implemenatation of Google Test cases 
-    ├── quadchart                    
-    │   ├── quad_chart_v1.png             # Proposal Quad chart    
-    ├── test                              
+    │   └── VelocityIK.hpp                # Initial implemenatation of Google Test cases
+    ├── quadchart                   
+    │   └── quad_chart_v1.png             # Proposal Quad chart  
+    ├── test                    
     │   ├── main.cpp                      # Main script to run test
-    │   ├── test.cpp                      # Initial implemenatation of Google Test cases 
+    │   └── test.cpp                      # Initial implemenatation of Google Test cases 
     └── uml                               
-        ├── class_diagram_v1.pdf          # Class diagram for proposed implementation    
+        └── class_diagram_v1.pdf          # Class diagram for proposed implementation 
     
