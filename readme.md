@@ -61,6 +61,8 @@ Link: https://www.youtube.com/watch?v=WIcdu61a00w
     │   ├── Robot.hpp                     # Robot class header file  
     │   ├── Simulator.hpp                 # Simulator class header file 
     │   └── VelocityIK.hpp                # VelocityIK class header file
+    ├── proposal                   
+    │   └── mid_term_proposal.pdf         # Proposal document 
     ├── quadchart                   
     │   └── quad_chart_v1.png             # Proposal Quad chart  
     ├── test                    
