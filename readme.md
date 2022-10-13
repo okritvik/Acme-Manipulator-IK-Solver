@@ -55,16 +55,16 @@ Link: https://www.youtube.com/watch?v=WIcdu61a00w
     │   ├── VelocityIK.cpp                # Stub implementation for VelocityIK class
     │   └── main.cpp                      # Main script
     ├── include                    
-    │   ├── Controller.hpp                # Main script to run test
-    │   ├── Kinematics.hpp                # Initial implemenatation of Google Test cases 
-    │   ├── PositionFK.hpp                # Initial implemenatation of Google Test cases 
-    │   ├── Robot.hpp                     # Initial implemenatation of Google Test cases 
-    │   ├── Simulator.hpp                 # Initial implemenatation of Google Test cases 
-    │   └── VelocityIK.hpp                # Initial implemenatation of Google Test cases
+    │   ├── Controller.hpp                # Controller class header file 
+    │   ├── Kinematics.hpp                # Kinematics class header file 
+    │   ├── PositionFK.hpp                # PositionFK class header file 
+    │   ├── Robot.hpp                     # Robot class header file  
+    │   ├── Simulator.hpp                 # Simulator class header file 
+    │   └── VelocityIK.hpp                # VelocityIK class header file
     ├── quadchart                   
     │   └── quad_chart_v1.png             # Proposal Quad chart  
     ├── test                    
-    │   ├── main.cpp                      # Main script to run test
+    │   ├── main.cpp                      # Main script to run tests
     │   └── test.cpp                      # Initial implemenatation of Google Test cases 
     └── uml           
         ├── activity_diagram_v1.pdf       # Activity diagram for proposed implementation
