@@ -66,6 +66,7 @@ Link: https://www.youtube.com/watch?v=WIcdu61a00w
     ├── test                    
     │   ├── main.cpp                      # Main script to run test
     │   └── test.cpp                      # Initial implemenatation of Google Test cases 
-    └── uml                               
+    └── uml           
+        ├── activity_diagram_v1.pdf       # Activity diagram for proposed implementation
         └── class_diagram_v1.pdf          # Class diagram for proposed implementation 
     
