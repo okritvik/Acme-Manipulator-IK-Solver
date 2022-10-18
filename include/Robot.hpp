@@ -1,6 +1,7 @@
 /**
  * @file Robot.hpp
- * @author Adarsh Malapaka (amalapak@terpmail.umd.edu), Kumara Ritvik Oruganti (okritvik@umd.edu)
+ * @author Adarsh Malapaka (amalapak@terpmail.umd.edu)
+ * @author Kumara Ritvik Oruganti (okritvik@umd.edu)
  * @brief Class definition for Acme's Robot Manipulator, to be used in the assembly of automobiles.
  * @version 0.1
  * @date 2022-10-18

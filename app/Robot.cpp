@@ -1,3 +1,14 @@
+/**
+ * @file Robot.cpp
+ * @author Adarsh Malapaka (amalapak@terpmail.umd.edu)
+ * @author Kumara Ritvik Oruganti (okritvik@umd.edu)
+ * @brief Implementation of Acme's Robot Manipulator's Robot class.
+ * @version 0.1
+ * @date 2022-10-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <vector>
 
 #include "../include/Controller.hpp"

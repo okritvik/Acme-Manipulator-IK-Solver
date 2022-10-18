@@ -1,3 +1,15 @@
+/**
+ * @file PositionFK.cpp
+ * @author Adarsh Malapaka (amalapak@terpmail.umd.edu)
+ * @author Kumara Ritvik Oruganti (okritvik@umd.edu)
+ * @brief Implementation of Acme's Robot Manipulator's Position Kinematics class.
+ * @version 0.1
+ * @date 2022-10-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include <vector>
 
 #include "../include/PositionFK.hpp"

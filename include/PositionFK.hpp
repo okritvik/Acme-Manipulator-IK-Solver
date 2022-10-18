@@ -1,6 +1,7 @@
 /**
  * @file PositionFK.hpp
- * @author Adarsh Malapaka (amalapak@terpmail.umd.edu), Kumara Ritvik Oruganti (okritvik@umd.edu)
+ * @author Adarsh Malapaka (amalapak@terpmail.umd.edu)
+ * @author Kumara Ritvik Oruganti (okritvik@umd.edu)
  * @brief Class definition for Acme's Robot Manipulator's Forward Kinematics (Position) solver.
  * @version 0.1
  * @date 2022-10-18
