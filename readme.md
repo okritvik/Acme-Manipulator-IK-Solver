@@ -58,13 +58,26 @@ Link: https://www.youtube.com/watch?v=WIcdu61a00w
 
 
 ## Developer Documentation
-
-### Dependencies
-
-### Build
+### Environment Setup
 ```
 git clone --recursive https://github.com/okritvik/Acme-Manipulator-IK-Solver/tree/Phase1.git
-cd Acme-Manipulator-IK-Solver
+```
+
+### Dependencies
+1. [NumCpp](https://dpilger26.github.io/NumCpp/doxygen/html/index.html): This is used to make use of NumPy functionalities such as the creation of matrices and their associated operations in C++.
+```
+cd Acme-Manipulator-IK-Solver/NumCpp
+mkdir build
+cd build
+cmake ..
+cmake --build . --target install .
+```
+2. [Matplot++](https://alandefreitas.github.io/matplotplusplus/): This is used to leverage MATLAB styled plotting functions in C++, to visualize the Robot. </br>
+This dependency is already included with the project's `CMakeLists.txt` file, and hence requires no additional installation/build.
+
+### Build
+In the project's top level directory `/Acme-Manipulator-IK-Solver`, run the following:
+```
 mkdir -p build
 cd build
 cmake ..
@@ -72,21 +85,25 @@ make
 ```
 
 ### Build for Code Coverage
+Change to the project's `/build` directory using the `cd build` command.
 ```
-cd build
 sudo apt-get install lcov
 cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
 make 
 make code_coverage
 ```
 
-### Run
-1. Once inside the `/build` directory as done above, run: `./app/shell-app`
-2. To run Google Test: `./test/cpp-test`
+### Run Demo
+To run the demo, change to the `/build` directory as done previously: 
+```
+./app/shell-app
+```
 
-
-### Tests
-
+### Run Tests
+To run the Google Test cases: 
+```
+./test/cpp-test
+```
 
 ### Doxygen Docs
 [Doxygen](https://www.doxygen.nl/index.html) is used to generate HTML and LaTEX documentation for the project's API. To install and run Doxygen:
@@ -101,7 +118,7 @@ dozywizard
 ```
 To display the documentation in a Web Browser (like firefox):
 ```
-firefox ./doc/html/index.html
+firefox ./docs/html/index.html
 ```
 
 The documentation is saved in the ```/docs``` directory. 
@@ -122,6 +139,8 @@ cpplint ./app/*.cpp ./include/*.hpp ./test/*.cpp &> ./results/cpplint.txt
 The results of running ```cpplint``` can be found in ```/results/cpplint.txt```.
 
 ## Known Issues/Bugs
+1. Installation of NumCpp from the author might run into [Boost](https://www.boost.org/) requirement errors. To address this, change `option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" OFF)` to `option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" ON)`in the `CMakeLists.txt` of the NumCpp directory.
+2. `make` command may produce some errors from the matplotplusplus dependencies. This will be rectified in the next iteration.
 
 ## File Tree
     ├── app                    
@@ -147,8 +166,8 @@ The results of running ```cpplint``` can be found in ```/results/cpplint.txt```.
     ├── quadchart                   
     │   └── quad_chart_v1.png             # Proposal Quad chart  
     ├── results                    
-    │   ├── cppcheck.txt                  # Main script to run tests
-    │   └── cpplint.txt                   # Initial implemenatation of Google Test cases 
+    │   ├── cppcheck.txt                  # Results of cppcheck
+    │   └── cpplint.txt                   # Results of cpplint
     ├── test                    
     │   ├── main.cpp                      # Main script to run tests
     │   └── test.cpp                      # Initial implemenatation of Google Test cases 
@@ -156,7 +175,7 @@ The results of running ```cpplint``` can be found in ```/results/cpplint.txt```.
         ├── initial               
         │   ├── activity_diagram_v1.pdf   # Activity diagram for proposed implementation
         │   └── class_diagram_v1          # Class diagram for proposed implementation 
-        └── final           
+        └── revised           
             └── activity_diagram_v2.pdf   # Revised Activity diagram (Phase 1)
     
 ## License
