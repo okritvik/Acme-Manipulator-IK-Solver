@@ -10,8 +10,7 @@
  * 
  */
 
-#ifndef CONTROLLER_HPP_
-#define CONTROLLER_HPP_
+#pragma once
 
 #include <stdio.h>
 #include <vector>
@@ -23,6 +22,12 @@
 class Controller {
  public:
     /**
+     * @brief Construct a new Controller object
+     * 
+     */
+    Controller();
+
+    /**
      * @brief Mutator function to set the values of controller gains (Kp, Ki, Kd) 
      * 
      * @param kp  Proportional Gain
@@ -31,7 +36,7 @@ class Controller {
      * @return true Gain values are valid and set 
      * @return false Gain values are invalid 
      */
-    bool set_gains(double kp, double ki, double kd);
+    bool set_gains(double &kp, double &ki, double &kd);
 
     /**
      * @brief Accessor function to get the values of controller gains (Kp, Ki, Kd)
@@ -47,8 +52,8 @@ class Controller {
      * @param target_pose Desired position of the robot's end-effector w.r.t. the base (m)
      * @return double Control action (sec) to change the numerical integration time-step 
      */
-    double control_action(std::vector<double> present_pose,
-            std::vector<double> target_pose);
+    double control_action(std::vector<double> &present_pose,
+            std::vector<double> &target_pose);
 
     /**
      * @brief Saturates the controller output to within {min_vel, max_vel} for safety reasons.
@@ -57,7 +62,7 @@ class Controller {
      * @param max_vel Maximum possible value of controller output
      * @return double Saturated controller output
      */
-    double saturation(double min_vel, double max_vel);
+    double saturation(double &min_vel, double &max_vel);
 
  private:
     double m_kp;    // Proportional gain
@@ -66,5 +71,3 @@ class Controller {
     double m_sum_error;    // Accumulated errors
     double m_prev_error;    // Previous error
 };
-
-#endif  // CONTROLLER_HPP_

@@ -9,8 +9,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef KINEMATICS_HPP_
-#define KINEMATICS_HPP_
+#pragma once
 
 #include "../include/PositionFK.hpp"
 #include "../include/VelocityIK.hpp"
@@ -24,5 +23,3 @@ class Kinematics {
     PositionFK fk_solver;
     VelocityIK ik_solver;
 };
-
-#endif  // KINEMATICS_HPP_

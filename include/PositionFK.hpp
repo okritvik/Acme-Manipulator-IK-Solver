@@ -9,12 +9,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef POSITIONFK_HPP_
-#define POSITIONFK_HPP_
+#pragma once
 
 #include <vector>
 
-#include "NumCpp.hpp"
+#include <NumCpp.hpp>
 
 /**
  * @brief Defines the Position Forward Kinematics solver class using the standard form of the Denavit-Hartenberg convention.
@@ -47,12 +46,10 @@ class PositionFK {
      * 
      * @param joint_angles Joint angles of the robot (rad)
      */
-    void set_joint_angles(std::vector<double> joint_angles);
+    void set_joint_angles(std::vector<double> &joint_angles);
 
  private:
     std::vector<double> m_joint_angles;    // Joint angles of the robot
     nc::NdArray<double> m_dh_table;    // D-H table matrix
     std::vector<std::vector<double>> m_joint_positions;
 };
-
-#endif  // POSITIONFK_HPP_

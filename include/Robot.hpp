@@ -9,8 +9,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef ROBOT_HPP_
-#define ROBOT_HPP_
+#pragma once
 
 #include <vector>
 
@@ -24,6 +23,12 @@
  */
 class Robot {
  public:
+    /**
+     * @brief Construct a new Robot object
+     * 
+     */
+    Robot();
+
     /**
      * @brief Generates and executes a trajectory for the robot's path from the initial pose to the final pose.
      * 
@@ -39,7 +44,7 @@ class Robot {
      * @return true Initial position value is valid and set 
      * @return false Initial position value is invalid 
      */
-    bool set_initial_pose(std::vector<double> pose);
+    bool set_initial_pose(std::vector<double> &pose);
 
     /**
      * @brief Mutator function to set the desired final pose of the robot.
@@ -48,14 +53,14 @@ class Robot {
      * @return true Final position value is valid and set 
      * @return false Final position value is invalid
      */
-    bool set_final_pose(std::vector<double> pose);
+    bool set_final_pose(std::vector<double> &pose);
 
     /**
      * @brief Mutator function to set the robot's joint angles.
      * 
      * @param joint_angles Joint angles of the robot (rad)
      */
-    void set_joint_angles(std::vector<double> joint_angles);
+    void set_joint_angles(std::vector<double> &joint_angles);
 
  private:
     Controller m_control;
@@ -69,5 +74,3 @@ class Robot {
     std::vector<double> m_final_pose;    // Final pose of the robot
     std::vector<double> m_current_angle;    // Current pose of the robot
 };
-
-#endif  // ROBOT_HPP_

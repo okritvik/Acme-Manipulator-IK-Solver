@@ -9,8 +9,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef SIMULATOR_HPP_
-#define SIMULATOR_HPP_
+#pragma once
 
 #include <vector>
 
@@ -21,11 +20,17 @@
 class Simulator {
  public:
     /**
+     * @brief Construct a new Simulator object
+     * 
+     */
+    Simulator();
+
+    /**
      * @brief Simulates the robot in a 3D environment for the given robot configuration.
      * 
      * @param config Robot configuration
      */
-    void simulate_robot(std::vector<double> config);
+    void simulate_robot(std::vector<double> &config);
 
     /**
      * @brief Mutator function to set the axes limits of the simulation window. 
@@ -34,12 +39,10 @@ class Simulator {
      * @param ylim Y-axis limit
      * @param zlim Z-axis limit
      */
-    void set_axes(double xlim, double ylim, double zlim);
+    void set_axes(const double &xlim, const double &ylim, const double &zlim);
 
  private:
     double m_xlim;    // Simulation x-axis limit
     double m_ylim;    // Simulation y-axis limit
     double m_zlim;    // Simulation z-axis limit
 };
-
-#endif  // SIMULATOR_HPP_

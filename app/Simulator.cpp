@@ -15,10 +15,11 @@
 #include "../include/Simulator.hpp"
 
 
-void Simulator::simulate_robot(std::vector<double> config) {
+void Simulator::simulate_robot(std::vector<double> &config) {
 }
 
-void Simulator::set_axes(double xlim, double ylim, double zlim) {
+void Simulator::set_axes(const double &xlim,
+                         const double &ylim, const double &zlim) {
     m_xlim = xlim;
     m_ylim = ylim;
     m_zlim = zlim;

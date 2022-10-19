@@ -9,12 +9,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef VELOCITYIK_HPP_
-#define VELOCITYIK_HPP_
+#pragma once
 
-#include <vector>
 #include <matplot/matplot.h>
-#include "NumCpp.hpp"
+#include <vector>
+#include <NumCpp.hpp>
 
 /**
  * @brief Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked).
@@ -22,6 +21,12 @@
  */
 class VelocityIK {
  public:
+    /**
+     * @brief Construct a new Velocity IK object
+     * 
+     */
+    VelocityIK();
+
     /**
      * @brief Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be zero.
      * 
@@ -37,8 +42,8 @@ class VelocityIK {
      * @param present_joint_angle Current value of joint angle (rad) 
      * @return std::vector<double> Next value of joint angle (rad)
      */
-    std::vector<double> update_joint_angles(double dt,
-                std::vector<double> present_joint_angle);
+    std::vector<double> update_joint_angles(double &dt,
+                std::vector<double> &present_joint_angle);
 
     /**
      * @brief Computes the Jacobian matrix of the robot
@@ -56,5 +61,3 @@ class VelocityIK {
  private:
     nc::NdArray<double> m_jacobian;    // Jacobian matrix (6x6) of the robot
 };
-
-#endif  // VELOCITYIK_HPP_
