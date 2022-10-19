@@ -42,8 +42,8 @@ class VelocityIK {
      * @param present_joint_angle Current value of joint angle (rad) 
      * @return std::vector<double> Next value of joint angle (rad)
      */
-    std::vector<double> update_joint_angles(double &dt,
-                std::vector<double> &present_joint_angle);
+    std::vector<double> update_joint_angles(double *dt,
+                std::vector<double> *present_joint_angle);
 
     /**
      * @brief Computes the Jacobian matrix of the robot

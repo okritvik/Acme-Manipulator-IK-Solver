@@ -15,7 +15,7 @@
 #include "../include/Simulator.hpp"
 
 
-void Simulator::simulate_robot(std::vector<double> &config) {
+void Simulator::simulate_robot(std::vector<double> *config) {
 }
 
 void Simulator::set_axes(const double &xlim,

@@ -46,7 +46,7 @@ class PositionFK {
      * 
      * @param joint_angles Joint angles of the robot (rad)
      */
-    void set_joint_angles(std::vector<double> &joint_angles);
+    void set_joint_angles(std::vector<double> *joint_angles);
 
  private:
     std::vector<double> m_joint_angles;    // Joint angles of the robot

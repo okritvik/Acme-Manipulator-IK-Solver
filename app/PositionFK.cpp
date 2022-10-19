@@ -28,5 +28,5 @@ nc::NdArray<double> PositionFK::link_transformation() {
     return tr;
 }
 
-void PositionFK::set_joint_angles(std::vector<double> &joint_angles) {
+void PositionFK::set_joint_angles(std::vector<double> *joint_angles) {
 }

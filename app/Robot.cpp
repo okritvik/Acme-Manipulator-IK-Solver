@@ -20,11 +20,11 @@ bool Robot::execute_path() {
     return true;
 }
 
-bool Robot::set_initial_pose(std::vector<double> &pose) {
+bool Robot::set_initial_pose(std::vector<double> *pose) {
     return true;
 }
 
-bool Robot::set_final_pose(std::vector<double> &pose) {
+bool Robot::set_final_pose(std::vector<double> *pose) {
     return true;
 }
 
@@ -33,5 +33,5 @@ std::vector<double> Robot::get_joint_angles() {
     return ang;
 }
 
-void set_joint_angles(std::vector<double> &joint_angles) {
+void set_joint_angles(std::vector<double> *joint_angles) {
 }

@@ -44,7 +44,7 @@ class Robot {
      * @return true Initial position value is valid and set 
      * @return false Initial position value is invalid 
      */
-    bool set_initial_pose(std::vector<double> &pose);
+    bool set_initial_pose(std::vector<double> *pose);
 
     /**
      * @brief Mutator function to set the desired final pose of the robot.
@@ -53,14 +53,14 @@ class Robot {
      * @return true Final position value is valid and set 
      * @return false Final position value is invalid
      */
-    bool set_final_pose(std::vector<double> &pose);
+    bool set_final_pose(std::vector<double> *pose);
 
     /**
      * @brief Mutator function to set the robot's joint angles.
      * 
      * @param joint_angles Joint angles of the robot (rad)
      */
-    void set_joint_angles(std::vector<double> &joint_angles);
+    void set_joint_angles(std::vector<double> *joint_angles);
 
  private:
     Controller m_control;

@@ -30,7 +30,7 @@ class Simulator {
      * 
      * @param config Robot configuration
      */
-    void simulate_robot(std::vector<double> &config);
+    void simulate_robot(std::vector<double> *config);
 
     /**
      * @brief Mutator function to set the axes limits of the simulation window. 
