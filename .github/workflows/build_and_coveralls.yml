@@ -33,9 +33,13 @@ jobs:
       # We want to use GitHub CI checkout version 3 for checking out the branch
       - uses: actions/checkout@v3
       
-      # Install some system pacakges
+      # Install some system packages
       - name: Install packages
         run: sudo apt install -y lcov
+        run: cmake --preset=system
+        run: cmake --build --preset=system
+        run: sudo cmake --install build/system
+
 
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
