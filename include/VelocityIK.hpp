@@ -11,7 +11,6 @@
  */
 #pragma once
 
-#include <matplot/matplot.h>
 #include <vector>
 #include <NumCpp.hpp>
 

@@ -16,6 +16,9 @@
 #include "../include/Simulator.hpp"
 #include "../include/Robot.hpp"
 
+Robot::Robot() {
+}
+
 bool Robot::execute_path() {
     return true;
 }
@@ -33,5 +36,6 @@ std::vector<double> Robot::get_joint_angles() {
     return ang;
 }
 
-void set_joint_angles(std::vector<double> *joint_angles) {
+bool Robot::set_joint_angles(std::vector<double> *joint_angles) {
+    return true;
 }

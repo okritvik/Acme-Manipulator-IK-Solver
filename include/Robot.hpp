@@ -11,11 +11,13 @@
  */
 #pragma once
 
+// #include <matplot/matplot.h>
 #include <vector>
 
 #include "../include/Controller.hpp"
 #include "../include/Kinematics.hpp"
 #include "../include/Simulator.hpp"
+
 
 /**
  * @brief Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.
@@ -60,7 +62,14 @@ class Robot {
      * 
      * @param joint_angles Joint angles of the robot (rad)
      */
-    void set_joint_angles(std::vector<double> *joint_angles);
+    bool set_joint_angles(std::vector<double> *joint_angles);
+
+    /**
+     * @brief Accessor function to get the joint angles
+     * 
+     * @return std::vector<double> Joint angles of the robot (rad)
+     */
+    std::vector<double> get_joint_angles();
 
  private:
     Controller m_control;

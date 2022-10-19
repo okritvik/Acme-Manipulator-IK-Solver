@@ -4,6 +4,11 @@ add_executable(
     cpp-test
     main.cpp
     test.cpp
+    ../app/Controller.cpp
+    ../app/PositionFK.cpp
+    ../app/Robot.cpp
+    ../app/Simulator.cpp
+    ../app/VelocityIK.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 

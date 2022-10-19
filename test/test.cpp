@@ -23,38 +23,31 @@ std::vector<double> fin_pose = {1, 2, 3, 4, 5, 6};
  * @brief Tests the set_initial_pose() method 
  * 
  */
-TEST(Robot, should_pass1) {
-  EXPECT_EQ(acme_kuka.set_initial_pose(init_pose), true);
+TEST(RobotTest, should_pass1) {
+  ASSERT_EQ(acme_kuka.set_initial_pose(&init_pose), false);
 }
 
 /**
  * @brief Tests the set_final_pose() method 
  * 
  */
-TEST(Robot, should_pass2) {
-  EXPECT_EQ(acme_kuka.set_final_pose(fin_pose), true);
+TEST(RobotTest, should_pass2) {
+  ASSERT_EQ(acme_kuka.set_final_pose(&fin_pose), false);
 }
 
 /**
  * @brief Tests the set_joint_angles() method 
  * 
  */
-TEST(Robot, should_pass3) {
-  EXPECT_EQ(acme_kuka.set_joint_angles(init_pose), true);
+TEST(RobotTest, should_pass3) {
+  ASSERT_EQ(acme_kuka.set_joint_angles(&init_pose), false);
 }
 
-/**
- * @brief Tests the get_joint_angles() method 
- * 
- */
-TEST(Robot, should_pass4) {
-  EXPECT_EQ(acme_kuka.get_joint_angles(init_pose), true);
-}
 
 /**
  * @brief Tests the execute_path() method
  * 
  */
-TEST(Robot, should_pass5) {
-  EXPECT_EQ(acme_kuka.execute_path(), true);
+TEST(RobotTest, should_pass4) {
+  ASSERT_EQ(acme_kuka.execute_path(), false);
 }

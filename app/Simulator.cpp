@@ -14,6 +14,8 @@
 
 #include "../include/Simulator.hpp"
 
+Simulator::Simulator() {
+}
 
 void Simulator::simulate_robot(std::vector<double> *config) {
 }
