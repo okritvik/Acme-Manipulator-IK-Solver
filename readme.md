@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.png)](https://opensource.org/licenses/MIT)
-[![Build Status](https://app.travis-ci.com/okritvik/IK-Solver.png?branch=master)](https://app.travis-ci.com/okritvik/IK-Solver)
-[![Coverage Status](https://coveralls.io/repos/github/okritvik/IK-Solver/badge.png?branch=master)](https://coveralls.io/github/okritvik/IK-Solver?branch=master)
+[![Build Status](https://github.com/okritvik/Acme-Manipulator-IK-Solver/actions/workflows/build_and_coveralls.yml/badge.svg)](https://github.com/okritvik/Acme-Manipulator-IK-Solver/actions/workflows/build_and_coveralls.yml)
+[![Coverage Status](https://coveralls.io/repos/github/okritvik/Acme-Manipulator-IK-Solver/badge.svg?branch=master)](https://coveralls.io/github/okritvik/Acme-Manipulator-IK-Solver?branch=master)
 
 # Acme Robotics: Manipulator Inverse Kinematics Path Planner
 
