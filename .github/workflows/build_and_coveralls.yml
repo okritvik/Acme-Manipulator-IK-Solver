@@ -36,8 +36,21 @@ jobs:
       # Install some system packages
       - name: Install packages
         run: sudo apt install -y lcov
+      
+      - name: Matplotplusplus
+        working-directory: ${{github.workspace}}/matplotplusplus
+        run: mkdir build
+
+      - name: Install 1
+        working-directory: ${{github.workspace}}/matplotplusplus/build
         run: cmake --preset=system
+
+      - name: Install 2
+        working-directory: ${{github.workspace}}/matplotplusplus/build
         run: cmake --build --preset=system
+
+      - name: Install 3
+        working-directory: ${{github.workspace}}/matplotplusplus/build
         run: sudo cmake --install build/system
 
 
