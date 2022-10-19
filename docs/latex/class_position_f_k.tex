@@ -1,0 +1,110 @@
+\hypertarget{class_position_f_k}{}\doxysection{Position\+FK Class Reference}
+\label{class_position_f_k}\index{PositionFK@{PositionFK}}
+
+
+Defines the Position Forward \mbox{\hyperlink{class_kinematics}{Kinematics}} solver class using the standard form of the Denavit-\/\+Hartenberg convention.  
+
+
+
+
+{\ttfamily \#include $<$Position\+F\+K.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_position_f_k_af64adec4c12b3746541cbcebe10afe34}{Position\+FK}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_position_f_k}{Position\+FK}} to initialize the robot\textquotesingle{}s D-\/H table matrix. \end{DoxyCompactList}\item 
+nc\+::\+Nd\+Array$<$ double $>$ \mbox{\hyperlink{class_position_f_k_a2c82602e92bfe972b12ea2821a7329b3}{get\+\_\+dh}} ()
+\begin{DoxyCompactList}\small\item\em Accessor function to get the D-\/H table of the robot. \end{DoxyCompactList}\item 
+nc\+::\+Nd\+Array$<$ double $>$ \mbox{\hyperlink{class_position_f_k_ac7a510f06d29e9e6f7dfa8440850846e}{link\+\_\+transformation}} ()
+\begin{DoxyCompactList}\small\item\em Computes the homogeneous transformation matrix between successive links on the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_position_f_k_ae7937d791f1d824307765b325cff109d}{set\+\_\+joint\+\_\+angles}} (std\+::vector$<$ double $>$ joint\+\_\+angles)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the robot\textquotesingle{}s joint angles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the Position Forward \mbox{\hyperlink{class_kinematics}{Kinematics}} solver class using the standard form of the Denavit-\/\+Hartenberg convention. 
+
+
+
+Definition at line 23 of file Position\+F\+K.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_position_f_k_af64adec4c12b3746541cbcebe10afe34}\label{class_position_f_k_af64adec4c12b3746541cbcebe10afe34}} 
+\index{PositionFK@{PositionFK}!PositionFK@{PositionFK}}
+\index{PositionFK@{PositionFK}!PositionFK@{PositionFK}}
+\doxysubsubsection{\texorpdfstring{PositionFK()}{PositionFK()}}
+{\footnotesize\ttfamily Position\+F\+K\+::\+Position\+FK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_position_f_k}{Position\+FK}} to initialize the robot\textquotesingle{}s D-\/H table matrix. 
+
+
+
+Definition at line 18 of file Position\+F\+K.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_position_f_k_a2c82602e92bfe972b12ea2821a7329b3}\label{class_position_f_k_a2c82602e92bfe972b12ea2821a7329b3}} 
+\index{PositionFK@{PositionFK}!get\_dh@{get\_dh}}
+\index{get\_dh@{get\_dh}!PositionFK@{PositionFK}}
+\doxysubsubsection{\texorpdfstring{get\_dh()}{get\_dh()}}
+{\footnotesize\ttfamily nc\+::\+Nd\+Array$<$ double $>$ Position\+F\+K\+::get\+\_\+dh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor function to get the D-\/H table of the robot. 
+
+\begin{DoxyReturn}{Returns}
+nc\+::\+Nd\+Array$<$double$>$ D-\/H table matrix of the robot (theta, a , d, alpha). 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Position\+F\+K.\+cpp.
+
+\mbox{\Hypertarget{class_position_f_k_ac7a510f06d29e9e6f7dfa8440850846e}\label{class_position_f_k_ac7a510f06d29e9e6f7dfa8440850846e}} 
+\index{PositionFK@{PositionFK}!link\_transformation@{link\_transformation}}
+\index{link\_transformation@{link\_transformation}!PositionFK@{PositionFK}}
+\doxysubsubsection{\texorpdfstring{link\_transformation()}{link\_transformation()}}
+{\footnotesize\ttfamily nc\+::\+Nd\+Array$<$ double $>$ Position\+F\+K\+::link\+\_\+transformation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Computes the homogeneous transformation matrix between successive links on the robot. 
+
+\begin{DoxyReturn}{Returns}
+nc\+::\+Nd\+Array$<$double$>$ Transformation matrix between links \textquotesingle{}i-\/1\textquotesingle{} and \textquotesingle{}i\textquotesingle{} 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Position\+F\+K.\+cpp.
+
+\mbox{\Hypertarget{class_position_f_k_ae7937d791f1d824307765b325cff109d}\label{class_position_f_k_ae7937d791f1d824307765b325cff109d}} 
+\index{PositionFK@{PositionFK}!set\_joint\_angles@{set\_joint\_angles}}
+\index{set\_joint\_angles@{set\_joint\_angles}!PositionFK@{PositionFK}}
+\doxysubsubsection{\texorpdfstring{set\_joint\_angles()}{set\_joint\_angles()}}
+{\footnotesize\ttfamily void Position\+F\+K\+::set\+\_\+joint\+\_\+angles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{joint\+\_\+angles }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the robot\textquotesingle{}s joint angles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+angles} & Joint angles of the robot (rad) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file Position\+F\+K.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_position_f_k_8hpp}{Position\+F\+K.\+hpp}}\item 
+app/\mbox{\hyperlink{_position_f_k_8cpp}{Position\+F\+K.\+cpp}}\end{DoxyCompactItemize}

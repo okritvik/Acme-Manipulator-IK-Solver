@@ -1,0 +1,7 @@
+<map id="include/Kinematics.hpp" name="include/Kinematics.hpp">
+<area shape="rect" id="node1" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="171,5,345,32"/>
+<area shape="rect" id="node2" href="$_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="135,80,274,107"/>
+<area shape="rect" id="node4" href="$_robot_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="267,155,382,181"/>
+<area shape="rect" id="node3" href="$app_2main_8cpp.html" title="Main function for Acme&#39;s Robot Manipulator&#39;s API." alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node5" href="$test_8cpp.html" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="140,155,243,181"/>
+</map>

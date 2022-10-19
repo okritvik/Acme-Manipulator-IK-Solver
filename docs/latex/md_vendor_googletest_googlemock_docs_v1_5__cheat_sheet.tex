@@ -1,0 +1,642 @@
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md192}{}\doxysection{Mocking a Normal Class}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md192}
+Given 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{class Foo \{}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{  virtual \string~Foo();}
+\DoxyCodeLine{  virtual int GetSize() const = 0;}
+\DoxyCodeLine{  virtual string Describe(const char* name) = 0;}
+\DoxyCodeLine{  virtual string Describe(int type) = 0;}
+\DoxyCodeLine{  virtual bool Process(Bar elem, int count) = 0;}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+(note that {\ttfamily $\sim$\+Foo()} {\bfseries{must}} be virtual) we can define its mock as 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <gmock/gmock.h>}
+\DoxyCodeLine{}
+\DoxyCodeLine{class MockFoo : public Foo \{}
+\DoxyCodeLine{  MOCK\_CONST\_METHOD0(GetSize, int());}
+\DoxyCodeLine{  MOCK\_METHOD1(Describe, string(const char* name));}
+\DoxyCodeLine{  MOCK\_METHOD1(Describe, string(int type));}
+\DoxyCodeLine{  MOCK\_METHOD2(Process, bool(Bar elem, int count));}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+To create a \char`\"{}nice\char`\"{} mock object which ignores all uninteresting calls, or a \char`\"{}strict\char`\"{} mock object, which treats them as failures\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{NiceMock<MockFoo> nice\_foo;     // The type is a subclass of MockFoo.}
+\DoxyCodeLine{StrictMock<MockFoo> strict\_foo; // The type is a subclass of MockFoo.}
+\end{DoxyCode}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md193}{}\doxysection{Mocking a Class Template}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md193}
+To mock 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{template <typename Elem>}
+\DoxyCodeLine{class StackInterface \{}
+\DoxyCodeLine{ public:}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{  virtual \string~StackInterface();}
+\DoxyCodeLine{  virtual int GetSize() const = 0;}
+\DoxyCodeLine{  virtual void Push(const Elem\& x) = 0;}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+(note that {\ttfamily $\sim$\+Stack\+Interface()} {\bfseries{must}} be virtual) just append {\ttfamily \+\_\+T} to the {\ttfamily M\+O\+C\+K\+\_\+$\ast$} macros\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{template <typename Elem>}
+\DoxyCodeLine{class MockStack : public StackInterface<Elem> \{}
+\DoxyCodeLine{ public:}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{  MOCK\_CONST\_METHOD0\_T(GetSize, int());}
+\DoxyCodeLine{  MOCK\_METHOD1\_T(Push, void(const Elem\& x));}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md194}{}\doxysection{Specifying Calling Conventions for Mock Functions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md194}
+If your mock function doesn\textquotesingle{}t use the default calling convention, you can specify it by appending {\ttfamily \+\_\+\+W\+I\+T\+H\+\_\+\+C\+A\+L\+L\+T\+Y\+PE} to any of the macros described in the previous two sections and supplying the calling convention as the first argument to the macro. For example, 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MOCK\_METHOD\_1\_WITH\_CALLTYPE(STDMETHODCALLTYPE, Foo, bool(int n));}
+\DoxyCodeLine{MOCK\_CONST\_METHOD2\_WITH\_CALLTYPE(STDMETHODCALLTYPE, Bar, int(double x, double y));}
+\end{DoxyCode}
+
+
+where {\ttfamily S\+T\+D\+M\+E\+T\+H\+O\+D\+C\+A\+L\+L\+T\+Y\+PE} is defined by {\ttfamily $<$objbase.\+h$>$} on Windows.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md195}{}\doxysection{Using Mocks in Tests}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md195}
+The typical flow is\+:
+\begin{DoxyEnumerate}
+\item Import the Google \mbox{\hyperlink{class_mock}{Mock}} names you need to use. All Google \mbox{\hyperlink{class_mock}{Mock}} names are in the {\ttfamily testing} namespace unless they are macros or otherwise noted.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Create the mock objects.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Optionally, set the default actions of the mock objects.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Set your expectations on the mock objects (How will they be called? What wil they do?).
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Exercise code that uses the mock objects; if necessary, check the result using \href{http://code.google.com/p/googletest/}{\texttt{ Google Test}} assertions.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item When a mock objects is destructed, Google \mbox{\hyperlink{class_mock}{Mock}} automatically verifies that all expectations on it have been satisfied.
+\end{DoxyEnumerate}
+
+Here is an example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::Return;                            // \#1}
+\DoxyCodeLine{}
+\DoxyCodeLine{TEST(BarTest, DoesThis) \{}
+\DoxyCodeLine{  MockFoo foo;                                    // \#2}
+\DoxyCodeLine{}
+\DoxyCodeLine{  ON\_CALL(foo, GetSize())                         // \#3}
+\DoxyCodeLine{      .WillByDefault(Return(1));}
+\DoxyCodeLine{  // ... other default actions ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{  EXPECT\_CALL(foo, Describe(5))                   // \#4}
+\DoxyCodeLine{      .Times(3)}
+\DoxyCodeLine{      .WillRepeatedly(Return("Category 5"));}
+\DoxyCodeLine{  // ... other expectations ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{  EXPECT\_EQ("good", MyProductionFunction(\&foo));  // \#5}
+\DoxyCodeLine{\}                                                 // \#6}
+\end{DoxyCode}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md196}{}\doxysection{Setting Default Actions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md196}
+Google \mbox{\hyperlink{class_mock}{Mock}} has a {\bfseries{built-\/in default action}} for any function that returns {\ttfamily void}, {\ttfamily bool}, a numeric value, or a pointer.
+
+To customize the default action for functions with return type {\ttfamily T} globally\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::DefaultValue;}
+\DoxyCodeLine{}
+\DoxyCodeLine{DefaultValue<T>::Set(value);  // Sets the default value to be returned.}
+\DoxyCodeLine{// ... use the mocks ...}
+\DoxyCodeLine{DefaultValue<T>::Clear();     // Resets the default value.}
+\end{DoxyCode}
+
+
+To customize the default action for a particular method, use {\ttfamily O\+N\+\_\+\+C\+A\+L\+L()}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ON\_CALL(mock\_object, method(matchers))}
+\DoxyCodeLine{    .With(multi\_argument\_matcher)  ?}
+\DoxyCodeLine{    .WillByDefault(action);}
+\end{DoxyCode}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md197}{}\doxysection{Setting Expectations}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md197}
+{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()} sets {\bfseries{expectations}} on a mock method (How will it be called? What will it do?)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EXPECT\_CALL(mock\_object, method(matchers))}
+\DoxyCodeLine{    .With(multi\_argument\_matcher)  ?}
+\DoxyCodeLine{    .Times(cardinality)            ?}
+\DoxyCodeLine{    .InSequence(sequences)         *}
+\DoxyCodeLine{    .After(expectations)           *}
+\DoxyCodeLine{    .WillOnce(action)              *}
+\DoxyCodeLine{    .WillRepeatedly(action)        ?}
+\DoxyCodeLine{    .RetiresOnSaturation();        ?}
+\end{DoxyCode}
+
+
+If {\ttfamily Times()} is omitted, the cardinality is assumed to be\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Times(1)} when there is neither {\ttfamily Will\+Once()} nor {\ttfamily Will\+Repeatedly()};
+\item {\ttfamily Times(n)} when there are {\ttfamily n Will\+Once()}s but no {\ttfamily Will\+Repeatedly()}, where {\ttfamily n} $>$= 1; or
+\item {\ttfamily Times(\+At\+Least(n))} when there are {\ttfamily n Will\+Once()}s and a {\ttfamily Will\+Repeatedly()}, where {\ttfamily n} $>$= 0.
+\end{DoxyItemize}
+
+A method with no {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()} is free to be invoked {\itshape any number of times}, and the default action will be taken each time.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md198}{}\doxysection{Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md198}
+A {\bfseries{matcher}} matches a {\itshape single} argument. You can use it inside {\ttfamily O\+N\+\_\+\+C\+A\+L\+L()} or {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+C\+A\+L\+L()}, or use it to validate a value directly\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T(value, matcher)} }&\cellcolor{\tableheadbgcolor}\textbf{ Asserts that {\ttfamily value} matches {\ttfamily matcher}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T(value, matcher)} }&\cellcolor{\tableheadbgcolor}\textbf{ Asserts that {\ttfamily value} matches {\ttfamily matcher}.  }\\\cline{1-2}
+\endhead
+{\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+H\+A\+T(value, matcher)} &The same as {\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T(value, matcher)}, except that it generates a {\bfseries{fatal}} failure.  \\\cline{1-2}
+\end{longtabu}
+
+
+Built-\/in matchers (where {\ttfamily argument} is the function argument) are divided into several categories\+:\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md199}{}\doxysubsection{Wildcard}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md199}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily \+\_\+} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} can be any value of the correct type.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily \+\_\+} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} can be any value of the correct type.  }\\\cline{1-2}
+\endhead
+{\ttfamily A$<$type$>$()} or {\ttfamily An$<$type$>$()} &{\ttfamily argument} can be any value of type {\ttfamily type}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md200}{}\doxysubsection{Generic Comparison}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md200}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Eq(value)} or {\ttfamily value} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument == value}  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Eq(value)} or {\ttfamily value} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument == value}  }\\\cline{1-2}
+\endhead
+{\ttfamily Ge(value)} &{\ttfamily argument $>$= value}  \\\cline{1-2}
+{\ttfamily Gt(value)} &{\ttfamily argument $>$ value}  \\\cline{1-2}
+{\ttfamily Le(value)} &{\ttfamily argument $<$= value}  \\\cline{1-2}
+{\ttfamily Lt(value)} &{\ttfamily argument $<$ value}  \\\cline{1-2}
+{\ttfamily Ne(value)} &{\ttfamily argument != value}  \\\cline{1-2}
+{\ttfamily Is\+Null()} &{\ttfamily argument} is a {\ttfamily N\+U\+LL} pointer (raw or smart).  \\\cline{1-2}
+{\ttfamily Not\+Null()} &{\ttfamily argument} is a non-\/null pointer (raw or smart).  \\\cline{1-2}
+{\ttfamily Ref(variable)} &{\ttfamily argument} is a reference to {\ttfamily variable}.  \\\cline{1-2}
+{\ttfamily Typed\+Eq$<$type$>$(value)} &{\ttfamily argument} has type {\ttfamily type} and is equal to {\ttfamily value}. You may need to use this instead of {\ttfamily Eq(value)} when the mock function is overloaded.  \\\cline{1-2}
+\end{longtabu}
+
+
+Except {\ttfamily Ref()}, these matchers make a {\itshape copy} of {\ttfamily value} in case it\textquotesingle{}s modified or destructed later. If the compiler complains that {\ttfamily value} doesn\textquotesingle{}t have a public copy constructor, try wrap it in {\ttfamily By\+Ref()}, e.\+g. {\ttfamily Eq(\+By\+Ref(non\+\_\+copyable\+\_\+value))}. If you do that, make sure {\ttfamily non\+\_\+copyable\+\_\+value} is not changed afterwards, or the meaning of your matcher will be changed.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md201}{}\doxysubsection{Floating-\/\+Point Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md201}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Double\+Eq(a\+\_\+double)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} is a {\ttfamily double} value approximately equal to {\ttfamily a\+\_\+double}, treating two Na\+Ns as unequal.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Double\+Eq(a\+\_\+double)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} is a {\ttfamily double} value approximately equal to {\ttfamily a\+\_\+double}, treating two Na\+Ns as unequal.  }\\\cline{1-2}
+\endhead
+{\ttfamily Float\+Eq(a\+\_\+float)} &{\ttfamily argument} is a {\ttfamily float} value approximately equal to {\ttfamily a\+\_\+float}, treating two Na\+Ns as unequal.  \\\cline{1-2}
+{\ttfamily Nan\+Sensitive\+Double\+Eq(a\+\_\+double)} &{\ttfamily argument} is a {\ttfamily double} value approximately equal to {\ttfamily a\+\_\+double}, treating two Na\+Ns as equal.  \\\cline{1-2}
+{\ttfamily Nan\+Sensitive\+Float\+Eq(a\+\_\+float)} &{\ttfamily argument} is a {\ttfamily float} value approximately equal to {\ttfamily a\+\_\+float}, treating two Na\+Ns as equal.  \\\cline{1-2}
+\end{longtabu}
+
+
+The above matchers use U\+L\+P-\/based comparison (the same as used in \href{http://code.google.com/p/googletest/}{\texttt{ Google Test}}). They automatically pick a reasonable error bound based on the absolute value of the expected value. {\ttfamily Double\+Eq()} and {\ttfamily Float\+Eq()} conform to the I\+E\+EE standard, which requires comparing two Na\+Ns for equality to return false. The {\ttfamily Nan\+Sensitive$\ast$} version instead treats two Na\+Ns as equal, which is often what a user wants.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md202}{}\doxysubsection{String Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md202}
+The {\ttfamily argument} can be either a C string or a C++ string object\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Contains\+Regex(string)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} matches the given regular expression.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Contains\+Regex(string)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} matches the given regular expression.  }\\\cline{1-2}
+\endhead
+{\ttfamily Ends\+With(suffix)} &{\ttfamily argument} ends with string {\ttfamily suffix}.  \\\cline{1-2}
+{\ttfamily Has\+Substr(string)} &{\ttfamily argument} contains {\ttfamily string} as a sub-\/string.  \\\cline{1-2}
+{\ttfamily Matches\+Regex(string)} &{\ttfamily argument} matches the given regular expression with the match starting at the first character and ending at the last character.  \\\cline{1-2}
+{\ttfamily Starts\+With(prefix)} &{\ttfamily argument} starts with string {\ttfamily prefix}.  \\\cline{1-2}
+{\ttfamily Str\+Case\+Eq(string)} &{\ttfamily argument} is equal to {\ttfamily string}, ignoring case.  \\\cline{1-2}
+{\ttfamily Str\+Case\+Ne(string)} &{\ttfamily argument} is not equal to {\ttfamily string}, ignoring case.  \\\cline{1-2}
+{\ttfamily Str\+Eq(string)} &{\ttfamily argument} is equal to {\ttfamily string}.  \\\cline{1-2}
+{\ttfamily Str\+Ne(string)} &{\ttfamily argument} is not equal to {\ttfamily string}.  \\\cline{1-2}
+\end{longtabu}
+
+
+{\ttfamily Str\+Case\+Eq()}, {\ttfamily Str\+Case\+Ne()}, {\ttfamily Str\+Eq()}, and {\ttfamily Str\+Ne()} work for wide strings as well.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md203}{}\doxysubsection{Container Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md203}
+Most S\+T\+L-\/style containers support {\ttfamily ==}, so you can use {\ttfamily Eq(expected\+\_\+container)} or simply {\ttfamily expected\+\_\+container} to match a container exactly. If you want to write the elements in-\/line, match them more flexibly, or get more informative messages, you can use\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Contains(e)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} contains an element that matches {\ttfamily e}, which can be either a value or a matcher.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Contains(e)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} contains an element that matches {\ttfamily e}, which can be either a value or a matcher.  }\\\cline{1-2}
+\endhead
+{\ttfamily Elements\+Are(e0, e1, ..., en)} &{\ttfamily argument} has {\ttfamily n + 1} elements, where the i-\/th element matches {\ttfamily ei}, which can be a value or a matcher. 0 to 10 arguments are allowed.  \\\cline{1-2}
+{\ttfamily Elements\+Are\+Array(array)} or {\ttfamily Elements\+Are\+Array(array, count)} &The same as {\ttfamily Elements\+Are()} except that the expected element values/matchers come from a C-\/style array.  \\\cline{1-2}
+{\ttfamily Container\+Eq(container)} &The same as {\ttfamily Eq(container)} except that the failure message also includes which elements are in one container but not the other.  \\\cline{1-2}
+\end{longtabu}
+
+
+These matchers can also match\+:
+
+
+\begin{DoxyEnumerate}
+\item a native array passed by reference (e.\+g. in {\ttfamily Foo(const int (\&a)\mbox{[}5\mbox{]})}), and
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item an array passed as a pointer and a count (e.\+g. in {\ttfamily Bar(const T$\ast$ buffer, int len)} -- see Multi-\/argument Matchers).
+\end{DoxyEnumerate}
+
+where the array may be multi-\/dimensional (i.\+e. its elements can be arrays).\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md204}{}\doxysubsection{Member Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md204}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Field(\&class\+::field, m)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument.\+field} (or {\ttfamily argument-\/$>$field} when {\ttfamily argument} is a plain pointer) matches matcher {\ttfamily m}, where {\ttfamily argument} is an object of type {\itshape class}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Field(\&class\+::field, m)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument.\+field} (or {\ttfamily argument-\/$>$field} when {\ttfamily argument} is a plain pointer) matches matcher {\ttfamily m}, where {\ttfamily argument} is an object of type {\itshape class}.  }\\\cline{1-2}
+\endhead
+{\ttfamily Key(e)} &{\ttfamily argument.\+first} matches {\ttfamily e}, which can be either a value or a matcher. E.\+g. {\ttfamily Contains(Key(\+Le(5)))} can verify that a {\ttfamily map} contains a key {\ttfamily $<$= 5}.  \\\cline{1-2}
+{\ttfamily Pair(m1, m2)} &{\ttfamily argument} is an {\ttfamily std\+::pair} whose {\ttfamily first} field matches {\ttfamily m1} and {\ttfamily second} field matches {\ttfamily m2}.  \\\cline{1-2}
+{\ttfamily Property(\&class\+::property, m)} &{\ttfamily argument.\+property()} (or {\ttfamily argument-\/$>$property()} when {\ttfamily argument} is a plain pointer) matches matcher {\ttfamily m}, where {\ttfamily argument} is an object of type {\itshape class}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md205}{}\doxysubsection{Matching the Result of a Function or Functor}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md205}
+$\vert${\ttfamily Result\+Of(f, m)}$\vert${\ttfamily f(argument)} matches matcher {\ttfamily m}, where {\ttfamily f} is a function or functor.$\vert$ $\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md206}{}\doxysubsection{Pointer Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md206}
+$\vert${\ttfamily Pointee(m)}$\vert${\ttfamily argument} (either a smart pointer or a raw pointer) points to a value that matches matcher {\ttfamily m}.$\vert$ $\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md207}{}\doxysubsection{Multiargument Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md207}
+These are matchers on tuple types. They can be used in {\ttfamily .With()}. The following can be used on functions with {\itshape two~\newline
+ arguments} {\ttfamily x} and {\ttfamily y}\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Eq()} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily x == y}  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Eq()} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily x == y}  }\\\cline{1-2}
+\endhead
+{\ttfamily Ge()} &{\ttfamily x $>$= y}  \\\cline{1-2}
+{\ttfamily Gt()} &{\ttfamily x $>$ y}  \\\cline{1-2}
+{\ttfamily Le()} &{\ttfamily x $<$= y}  \\\cline{1-2}
+{\ttfamily Lt()} &{\ttfamily x $<$ y}  \\\cline{1-2}
+{\ttfamily Ne()} &{\ttfamily x != y}  \\\cline{1-2}
+\end{longtabu}
+
+
+You can use the following selectors to pick a subset of the arguments (or reorder them) to participate in the matching\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily All\+Args(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ Equivalent to {\ttfamily m}. Useful as syntactic sugar in {\ttfamily .With(\+All\+Args(m))}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily All\+Args(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ Equivalent to {\ttfamily m}. Useful as syntactic sugar in {\ttfamily .With(\+All\+Args(m))}.  }\\\cline{1-2}
+\endhead
+{\ttfamily Args$<$N1, N2, ..., Nk$>$(m)} &The {\ttfamily k} selected (using 0-\/based indices) arguments match {\ttfamily m}, e.\+g. {\ttfamily Args$<$1, 2$>$(Contains(5))}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md208}{}\doxysubsection{Composite Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md208}
+You can make a matcher from one or more other matchers\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily All\+Of(m1, m2, ..., mn)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} matches all of the matchers {\ttfamily m1} to {\ttfamily mn}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily All\+Of(m1, m2, ..., mn)} }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily argument} matches all of the matchers {\ttfamily m1} to {\ttfamily mn}.  }\\\cline{1-2}
+\endhead
+{\ttfamily Any\+Of(m1, m2, ..., mn)} &{\ttfamily argument} matches at least one of the matchers {\ttfamily m1} to {\ttfamily mn}.  \\\cline{1-2}
+{\ttfamily Not(m)} &{\ttfamily argument} doesn\textquotesingle{}t match matcher {\ttfamily m}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md209}{}\doxysubsection{Adapters for Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md209}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Matcher\+Cast$<$T$>$(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ casts matcher {\ttfamily m} to type {\ttfamily Matcher$<$T$>$}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Matcher\+Cast$<$T$>$(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ casts matcher {\ttfamily m} to type {\ttfamily Matcher$<$T$>$}.  }\\\cline{1-2}
+\endhead
+{\ttfamily Safe\+Matcher\+Cast$<$T$>$(m)} &safely casts matcher {\ttfamily m} to type {\ttfamily Matcher$<$T$>$}.  \\\cline{1-2}
+{\ttfamily Truly(predicate)} &{\ttfamily predicate(argument)} returns something considered by C++ to be true, where {\ttfamily predicate} is a function or functor.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md210}{}\doxysubsection{Matchers as Predicates}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md210}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Matches(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ a unary functor that returns {\ttfamily true} if the argument matches {\ttfamily m}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Matches(m)} }&\cellcolor{\tableheadbgcolor}\textbf{ a unary functor that returns {\ttfamily true} if the argument matches {\ttfamily m}.  }\\\cline{1-2}
+\endhead
+{\ttfamily Explain\+Match\+Result(m, value, result\+\_\+listener)} &returns {\ttfamily true} if {\ttfamily value} matches {\ttfamily m}, explaining the result to {\ttfamily result\+\_\+listener}.  \\\cline{1-2}
+{\ttfamily Value(x, m)} &returns {\ttfamily true} if the value of {\ttfamily x} matches {\ttfamily m}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md211}{}\doxysubsection{Defining Matchers}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md211}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily M\+A\+T\+C\+H\+ER(Is\+Even, \char`\"{}\char`\"{}) \{ return (arg \% 2) == 0; \}} }&\cellcolor{\tableheadbgcolor}\textbf{ Defines a matcher {\ttfamily Is\+Even()} to match an even number.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily M\+A\+T\+C\+H\+ER(Is\+Even, \char`\"{}\char`\"{}) \{ return (arg \% 2) == 0; \}} }&\cellcolor{\tableheadbgcolor}\textbf{ Defines a matcher {\ttfamily Is\+Even()} to match an even number.  }\\\cline{1-2}
+\endhead
+{\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+P(Is\+Divisible\+By, n, \char`\"{}\char`\"{}) \{ $\ast$result\+\_\+listener $<$$<$ \char`\"{}where the remainder is \char`\"{} $<$$<$ (arg \% n); return (arg \% n) == 0; \}} &Defines a macher {\ttfamily Is\+Divisible\+By(n)} to match a number divisible by {\ttfamily n}.  \\\cline{1-2}
+{\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+\+P2(Is\+Between, a, b, \char`\"{}is between \%(a)s and \%(b)s\char`\"{}) \{ return a $<$= arg \&\& arg $<$= b; \}} &Defines a matcher {\ttfamily Is\+Between(a, b)} to match a value in the range \mbox{[}{\ttfamily a}, {\ttfamily b}\mbox{]}.  \\\cline{1-2}
+\end{longtabu}
+
+
+{\bfseries{Notes\+:}}
+
+
+\begin{DoxyEnumerate}
+\item The {\ttfamily M\+A\+T\+C\+H\+E\+R$\ast$} macros cannot be used inside a function or class.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item The matcher body must be {\itshape purely functional} (i.\+e. it cannot have any side effect, and the result must not depend on anything other than the value being matched and the matcher parameters).
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item You can use {\ttfamily Print\+To\+String(x)} to convert a value {\ttfamily x} of any type to a string.
+\end{DoxyEnumerate}\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md212}{}\doxysubsection{Matchers as Test Assertions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md212}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+H\+A\+T(expression, m)} }&\cellcolor{\tableheadbgcolor}\textbf{ Generates a \href{http://code.google.com/p/googletest/wiki/GoogleTestPrimer\#Assertions}{\texttt{ fatal failure}} if the value of {\ttfamily expression} doesn\textquotesingle{}t match matcher {\ttfamily m}.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily A\+S\+S\+E\+R\+T\+\_\+\+T\+H\+A\+T(expression, m)} }&\cellcolor{\tableheadbgcolor}\textbf{ Generates a \href{http://code.google.com/p/googletest/wiki/GoogleTestPrimer\#Assertions}{\texttt{ fatal failure}} if the value of {\ttfamily expression} doesn\textquotesingle{}t match matcher {\ttfamily m}.  }\\\cline{1-2}
+\endhead
+{\ttfamily E\+X\+P\+E\+C\+T\+\_\+\+T\+H\+A\+T(expression, m)} &Generates a non-\/fatal failure if the value of {\ttfamily expression} doesn\textquotesingle{}t match matcher {\ttfamily m}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md213}{}\doxysection{Actions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md213}
+{\bfseries{Actions}} specify what a mock function should do when invoked.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md214}{}\doxysubsection{Returning a Value}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md214}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Return()} }&\cellcolor{\tableheadbgcolor}\textbf{ Return from a {\ttfamily void} mock function.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Return()} }&\cellcolor{\tableheadbgcolor}\textbf{ Return from a {\ttfamily void} mock function.  }\\\cline{1-2}
+\endhead
+{\ttfamily Return(value)} &Return {\ttfamily value}.  \\\cline{1-2}
+{\ttfamily Return\+Arg$<$N$>$()} &Return the {\ttfamily N}-\/th (0-\/based) argument.  \\\cline{1-2}
+{\ttfamily Return\+New$<$T$>$(a1, ..., ak)} &Return {\ttfamily new T(a1, ..., ak)}; a different object is created each time.  \\\cline{1-2}
+{\ttfamily Return\+Null()} &Return a null pointer.  \\\cline{1-2}
+{\ttfamily Return\+Ref(variable)} &Return a reference to {\ttfamily variable}.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md215}{}\doxysubsection{Side Effects}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md215}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Assign(\&variable, value)} }&\cellcolor{\tableheadbgcolor}\textbf{ Assign {\ttfamily value} to variable.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Assign(\&variable, value)} }&\cellcolor{\tableheadbgcolor}\textbf{ Assign {\ttfamily value} to variable.  }\\\cline{1-2}
+\endhead
+{\ttfamily Delete\+Arg$<$N$>$()} &Delete the {\ttfamily N}-\/th (0-\/based) argument, which must be a pointer.  \\\cline{1-2}
+{\ttfamily Save\+Arg$<$N$>$(pointer)} &Save the {\ttfamily N}-\/th (0-\/based) argument to {\ttfamily $\ast$pointer}.  \\\cline{1-2}
+{\ttfamily Set\+Arg\+Referee$<$N$>$(value)} &Assign value to the variable referenced by the {\ttfamily N}-\/th (0-\/based) argument.  \\\cline{1-2}
+{\ttfamily Set\+Argument\+Pointee$<$N$>$(value)} &Assign {\ttfamily value} to the variable pointed by the {\ttfamily N}-\/th (0-\/based) argument.  \\\cline{1-2}
+{\ttfamily Set\+Array\+Argument$<$N$>$(first, last)} &Copies the elements in source range \mbox{[}{\ttfamily first}, {\ttfamily last}) to the array pointed to by the {\ttfamily N}-\/th (0-\/based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range.  \\\cline{1-2}
+{\ttfamily Set\+Errno\+And\+Return(error, value)} &Set {\ttfamily errno} to {\ttfamily error} and return {\ttfamily value}.  \\\cline{1-2}
+{\ttfamily Throw(exception)} &Throws the given exception, which can be any copyable value. Available since v1.\+1.\+0.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md216}{}\doxysubsection{Using a Function or a Functor as an Action}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md216}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Invoke(f)} }&\cellcolor{\tableheadbgcolor}\textbf{ Invoke {\ttfamily f} with the arguments passed to the mock function, where {\ttfamily f} can be a global/static function or a functor.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Invoke(f)} }&\cellcolor{\tableheadbgcolor}\textbf{ Invoke {\ttfamily f} with the arguments passed to the mock function, where {\ttfamily f} can be a global/static function or a functor.  }\\\cline{1-2}
+\endhead
+{\ttfamily Invoke(object\+\_\+pointer, \&class\+::method)} &Invoke the \{method on the object with the arguments passed to the mock function.  \\\cline{1-2}
+{\ttfamily Invoke\+Without\+Args(f)} &Invoke {\ttfamily f}, which can be a global/static function or a functor. {\ttfamily f} must take no arguments.  \\\cline{1-2}
+{\ttfamily Invoke\+Without\+Args(object\+\_\+pointer, \&class\+::method)} &Invoke the method on the object, which takes no arguments.  \\\cline{1-2}
+{\ttfamily Invoke\+Argument$<$N$>$(arg1, arg2, ..., argk)} &Invoke the mock function\textquotesingle{}s {\ttfamily N}-\/th (0-\/based) argument, which must be a function or a functor, with the {\ttfamily k} arguments.  \\\cline{1-2}
+\end{longtabu}
+
+
+The return value of the invoked function is used as the return value of the action.
+
+When defining a function or functor to be used with {\ttfamily Invoke$\ast$()}, you can declare any unused parameters as {\ttfamily Unused}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{double Distance(Unused, double x, double y) \{ return sqrt(x*x + y*y); \}}
+\DoxyCodeLine{...}
+\DoxyCodeLine{EXPECT\_CALL(mock, Foo("Hi", \_, \_)).WillOnce(Invoke(Distance));}
+\end{DoxyCode}
+
+
+In {\ttfamily Invoke\+Argument$<$N$>$(...)}, if an argument needs to be passed by reference, wrap it inside {\ttfamily By\+Ref()}. For example, 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{InvokeArgument<2>(5, string("Hi"), ByRef(foo))}
+\end{DoxyCode}
+
+
+calls the mock function\textquotesingle{}s \#2 argument, passing to it {\ttfamily 5} and {\ttfamily string(\char`\"{}\+Hi\char`\"{})} by value, and {\ttfamily foo} by reference.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md217}{}\doxysubsection{Default Action}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md217}
+$\vert${\ttfamily Do\+Default()}$\vert$\+Do the default action (specified by {\ttfamily O\+N\+\_\+\+C\+A\+L\+L()} or the built-\/in one).$\vert$ $\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$\+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$
+
+{\bfseries{Note\+:}} due to technical reasons, {\ttfamily Do\+Default()} cannot be used inside a composite action -\/ trying to do so will result in a run-\/time error.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md218}{}\doxysubsection{Composite Actions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md218}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Do\+All(a1, a2, ..., an)} }&\cellcolor{\tableheadbgcolor}\textbf{ Do all actions {\ttfamily a1} to {\ttfamily an} and return the result of {\ttfamily an} in each invocation. The first {\ttfamily n -\/ 1} sub-\/actions must return void.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Do\+All(a1, a2, ..., an)} }&\cellcolor{\tableheadbgcolor}\textbf{ Do all actions {\ttfamily a1} to {\ttfamily an} and return the result of {\ttfamily an} in each invocation. The first {\ttfamily n -\/ 1} sub-\/actions must return void.  }\\\cline{1-2}
+\endhead
+{\ttfamily Ignore\+Result(a)} &Perform action {\ttfamily a} and ignore its result. {\ttfamily a} must not return void.  \\\cline{1-2}
+{\ttfamily With\+Arg$<$N$>$(a)} &Pass the {\ttfamily N}-\/th (0-\/based) argument of the mock function to action {\ttfamily a} and perform it.  \\\cline{1-2}
+{\ttfamily With\+Args$<$N1, N2, ..., Nk$>$(a)} &Pass the selected (0-\/based) arguments of the mock function to action {\ttfamily a} and perform it.  \\\cline{1-2}
+{\ttfamily Without\+Args(a)} &Perform action {\ttfamily a} without any arguments.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md219}{}\doxysubsection{Defining Actions}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md219}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily A\+C\+T\+I\+O\+N(\+Sum) \{ return arg0 + arg1; \}} }&\cellcolor{\tableheadbgcolor}\textbf{ Defines an action {\ttfamily Sum()} to return the sum of the mock function\textquotesingle{}s argument \#0 and \#1.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily A\+C\+T\+I\+O\+N(\+Sum) \{ return arg0 + arg1; \}} }&\cellcolor{\tableheadbgcolor}\textbf{ Defines an action {\ttfamily Sum()} to return the sum of the mock function\textquotesingle{}s argument \#0 and \#1.  }\\\cline{1-2}
+\endhead
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+P(\+Plus, n) \{ return arg0 + n; \}} &Defines an action {\ttfamily Plus(n)} to return the sum of the mock function\textquotesingle{}s argument \#0 and {\ttfamily n}.  \\\cline{1-2}
+{\ttfamily A\+C\+T\+I\+O\+N\+\_\+\+Pk(\+Foo, p1, ..., pk) \{ statements; \}} &Defines a parameterized action {\ttfamily Foo(p1, ..., pk)} to execute the given {\ttfamily statements}.  \\\cline{1-2}
+\end{longtabu}
+
+
+The {\ttfamily A\+C\+T\+I\+O\+N$\ast$} macros cannot be used inside a function or class.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md220}{}\doxysection{Cardinalities}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md220}
+These are used in {\ttfamily Times()} to specify how many times a mock function will be called\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Any\+Number()} }&\cellcolor{\tableheadbgcolor}\textbf{ The function can be called any number of times.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily Any\+Number()} }&\cellcolor{\tableheadbgcolor}\textbf{ The function can be called any number of times.  }\\\cline{1-2}
+\endhead
+{\ttfamily At\+Least(n)} &The call is expected at least {\ttfamily n} times.  \\\cline{1-2}
+{\ttfamily At\+Most(n)} &The call is expected at most {\ttfamily n} times.  \\\cline{1-2}
+{\ttfamily Between(m, n)} &The call is expected between {\ttfamily m} and {\ttfamily n} (inclusive) times.  \\\cline{1-2}
+{\ttfamily Exactly(n) or n} &The call is expected exactly {\ttfamily n} times. In particular, the call should never happen when {\ttfamily n} is 0.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md221}{}\doxysection{Expectation Order}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md221}
+By default, the expectations can be matched in {\itshape any} order. If some or all expectations must be matched in a given order, there are two ways to specify it. They can be used either independently or together.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md222}{}\doxysubsection{The After Clause}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md222}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::Expectation;}
+\DoxyCodeLine{...}
+\DoxyCodeLine{Expectation init\_x = EXPECT\_CALL(foo, InitX());}
+\DoxyCodeLine{Expectation init\_y = EXPECT\_CALL(foo, InitY());}
+\DoxyCodeLine{EXPECT\_CALL(foo, Bar())}
+\DoxyCodeLine{    .After(init\_x, init\_y);}
+\end{DoxyCode}
+
+
+says that {\ttfamily Bar()} can be called only after both {\ttfamily Init\+X()} and {\ttfamily Init\+Y()} have been called.
+
+If you don\textquotesingle{}t know how many pre-\/requisites an expectation has when you write it, you can use an {\ttfamily Expectation\+Set} to collect them\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::ExpectationSet;}
+\DoxyCodeLine{...}
+\DoxyCodeLine{ExpectationSet all\_inits;}
+\DoxyCodeLine{for (int i = 0; i < element\_count; i++) \{}
+\DoxyCodeLine{  all\_inits += EXPECT\_CALL(foo, InitElement(i));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{EXPECT\_CALL(foo, Bar())}
+\DoxyCodeLine{    .After(all\_inits);}
+\end{DoxyCode}
+
+
+says that {\ttfamily Bar()} can be called only after all elements have been initialized (but we don\textquotesingle{}t care about which elements get initialized before the others).
+
+Modifying an {\ttfamily Expectation\+Set} after using it in an {\ttfamily .After()} doesn\textquotesingle{}t affect the meaning of the {\ttfamily .After()}.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md223}{}\doxysubsection{Sequences}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md223}
+When you have a long chain of sequential expectations, it\textquotesingle{}s easier to specify the order using {\bfseries{sequences}}, which don\textquotesingle{}t require you to given each expectation in the chain a different name. {\itshape All expected~\newline
+ calls} in the same sequence must occur in the order they are specified.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::Sequence;}
+\DoxyCodeLine{Sequence s1, s2;}
+\DoxyCodeLine{...}
+\DoxyCodeLine{EXPECT\_CALL(foo, Reset())}
+\DoxyCodeLine{    .InSequence(s1, s2)}
+\DoxyCodeLine{    .WillOnce(Return(true));}
+\DoxyCodeLine{EXPECT\_CALL(foo, GetSize())}
+\DoxyCodeLine{    .InSequence(s1)}
+\DoxyCodeLine{    .WillOnce(Return(1));}
+\DoxyCodeLine{EXPECT\_CALL(foo, Describe(A<const char*>()))}
+\DoxyCodeLine{    .InSequence(s2)}
+\DoxyCodeLine{    .WillOnce(Return("dummy"));}
+\end{DoxyCode}
+
+
+says that {\ttfamily Reset()} must be called before {\itshape both} {\ttfamily Get\+Size()} {\itshape and} {\ttfamily Describe()}, and the latter two can occur in any order.
+
+To put many expectations in a sequence conveniently\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::InSequence;}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  InSequence dummy;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  EXPECT\_CALL(...)...;}
+\DoxyCodeLine{  EXPECT\_CALL(...)...;}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{  EXPECT\_CALL(...)...;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+says that all expected calls in the scope of {\ttfamily dummy} must occur in strict order. The name {\ttfamily dummy} is irrelevant.)\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md224}{}\doxysection{Verifying and Resetting a Mock}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md224}
+Google \mbox{\hyperlink{class_mock}{Mock}} will verify the expectations on a mock object when it is destructed, or you can do it earlier\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{using ::testing::Mock;}
+\DoxyCodeLine{...}
+\DoxyCodeLine{// Verifies and removes the expectations on mock\_obj;}
+\DoxyCodeLine{// returns true iff successful.}
+\DoxyCodeLine{Mock::VerifyAndClearExpectations(\&mock\_obj);}
+\DoxyCodeLine{...}
+\DoxyCodeLine{// Verifies and removes the expectations on mock\_obj;}
+\DoxyCodeLine{// also removes the default actions set by ON\_CALL();}
+\DoxyCodeLine{// returns true iff successful.}
+\DoxyCodeLine{Mock::VerifyAndClear(\&mock\_obj);}
+\end{DoxyCode}
+
+
+You can also tell Google \mbox{\hyperlink{class_mock}{Mock}} that a mock object can be leaked and doesn\textquotesingle{}t need to be verified\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Mock::AllowLeak(\&mock\_obj);}
+\end{DoxyCode}
+\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md225}{}\doxysection{Mock Classes}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md225}
+Google \mbox{\hyperlink{class_mock}{Mock}} defines a convenient mock class template 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{class MockFunction<R(A1, ..., An)> \{}
+\DoxyCodeLine{ public:}
+\DoxyCodeLine{  MOCK\_METHODn(Call, R(A1, ..., An));}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+
+
+See this recipe for one application of it.\hypertarget{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md226}{}\doxysection{Flags}\label{md_vendor_googletest_googlemock_docs_v1_5__cheat_sheet_autotoc_md226}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily -\/-\/gmock\+\_\+catch\+\_\+leaked\+\_\+mocks=0} }&\cellcolor{\tableheadbgcolor}\textbf{ Don\textquotesingle{}t report leaked mock objects as failures.  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily -\/-\/gmock\+\_\+catch\+\_\+leaked\+\_\+mocks=0} }&\cellcolor{\tableheadbgcolor}\textbf{ Don\textquotesingle{}t report leaked mock objects as failures.  }\\\cline{1-2}
+\endhead
+{\ttfamily -\/-\/gmock\+\_\+verbose=L\+E\+V\+EL} &Sets the default verbosity level ({\ttfamily info}, {\ttfamily warning}, or {\ttfamily error}) of Google \mbox{\hyperlink{class_mock}{Mock}} messages.  \\\cline{1-2}
+\end{longtabu}

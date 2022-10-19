@@ -1,0 +1,6 @@
+<map id="include/Robot.hpp" name="include/Robot.hpp">
+<area shape="rect" id="node1" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="129,5,267,32"/>
+<area shape="rect" id="node2" href="$app_2main_8cpp.html" title="Main function for Acme&#39;s Robot Manipulator&#39;s API." alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node3" href="$_robot_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="141,80,255,107"/>
+<area shape="rect" id="node4" href="$test_8cpp.html" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="280,80,383,107"/>
+</map>

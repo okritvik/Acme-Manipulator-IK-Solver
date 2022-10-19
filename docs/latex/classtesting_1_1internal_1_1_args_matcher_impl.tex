@@ -1,0 +1,64 @@
+\hypertarget{classtesting_1_1internal_1_1_args_matcher_impl}{}\doxysection{testing\+::internal\+::Args\+Matcher\+Impl$<$ Args\+Tuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1_args_matcher_impl}\index{testing::internal::ArgsMatcherImpl$<$ ArgsTuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$@{testing::internal::ArgsMatcherImpl$<$ ArgsTuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$}}
+
+
+Inheritance diagram for testing\+::internal\+::Args\+Matcher\+Impl$<$ Args\+Tuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classtesting_1_1internal_1_1_args_matcher_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+::internal\+::Args\+Matcher\+Impl$<$ Args\+Tuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classtesting_1_1internal_1_1_args_matcher_impl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_ab061679f6251e56ccbedaf0c316d00ff}\label{classtesting_1_1internal_1_1_args_matcher_impl_ab061679f6251e56ccbedaf0c316d00ff}} 
+typedef \mbox{\hyperlink{classtesting_1_1internal_1_1_tuple_fields}{internal\+::\+Tuple\+Fields}}$<$ Raw\+Args\+Tuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$\+::type {\bfseries Selected\+Args}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_ab90d2c074b2072d6c39bf26209fb941f}\label{classtesting_1_1internal_1_1_args_matcher_impl_ab90d2c074b2072d6c39bf26209fb941f}} 
+typedef \mbox{\hyperlink{classtesting_1_1_matcher}{Matcher}}$<$ const Selected\+Args \& $>$ {\bfseries Monomorphic\+Inner\+Matcher}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_a7b0cadc369c0c20cd254cc2052782301}\label{classtesting_1_1internal_1_1_args_matcher_impl_a7b0cadc369c0c20cd254cc2052782301}} 
+typedef {\bfseries G\+T\+E\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+A\+N\+D\+\_\+\+C\+O\+N\+S\+T\+\_\+} (Args\+Tuple) Raw\+Args\+Tuple
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_a7f7a9a826d130d11fe30633d79f59a06}\label{classtesting_1_1internal_1_1_args_matcher_impl_a7f7a9a826d130d11fe30633d79f59a06}} 
+{\footnotesize template$<$typename Inner\+Matcher $>$ }\\{\bfseries Args\+Matcher\+Impl} (const Inner\+Matcher \&inner\+\_\+matcher)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_a60383b3073a61f9d82cbf31fe19e6bfa}\label{classtesting_1_1internal_1_1_args_matcher_impl_a60383b3073a61f9d82cbf31fe19e6bfa}} 
+virtual bool {\bfseries Match\+And\+Explain} (Args\+Tuple args, \mbox{\hyperlink{classtesting_1_1_match_result_listener}{Match\+Result\+Listener}} $\ast$listener) const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_a8e057f67b368f7d94aeb0ddd35837c94}\label{classtesting_1_1internal_1_1_args_matcher_impl_a8e057f67b368f7d94aeb0ddd35837c94}} 
+virtual void {\bfseries Describe\+To} (\+::std\+::ostream $\ast$os) const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_args_matcher_impl_ac8ff5369879836567cedb5434bcca5b9}\label{classtesting_1_1internal_1_1_args_matcher_impl_ac8ff5369879836567cedb5434bcca5b9}} 
+virtual void {\bfseries Describe\+Negation\+To} (\+::std\+::ostream $\ast$os) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Args\+Tuple, int k0 = -\/1, int k1 = -\/1, int k2 = -\/1, int k3 = -\/1, int k4 = -\/1, int k5 = -\/1, int k6 = -\/1, int k7 = -\/1, int k8 = -\/1, int k9 = -\/1$>$\newline
+class testing\+::internal\+::\+Args\+Matcher\+Impl$<$ Args\+Tuple, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9 $>$}
+
+
+
+Definition at line 211 of file gmock-\/generated-\/matchers.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/googletest/googlemock/include/gmock/gmock-\/generated-\/matchers.\+h\end{DoxyCompactItemize}

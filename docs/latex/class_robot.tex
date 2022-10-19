@@ -1,0 +1,122 @@
+\hypertarget{class_robot}{}\doxysection{Robot Class Reference}
+\label{class_robot}\index{Robot@{Robot}}
+
+
+Defines the \mbox{\hyperlink{class_robot}{Robot}} class containing 3 children classes -\/ \mbox{\hyperlink{class_controller}{Controller}}, \mbox{\hyperlink{class_kinematics}{Kinematics}} and \mbox{\hyperlink{class_simulator}{Simulator}}.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_robot_a2be26e4c47c92a7a12659ccd607567e6}{execute\+\_\+path}} ()
+\begin{DoxyCompactList}\small\item\em Generates and executes a trajectory for the robot\textquotesingle{}s path from the initial pose to the final pose. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_a9cc418a6d28c92f4fc0349b513ba6a55}{set\+\_\+initial\+\_\+pose}} (std\+::vector$<$ double $>$ pose)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the initial pose of the robot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_adf5d2b5e6fc1116b99f841e92d93a973}{set\+\_\+final\+\_\+pose}} (std\+::vector$<$ double $>$ pose)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the desired final pose of the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_robot_a80023b7a8e87e2d1500f6d7a02dd7f0e}{set\+\_\+joint\+\_\+angles}} (std\+::vector$<$ double $>$ joint\+\_\+angles)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the robot\textquotesingle{}s joint angles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the \mbox{\hyperlink{class_robot}{Robot}} class containing 3 children classes -\/ \mbox{\hyperlink{class_controller}{Controller}}, \mbox{\hyperlink{class_kinematics}{Kinematics}} and \mbox{\hyperlink{class_simulator}{Simulator}}. 
+
+
+
+Definition at line 25 of file Robot.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_robot_a2be26e4c47c92a7a12659ccd607567e6}\label{class_robot_a2be26e4c47c92a7a12659ccd607567e6}} 
+\index{Robot@{Robot}!execute\_path@{execute\_path}}
+\index{execute\_path@{execute\_path}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{execute\_path()}{execute\_path()}}
+{\footnotesize\ttfamily bool Robot\+::execute\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates and executes a trajectory for the robot\textquotesingle{}s path from the initial pose to the final pose. 
+
+\begin{DoxyReturn}{Returns}
+true When a valid path exists and the robot executes it. 
+
+false When the path is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_adf5d2b5e6fc1116b99f841e92d93a973}\label{class_robot_adf5d2b5e6fc1116b99f841e92d93a973}} 
+\index{Robot@{Robot}!set\_final\_pose@{set\_final\_pose}}
+\index{set\_final\_pose@{set\_final\_pose}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_final\_pose()}{set\_final\_pose()}}
+{\footnotesize\ttfamily bool Robot\+::set\+\_\+final\+\_\+pose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{pose }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the desired final pose of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Final position of the robot\textquotesingle{}s end-\/effector w.\+r.\+t. the base frame (m) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Final position value is valid and set 
+
+false Final position value is invalid 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_a9cc418a6d28c92f4fc0349b513ba6a55}\label{class_robot_a9cc418a6d28c92f4fc0349b513ba6a55}} 
+\index{Robot@{Robot}!set\_initial\_pose@{set\_initial\_pose}}
+\index{set\_initial\_pose@{set\_initial\_pose}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_pose()}{set\_initial\_pose()}}
+{\footnotesize\ttfamily bool Robot\+::set\+\_\+initial\+\_\+pose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{pose }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the initial pose of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Initial position of the robot\textquotesingle{}s end-\/effector w.\+r.\+t. the base frame (m) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Initial position value is valid and set 
+
+false Initial position value is invalid 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_a80023b7a8e87e2d1500f6d7a02dd7f0e}\label{class_robot_a80023b7a8e87e2d1500f6d7a02dd7f0e}} 
+\index{Robot@{Robot}!set\_joint\_angles@{set\_joint\_angles}}
+\index{set\_joint\_angles@{set\_joint\_angles}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_joint\_angles()}{set\_joint\_angles()}}
+{\footnotesize\ttfamily void Robot\+::set\+\_\+joint\+\_\+angles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{joint\+\_\+angles }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the robot\textquotesingle{}s joint angles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+angles} & Joint angles of the robot (rad) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_robot_8hpp}{Robot.\+hpp}}\item 
+app/\mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}

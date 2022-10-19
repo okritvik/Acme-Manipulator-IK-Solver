@@ -1,0 +1,5 @@
+<map id="Kinematics" name="Kinematics">
+<area shape="rect" id="node1" title="Defines the Kinematics class containing 2 children classes &#45; PositionFK and VelocityIK." alt="" coords="58,95,153,121"/>
+<area shape="rect" id="node2" href="$class_velocity_i_k.html" title="Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked..." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node3" href="$class_position_f_k.html" title="Defines the Position Forward Kinematics solver class using the standard form of the Denavit&#45;Hartenber..." alt="" coords="117,5,208,32"/>
+</map>

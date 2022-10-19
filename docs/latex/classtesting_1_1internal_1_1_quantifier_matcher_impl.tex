@@ -1,0 +1,76 @@
+\hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl}{}\doxysection{testing\+::internal\+::Quantifier\+Matcher\+Impl$<$ Container $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1_quantifier_matcher_impl}\index{testing::internal::QuantifierMatcherImpl$<$ Container $>$@{testing::internal::QuantifierMatcherImpl$<$ Container $>$}}
+
+
+Inheritance diagram for testing\+::internal\+::Quantifier\+Matcher\+Impl$<$ Container $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtesting_1_1internal_1_1_quantifier_matcher_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+::internal\+::Quantifier\+Matcher\+Impl$<$ Container $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtesting_1_1internal_1_1_quantifier_matcher_impl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_aa1e6b1653b6fdee1b0cfc4c58a9059e6}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_aa1e6b1653b6fdee1b0cfc4c58a9059e6}} 
+typedef \mbox{\hyperlink{classtesting_1_1internal_1_1_stl_container_view}{Stl\+Container\+View}}$<$ Raw\+Container $>$ {\bfseries View}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_a7faa9a49c627e6db66e0ff9cdc88b6fc}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_a7faa9a49c627e6db66e0ff9cdc88b6fc}} 
+typedef View\+::type {\bfseries Stl\+Container}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_a341dd7815b3c6090d935026daac6e938}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_a341dd7815b3c6090d935026daac6e938}} 
+typedef View\+::const\+\_\+reference {\bfseries Stl\+Container\+Reference}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_a6f73e2e5fa853f8b5fdd33d6a1811f9e}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_a6f73e2e5fa853f8b5fdd33d6a1811f9e}} 
+typedef Stl\+Container\+::value\+\_\+type {\bfseries Element}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_aa3648a9fce92090dc3987eb10faf16e1}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_aa3648a9fce92090dc3987eb10faf16e1}} 
+typedef {\bfseries G\+T\+E\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+A\+N\+D\+\_\+\+C\+O\+N\+S\+T\+\_\+} (Container) Raw\+Container
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_aef125c9971ea1d02d138cd8fd2af0287}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_aef125c9971ea1d02d138cd8fd2af0287}} 
+{\footnotesize template$<$typename Inner\+Matcher $>$ }\\{\bfseries Quantifier\+Matcher\+Impl} (Inner\+Matcher inner\+\_\+matcher)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_ab8f64532b70f47fc60f7983ebe5cbfc6}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_ab8f64532b70f47fc60f7983ebe5cbfc6}} 
+bool {\bfseries Match\+And\+Explain\+Impl} (bool all\+\_\+elements\+\_\+should\+\_\+match, Container container, \mbox{\hyperlink{classtesting_1_1_match_result_listener}{Match\+Result\+Listener}} $\ast$listener) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_ad57fcd1799e59217fe40c0144ff024f1}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_ad57fcd1799e59217fe40c0144ff024f1}} 
+{\bfseries G\+T\+E\+S\+T\+\_\+\+D\+I\+S\+A\+L\+L\+O\+W\+\_\+\+A\+S\+S\+I\+G\+N\+\_\+} (\mbox{\hyperlink{classtesting_1_1internal_1_1_quantifier_matcher_impl}{Quantifier\+Matcher\+Impl}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_quantifier_matcher_impl_af0ee2a4697f5cb8e937fd29dd75e2a30}\label{classtesting_1_1internal_1_1_quantifier_matcher_impl_af0ee2a4697f5cb8e937fd29dd75e2a30}} 
+const \mbox{\hyperlink{classtesting_1_1_matcher}{Matcher}}$<$ const Element \& $>$ {\bfseries inner\+\_\+matcher\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Container$>$\newline
+class testing\+::internal\+::\+Quantifier\+Matcher\+Impl$<$ Container $>$}
+
+
+
+Definition at line 2800 of file gmock-\/matchers.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/googletest/googlemock/include/gmock/gmock-\/matchers.\+h\end{DoxyCompactItemize}

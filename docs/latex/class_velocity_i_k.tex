@@ -1,0 +1,112 @@
+\hypertarget{class_velocity_i_k}{}\doxysection{Velocity\+IK Class Reference}
+\label{class_velocity_i_k}\index{VelocityIK@{VelocityIK}}
+
+
+Defines the Velocity Inverse \mbox{\hyperlink{class_kinematics}{Kinematics}} solver class using the Jacobian method (with one joint locked).  
+
+
+
+
+{\ttfamily \#include $<$Velocity\+I\+K.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_velocity_i_k_a6537b863f8f8498b206de2f5ec64c023}{cartesian\+\_\+velocity}} ()
+\begin{DoxyCompactList}\small\item\em Defines the cartesian velocity trajectory of the robot\textquotesingle{}s end-\/effector, assuming angular speed to be zero. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_velocity_i_k_a4dc609ae2b3784187d8893746b6932b1}{update\+\_\+joint\+\_\+angles}} (double dt, std\+::vector$<$ double $>$ present\+\_\+joint\+\_\+angle)
+\begin{DoxyCompactList}\small\item\em Performs numerical integration of the joint speed to obtain joint position for a small time-\/step using the update equation, q\+\_\+next = q\+\_\+curr + q\+\_\+dot $\ast$ dt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_velocity_i_k_a75a5182641fd73b1d652c1501459a336}{compute\+\_\+jacobian}} ()
+\begin{DoxyCompactList}\small\item\em Computes the Jacobian matrix of the robot. \end{DoxyCompactList}\item 
+nc\+::\+Nd\+Array$<$ double $>$ \mbox{\hyperlink{class_velocity_i_k_a07075ab3433d75bfe09d05a3dbd57552}{get\+\_\+jacobian}} ()
+\begin{DoxyCompactList}\small\item\em Accessor function to get the Jacobian matrix of the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the Velocity Inverse \mbox{\hyperlink{class_kinematics}{Kinematics}} solver class using the Jacobian method (with one joint locked). 
+
+
+
+Definition at line 23 of file Velocity\+I\+K.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_velocity_i_k_a6537b863f8f8498b206de2f5ec64c023}\label{class_velocity_i_k_a6537b863f8f8498b206de2f5ec64c023}} 
+\index{VelocityIK@{VelocityIK}!cartesian\_velocity@{cartesian\_velocity}}
+\index{cartesian\_velocity@{cartesian\_velocity}!VelocityIK@{VelocityIK}}
+\doxysubsubsection{\texorpdfstring{cartesian\_velocity()}{cartesian\_velocity()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Velocity\+I\+K\+::cartesian\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Defines the cartesian velocity trajectory of the robot\textquotesingle{}s end-\/effector, assuming angular speed to be zero. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ Cartesian velocity of the robot\textquotesingle{}s end effector. 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Velocity\+I\+K.\+cpp.
+
+\mbox{\Hypertarget{class_velocity_i_k_a75a5182641fd73b1d652c1501459a336}\label{class_velocity_i_k_a75a5182641fd73b1d652c1501459a336}} 
+\index{VelocityIK@{VelocityIK}!compute\_jacobian@{compute\_jacobian}}
+\index{compute\_jacobian@{compute\_jacobian}!VelocityIK@{VelocityIK}}
+\doxysubsubsection{\texorpdfstring{compute\_jacobian()}{compute\_jacobian()}}
+{\footnotesize\ttfamily void Velocity\+I\+K\+::compute\+\_\+jacobian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Computes the Jacobian matrix of the robot. 
+
+
+
+Definition at line 30 of file Velocity\+I\+K.\+cpp.
+
+\mbox{\Hypertarget{class_velocity_i_k_a07075ab3433d75bfe09d05a3dbd57552}\label{class_velocity_i_k_a07075ab3433d75bfe09d05a3dbd57552}} 
+\index{VelocityIK@{VelocityIK}!get\_jacobian@{get\_jacobian}}
+\index{get\_jacobian@{get\_jacobian}!VelocityIK@{VelocityIK}}
+\doxysubsubsection{\texorpdfstring{get\_jacobian()}{get\_jacobian()}}
+{\footnotesize\ttfamily nc\+::\+Nd\+Array$<$ double $>$ Velocity\+I\+K\+::get\+\_\+jacobian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor function to get the Jacobian matrix of the robot. 
+
+\begin{DoxyReturn}{Returns}
+nc\+::\+Nd\+Array$<$double$>$ Jacobian matrix (6x6) 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file Velocity\+I\+K.\+cpp.
+
+\mbox{\Hypertarget{class_velocity_i_k_a4dc609ae2b3784187d8893746b6932b1}\label{class_velocity_i_k_a4dc609ae2b3784187d8893746b6932b1}} 
+\index{VelocityIK@{VelocityIK}!update\_joint\_angles@{update\_joint\_angles}}
+\index{update\_joint\_angles@{update\_joint\_angles}!VelocityIK@{VelocityIK}}
+\doxysubsubsection{\texorpdfstring{update\_joint\_angles()}{update\_joint\_angles()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Velocity\+I\+K\+::update\+\_\+joint\+\_\+angles (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{std\+::vector$<$ double $>$}]{present\+\_\+joint\+\_\+angle }\end{DoxyParamCaption})}
+
+
+
+Performs numerical integration of the joint speed to obtain joint position for a small time-\/step using the update equation, q\+\_\+next = q\+\_\+curr + q\+\_\+dot $\ast$ dt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time-\/step (sec) \\
+\hline
+{\em present\+\_\+joint\+\_\+angle} & Current value of joint angle (rad) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ Next value of joint angle (rad) 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file Velocity\+I\+K.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_velocity_i_k_8hpp}{Velocity\+I\+K.\+hpp}}\item 
+app/\mbox{\hyperlink{_velocity_i_k_8cpp}{Velocity\+I\+K.\+cpp}}\end{DoxyCompactItemize}
