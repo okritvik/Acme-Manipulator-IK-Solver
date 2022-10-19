@@ -1,0 +1,13 @@
+<map id="/media/adarsh/HDD/Ubuntu/Mid&#45;Term/Acme&#45;Manipulator&#45;IK&#45;Solver/app/main.cpp" name="/media/adarsh/HDD/Ubuntu/Mid&#45;Term/Acme&#45;Manipulator&#45;IK&#45;Solver/app/main.cpp">
+<area shape="rect" id="node1" title="Main function for Acme&#39;s Robot Manipulator&#39;s API." alt="" coords="183,5,392,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="178,109,258,136"/>
+<area shape="rect" id="node3" href="$_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="283,109,433,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="389,333,452,360"/>
+<area shape="rect" id="node5" href="$_controller_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s PID controller." alt="" coords="5,184,183,211"/>
+<area shape="rect" id="node7" href="$_kinematics_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="458,184,645,211"/>
+<area shape="rect" id="node11" href="$_simulator_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="207,184,383,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="131,259,198,285"/>
+<area shape="rect" id="node8" href="$_position_f_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Forward Kinematics (Position) solver." alt="" coords="459,259,641,285"/>
+<area shape="rect" id="node10" href="$_velocity_i_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="666,259,845,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="599,333,706,360"/>
+</map>

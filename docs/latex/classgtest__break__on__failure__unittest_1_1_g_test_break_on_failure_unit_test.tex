@@ -1,0 +1,145 @@
+\hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test}{}\doxysection{gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test Class Reference}
+\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test}\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+
+
+Inheritance diagram for gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a0a66475873f545d88655b8bb14368f2e}{Run\+And\+Verify}} (self, env\+\_\+var\+\_\+value, flag\+\_\+value, expect\+\_\+seg\+\_\+fault)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a8c21b7ecccc27268cb6c3d30b933b812}{test\+Default\+Behavior}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a2beae948940a4fd898c8183c3bb221da}{test\+Env\+Var}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_af6018e5253c1107c5afaba3e2cb573fe}{test\+Flag}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a15836ddb27e51e9aaf2f8aad84f5cef7}{test\+Flag\+Overrides\+Env\+Var}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a3c5855e045236a309a5bff73ee6b503e}{test\+Break\+On\+Failure\+Overrides\+Throw\+On\+Failure}} (self)
+\item 
+def \mbox{\hyperlink{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a70cc7732ac68ffe587657a3a5309aa4a}{test\+Catch\+Exceptions\+Does\+Not\+Interfere}} (self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Tests using the GTEST_BREAK_ON_FAILURE environment variable or
+the --gtest_break_on_failure flag to turn assertion failures into
+segmentation faults.
+\end{DoxyVerb}
+ 
+
+Definition at line 93 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a0a66475873f545d88655b8bb14368f2e}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a0a66475873f545d88655b8bb14368f2e}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!RunAndVerify@{RunAndVerify}}
+\index{RunAndVerify@{RunAndVerify}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{RunAndVerify()}{RunAndVerify()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+Run\+And\+Verify (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{env\+\_\+var\+\_\+value,  }\item[{}]{flag\+\_\+value,  }\item[{}]{expect\+\_\+seg\+\_\+fault }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Runs gtest_break_on_failure_unittest_ and verifies that it does
+(or does not) have a seg-fault.
+
+Args:
+  env_var_value:    value of the GTEST_BREAK_ON_FAILURE environment
+                variable; None if the variable should be unset.
+  flag_value:       value of the --gtest_break_on_failure flag;
+                None if the flag should not be present.
+  expect_seg_fault: 1 if the program is expected to generate a seg-fault;
+                0 otherwise.
+\end{DoxyVerb}
+ 
+
+Definition at line 99 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a3c5855e045236a309a5bff73ee6b503e}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a3c5855e045236a309a5bff73ee6b503e}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testBreakOnFailureOverridesThrowOnFailure@{testBreakOnFailureOverridesThrowOnFailure}}
+\index{testBreakOnFailureOverridesThrowOnFailure@{testBreakOnFailureOverridesThrowOnFailure}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testBreakOnFailureOverridesThrowOnFailure()}{testBreakOnFailureOverridesThrowOnFailure()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Break\+On\+Failure\+Overrides\+Throw\+On\+Failure (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests that gtest_break_on_failure overrides gtest_throw_on_failure.\end{DoxyVerb}
+ 
+
+Definition at line 187 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a70cc7732ac68ffe587657a3a5309aa4a}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a70cc7732ac68ffe587657a3a5309aa4a}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testCatchExceptionsDoesNotInterfere@{testCatchExceptionsDoesNotInterfere}}
+\index{testCatchExceptionsDoesNotInterfere@{testCatchExceptionsDoesNotInterfere}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testCatchExceptionsDoesNotInterfere()}{testCatchExceptionsDoesNotInterfere()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Catch\+Exceptions\+Does\+Not\+Interfere (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests that gtest_catch_exceptions doesn't interfere.\end{DoxyVerb}
+ 
+
+Definition at line 199 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a8c21b7ecccc27268cb6c3d30b933b812}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a8c21b7ecccc27268cb6c3d30b933b812}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testDefaultBehavior@{testDefaultBehavior}}
+\index{testDefaultBehavior@{testDefaultBehavior}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testDefaultBehavior()}{testDefaultBehavior()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Default\+Behavior (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests the behavior of the default mode.\end{DoxyVerb}
+ 
+
+Definition at line 144 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a2beae948940a4fd898c8183c3bb221da}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a2beae948940a4fd898c8183c3bb221da}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testEnvVar@{testEnvVar}}
+\index{testEnvVar@{testEnvVar}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testEnvVar()}{testEnvVar()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Env\+Var (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests using the GTEST_BREAK_ON_FAILURE environment variable.\end{DoxyVerb}
+ 
+
+Definition at line 151 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_af6018e5253c1107c5afaba3e2cb573fe}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_af6018e5253c1107c5afaba3e2cb573fe}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testFlag@{testFlag}}
+\index{testFlag@{testFlag}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testFlag()}{testFlag()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Flag (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests using the --gtest_break_on_failure flag.\end{DoxyVerb}
+ 
+
+Definition at line 161 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+\mbox{\Hypertarget{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a15836ddb27e51e9aaf2f8aad84f5cef7}\label{classgtest__break__on__failure__unittest_1_1_g_test_break_on_failure_unit_test_a15836ddb27e51e9aaf2f8aad84f5cef7}} 
+\index{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}!testFlagOverridesEnvVar@{testFlagOverridesEnvVar}}
+\index{testFlagOverridesEnvVar@{testFlagOverridesEnvVar}!gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest@{gtest\_break\_on\_failure\_unittest.GTestBreakOnFailureUnitTest}}
+\doxysubsubsection{\texorpdfstring{testFlagOverridesEnvVar()}{testFlagOverridesEnvVar()}}
+{\footnotesize\ttfamily def gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+G\+Test\+Break\+On\+Failure\+Unit\+Test.\+test\+Flag\+Overrides\+Env\+Var (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests that the flag overrides the environment variable.\end{DoxyVerb}
+ 
+
+Definition at line 171 of file gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/googletest/googletest/test/gtest\+\_\+break\+\_\+on\+\_\+failure\+\_\+unittest.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+var classtesting_1_1internal_1_1_stl_container_view_3_01_1_1testing_1_1tuple_3_01_element_pointer_00_01_size_01_4_01_4 =
+[
+    [ "type", "classtesting_1_1internal_1_1_stl_container_view_3_01_1_1testing_1_1tuple_3_01_element_pointer_00_01_size_01_4_01_4.html#aedefb897170f76518afbca6f87b5467c", null ],
+    [ "GTEST_REMOVE_CONST_", "classtesting_1_1internal_1_1_stl_container_view_3_01_1_1testing_1_1tuple_3_01_element_pointer_00_01_size_01_4_01_4.html#a2b1dd06842cb431ef647b85707ce52ff", null ],
+    [ "const_reference", "classtesting_1_1internal_1_1_stl_container_view_3_01_1_1testing_1_1tuple_3_01_element_pointer_00_01_size_01_4_01_4.html#a937c7f74fe78e115c8b0014997d74095", null ]
+];

@@ -1,0 +1,69 @@
+If you are interested in understanding the internals of Google Test, building from source, or contributing ideas or modifications to the project, then this document is for you.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md723}{}\doxysection{Introduction}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md723}
+First, let\textquotesingle{}s give you some background of the project.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md724}{}\doxysubsection{Licensing}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md724}
+All Google Test source and pre-\/built packages are provided under the \href{http://www.opensource.org/licenses/bsd-license.php}{\texttt{ New B\+SD License}}.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md725}{}\doxysubsection{The Google Test Community}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md725}
+The Google Test community exists primarily through the \href{http://groups.google.com/group/googletestframework}{\texttt{ discussion group}} and the Git\+Hub repository. You are definitely encouraged to contribute to the discussion and you can also help us to keep the effectiveness of the group high by following and promoting the guidelines listed here.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md726}{}\doxysubsubsection{Please Be Friendly}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md726}
+Showing courtesy and respect to others is a vital part of the Google culture, and we strongly encourage everyone participating in Google Test development to join us in accepting nothing less. Of course, being courteous is not the same as failing to constructively disagree with each other, but it does mean that we should be respectful of each other when enumerating the 42 technical reasons that a particular proposal may not be the best choice. There\textquotesingle{}s never a reason to be antagonistic or dismissive toward anyone who is sincerely trying to contribute to a discussion.
+
+Sure, C++ testing is serious business and all that, but it\textquotesingle{}s also a lot of fun. Let\textquotesingle{}s keep it that way. Let\textquotesingle{}s strive to be one of the friendliest communities in all of open source.
+
+As always, discuss Google Test in the official Google\+Test discussion group. You don\textquotesingle{}t have to actually submit code in order to sign up. Your participation itself is a valuable contribution.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md727}{}\doxysection{Working with the Code}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md727}
+If you want to get your hands dirty with the code inside Google Test, this is the section for you.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md728}{}\doxysubsection{Compiling from Source}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md728}
+Once you check out the code, you can find instructions on how to compile it in the ../\+R\+E\+A\+D\+ME.md \char`\"{}\+R\+E\+A\+D\+M\+E\char`\"{} file.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md729}{}\doxysubsection{Testing}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md729}
+A testing framework is of no good if itself is not thoroughly tested. Tests should be written for any new code, and changes should be verified to not break existing tests before they are submitted for review. To perform the tests, follow the instructions in ../\+R\+E\+A\+D\+ME.md \char`\"{}\+R\+E\+A\+D\+M\+E\char`\"{} and verify that there are no failures.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md730}{}\doxysection{Contributing Code}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md730}
+We are excited that Google Test is now open source, and hope to get great patches from the community. Before you fire up your favorite I\+DE and begin hammering away at that new feature, though, please take the time to read this section and understand the process. While it seems rigorous, we want to keep a high standard of quality in the code base.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md731}{}\doxysubsection{Contributor License Agreements}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md731}
+You must sign a Contributor License Agreement (C\+LA) before we can accept any code. The C\+LA protects you and us.
+
+
+\begin{DoxyItemize}
+\item If you are an individual writing original source code and you\textquotesingle{}re sure you own the intellectual property, then you\textquotesingle{}ll need to sign an \href{http://code.google.com/legal/individual-cla-v1.0.html}{\texttt{ individual C\+LA}}.
+\item If you work for a company that wants to allow you to contribute your work to Google Test, then you\textquotesingle{}ll need to sign a \href{http://code.google.com/legal/corporate-cla-v1.0.html}{\texttt{ corporate C\+LA}}.
+\end{DoxyItemize}
+
+Follow either of the two links above to access the appropriate C\+LA and instructions for how to sign and return it.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md732}{}\doxysubsection{Coding Style}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md732}
+To keep the source consistent, readable, diffable and easy to merge, we use a fairly rigid coding style, as defined by the \href{http://code.google.com/p/google-styleguide/}{\texttt{ google-\/styleguide}} project. All patches will be expected to conform to the style outlined \href{http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml}{\texttt{ here}}.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md733}{}\doxysubsection{Updating Generated Code}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md733}
+Some of Google Test\textquotesingle{}s source files are generated by the Pump tool (a Python script). If you need to update such files, please modify the source ({\ttfamily foo.\+h.\+pump}) and re-\/generate the C++ file using Pump. You can read the Pump\+Manual for details.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md734}{}\doxysubsection{Submitting Patches}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md734}
+Please do submit code. Here\textquotesingle{}s what you need to do\+:
+
+
+\begin{DoxyEnumerate}
+\item A submission should be a set of changes that addresses one issue in the \href{https://github.com/google/googletest/issues}{\texttt{ issue tracker}}. Please don\textquotesingle{}t mix more than one logical change per submittal, because it makes the history hard to follow. If you want to make a change that doesn\textquotesingle{}t have a corresponding issue in the issue tracker, please create one.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Also, coordinate with team members that are listed on the issue in question. This ensures that work isn\textquotesingle{}t being duplicated and communicating your plan early also generally leads to better patches.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Ensure that your code adheres to the Google Test source code style.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Ensure that there are unit tests for your code.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Sign a Contributor License Agreement.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Create a Pull Request in the usual way.
+\end{DoxyEnumerate}\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md735}{}\doxysubsection{Google Test Committers}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md735}
+The current members of the Google Test engineering team are the only committers at present. In the great tradition of eating one\textquotesingle{}s own dogfood, we will be requiring each new Google Test engineering team member to earn the right to become a committer by following the procedures in this document, writing consistently great code, and demonstrating repeatedly that he or she truly gets the zen of Google Test.\hypertarget{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md736}{}\doxysection{Release Process}\label{md_vendor_googletest_googletest_docs__dev_guide_autotoc_md736}
+We follow a typical release process\+:
+
+
+\begin{DoxyEnumerate}
+\item A release branch named {\ttfamily release-\/\+X.\+Y} is created.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Bugs are fixed and features are added in trunk; those individual patches are merged into the release branch until it\textquotesingle{}s stable.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item An individual point release (the {\ttfamily Z} in {\ttfamily X.\+Y.\+Z}) is made by creating a tag from the branch.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Repeat steps 2 and 3 throughout one release cycle (as determined by features or time).
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Go back to step 1 to create another release branch and so on.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+
+
+This page is based on the \href{http://code.google.com/webtoolkit/makinggwtbetter.html}{\texttt{ Making G\+WT Better}} guide from the \href{http://code.google.com/webtoolkit/}{\texttt{ Google Web Toolkit}} project. Except as otherwise \href{http://code.google.com/policies.html\#restrictions}{\texttt{ noted}}, the content of this page is licensed under the \href{http://creativecommons.org/licenses/by/2.5/}{\texttt{ Creative Commons Attribution 2.\+5 License}}. 

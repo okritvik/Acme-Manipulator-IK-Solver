@@ -1,0 +1,193 @@
+The Google C++ mocking framework.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md638}{}\doxysubsection{Overview}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md638}
+Google\textquotesingle{}s framework for writing and using C++ mock classes. It can help you derive better designs of your system and write better tests.
+
+It is inspired by\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://www.jmock.org/}{\texttt{ j\+Mock}},
+\item \href{http://www.easymock.org/}{\texttt{ Easy\+Mock}}, and
+\item \href{http://code.google.com/p/hamcrest/}{\texttt{ Hamcrest}},
+\end{DoxyItemize}
+
+and designed with C++\textquotesingle{}s specifics in mind.
+
+Google mock\+:
+
+
+\begin{DoxyItemize}
+\item lets you create mock classes trivially using simple macros.
+\item supports a rich set of matchers and actions.
+\item handles unordered, partially ordered, or completely ordered expectations.
+\item is extensible by users.
+\end{DoxyItemize}
+
+We hope you find it useful!\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md639}{}\doxysubsection{Features}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md639}
+
+\begin{DoxyItemize}
+\item Provides a declarative syntax for defining mocks.
+\item Can easily define partial (hybrid) mocks, which are a cross of real and mock objects.
+\item Handles functions of arbitrary types and overloaded functions.
+\item Comes with a rich set of matchers for validating function arguments.
+\item Uses an intuitive syntax for controlling the behavior of a mock.
+\item Does automatic verification of expectations (no record-\/and-\/replay needed).
+\item Allows arbitrary (partial) ordering constraints on function calls to be expressed,.
+\item Lets a user extend it by defining new matchers and actions.
+\item Does not use exceptions.
+\item Is easy to learn and use.
+\end{DoxyItemize}
+
+Please see the project page above for more information as well as the mailing list for questions, discussions, and development. There is also an I\+RC channel on O\+F\+TC (\href{irc.oftc.net}{\texttt{ irc.\+oftc.\+net}}) \#gtest available. Please join us!
+
+Please note that code under \href{scripts/generator/}{\texttt{ scripts/generator}} is from \href{http://code.google.com/p/cppclean/}{\texttt{ cppclean}} and released under the Apache License, which is different from Google \mbox{\hyperlink{class_mock}{Mock}}\textquotesingle{}s license.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md640}{}\doxysection{Getting Started}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md640}
+If you are new to the project, we suggest that you read the user documentation in the following order\+:
+
+
+\begin{DoxyItemize}
+\item Learn the ../googletest/docs/\+Primer.md \char`\"{}basics\char`\"{} of Google Test, if you choose to use Google \mbox{\hyperlink{class_mock}{Mock}} with it (recommended).
+\item Read Google Mock for Dummies.
+\item Read the instructions below on how to build Google \mbox{\hyperlink{class_mock}{Mock}}.
+\end{DoxyItemize}
+
+You can also watch Zhanyong\textquotesingle{}s \href{http://www.youtube.com/watch?v=sYpCyLI47rM}{\texttt{ talk}} on Google \mbox{\hyperlink{class_mock}{Mock}}\textquotesingle{}s usage and implementation.
+
+Once you understand the basics, check out the rest of the docs\+:
+
+
+\begin{DoxyItemize}
+\item Cheat\+Sheet -\/ all the commonly used stuff at a glance.
+\item Cook\+Book -\/ recipes for getting things done, including advanced techniques.
+\end{DoxyItemize}
+
+If you need help, please check the Known\+Issues and Frequently\+Asked\+Questions before posting a question on the \href{http://groups.google.com/group/googlemock}{\texttt{ discussion group}}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md641}{}\doxysubsection{Using Google Mock Without Google Test}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md641}
+Google \mbox{\hyperlink{class_mock}{Mock}} is not a testing framework itself. Instead, it needs a testing framework for writing tests. Google \mbox{\hyperlink{class_mock}{Mock}} works seamlessly with \href{http://code.google.com/p/googletest/}{\texttt{ Google Test}}, but you can also use it with \href{googlemock/ForDummies.md\#Using_Google_Mock_with_Any_Testing_Framework}{\texttt{ any C++ testing framework}}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md642}{}\doxysubsection{Requirements for End Users}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md642}
+Google \mbox{\hyperlink{class_mock}{Mock}} is implemented on top of \href{http://github.com/google/googletest/}{\texttt{ Google Test}}, and depends on it. You must use the bundled version of Google Test when using Google \mbox{\hyperlink{class_mock}{Mock}}.
+
+You can also easily configure Google \mbox{\hyperlink{class_mock}{Mock}} to work with another testing framework, although it will still need Google Test. Please read \href{docs/ForDummies.md\#Using_Google_Mock_with_Any_Testing_Framework}{\texttt{ \char`\"{}\+Using\+\_\+\+Google\+\_\+\+Mock\+\_\+with\+\_\+\+Any\+\_\+\+Testing\+\_\+\+Framework\char`\"{}}} for instructions.
+
+Google \mbox{\hyperlink{class_mock}{Mock}} depends on advanced C++ features and thus requires a more modern compiler. The following are needed to use Google \mbox{\hyperlink{class_mock}{Mock}}\+:\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md643}{}\doxysubsubsection{Linux Requirements}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md643}
+
+\begin{DoxyItemize}
+\item G\+N\+U-\/compatible Make or \char`\"{}gmake\char`\"{}
+\item P\+O\+S\+I\+X-\/standard shell
+\item P\+O\+S\+IX(-\/2) Regular Expressions (regex.\+h)
+\item C++98-\/standard-\/compliant compiler (e.\+g. G\+CC 3.\+4 or newer)
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md644}{}\doxysubsubsection{Windows Requirements}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md644}
+
+\begin{DoxyItemize}
+\item Microsoft Visual C++ 8.\+0 S\+P1 or newer
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md645}{}\doxysubsubsection{Mac O\+S X Requirements}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md645}
+
+\begin{DoxyItemize}
+\item Mac OS X 10.\+4 Tiger or newer
+\item Developer Tools Installed
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md646}{}\doxysubsection{Requirements for Contributors}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md646}
+We welcome patches. If you plan to contribute a patch, you need to build Google \mbox{\hyperlink{class_mock}{Mock}} and its tests, which has further requirements\+:
+
+
+\begin{DoxyItemize}
+\item Automake version 1.\+9 or newer
+\item Autoconf version 2.\+59 or newer
+\item Libtool / Libtoolize
+\item Python version 2.\+3 or newer (for running some of the tests and re-\/generating certain source files from templates)
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md647}{}\doxysubsection{Building Google Mock}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md647}
+\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md648}{}\doxysubsubsection{Preparing to Build (\+Unix only)}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md648}
+If you are using a Unix system and plan to use the G\+NU Autotools build system to build Google \mbox{\hyperlink{class_mock}{Mock}} (described below), you\textquotesingle{}ll need to configure it now.
+
+To prepare the Autotools build system\+: \begin{DoxyVerb}cd googlemock
+autoreconf -fvi
+\end{DoxyVerb}
+
+
+To build Google \mbox{\hyperlink{class_mock}{Mock}} and your tests that use it, you need to tell your build system where to find its headers and source files. The exact way to do it depends on which build system you use, and is usually straightforward.
+
+This section shows how you can integrate Google \mbox{\hyperlink{class_mock}{Mock}} into your existing build system.
+
+Suppose you put Google \mbox{\hyperlink{class_mock}{Mock}} in directory {\ttfamily \$\{G\+M\+O\+C\+K\+\_\+\+D\+IR\}} and Google Test in {\ttfamily \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}} (the latter is {\ttfamily \$\{G\+M\+O\+C\+K\+\_\+\+D\+IR\}/gtest} by default). To build Google \mbox{\hyperlink{class_mock}{Mock}}, create a library build target (or a project as called by Visual Studio and Xcode) to compile \begin{DoxyVerb}${GTEST_DIR}/src/gtest-all.cc and ${GMOCK_DIR}/src/gmock-all.cc
+\end{DoxyVerb}
+
+
+with \begin{DoxyVerb}${GTEST_DIR}/include and ${GMOCK_DIR}/include
+\end{DoxyVerb}
+
+
+in the system header search path, and \begin{DoxyVerb}${GTEST_DIR} and ${GMOCK_DIR}
+\end{DoxyVerb}
+
+
+in the normal header search path. Assuming a Linux-\/like system and gcc, something like the following will do\+: \begin{DoxyVerb}g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
+    -isystem ${GMOCK_DIR}/include -I${GMOCK_DIR} \
+    -pthread -c ${GTEST_DIR}/src/gtest-all.cc
+g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
+    -isystem ${GMOCK_DIR}/include -I${GMOCK_DIR} \
+    -pthread -c ${GMOCK_DIR}/src/gmock-all.cc
+ar -rv libgmock.a gtest-all.o gmock-all.o
+\end{DoxyVerb}
+
+
+(We need -\/pthread as Google Test and Google \mbox{\hyperlink{class_mock}{Mock}} use threads.)
+
+Next, you should compile your test source file with \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}/include and \$\{G\+M\+O\+C\+K\+\_\+\+D\+IR\}/include in the header search path, and link it with gmock and any other necessary libraries\+: \begin{DoxyVerb}g++ -isystem ${GTEST_DIR}/include -isystem ${GMOCK_DIR}/include \
+    -pthread path/to/your_test.cc libgmock.a -o your_test
+\end{DoxyVerb}
+
+
+As an example, the make/ directory contains a Makefile that you can use to build Google \mbox{\hyperlink{class_mock}{Mock}} on systems where G\+NU make is available (e.\+g. Linux, Mac OS X, and Cygwin). It doesn\textquotesingle{}t try to build Google \mbox{\hyperlink{class_mock}{Mock}}\textquotesingle{}s own tests. Instead, it just builds the Google \mbox{\hyperlink{class_mock}{Mock}} library and a sample test. You can use it as a starting point for your own build script.
+
+If the default settings are correct for your environment, the following commands should succeed\+: \begin{DoxyVerb}cd ${GMOCK_DIR}/make
+make
+./gmock_test
+\end{DoxyVerb}
+
+
+If you see errors, try to tweak the contents of \href{make/Makefile}{\texttt{ make/\+Makefile}} to make them go away.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md649}{}\doxysubsection{Windows}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md649}
+The msvc/2005 directory contains V\+C++ 2005 projects and the msvc/2010 directory contains V\+C++ 2010 projects for building Google \mbox{\hyperlink{class_mock}{Mock}} and selected tests.
+
+Change to the appropriate directory and run \char`\"{}msbuild gmock.\+sln\char`\"{} to build the library and tests (or open the gmock.\+sln in the M\+S\+VC I\+DE). If you want to create your own project to use with Google \mbox{\hyperlink{class_mock}{Mock}}, you\textquotesingle{}ll have to configure it to use the {\ttfamily gmock\+\_\+config} propety sheet. For that\+:
+
+
+\begin{DoxyItemize}
+\item Open the Property Manager window (View $\vert$ Other Windows $\vert$ Property Manager)
+\item Right-\/click on your project and select \char`\"{}\+Add Existing Property Sheet...\char`\"{}
+\item Navigate to {\ttfamily gmock\+\_\+config.\+vsprops} or {\ttfamily gmock\+\_\+config.\+props} and select it.
+\item In Project Properties $\vert$ Configuration Properties $\vert$ General $\vert$ Additional Include Directories, type $<$path to Google Mock$>$/include.
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md650}{}\doxysubsection{Tweaking Google Mock}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md650}
+Google \mbox{\hyperlink{class_mock}{Mock}} can be used in diverse environments. The default configuration may not work (or may not work well) out of the box in some environments. However, you can easily tweak Google \mbox{\hyperlink{class_mock}{Mock}} by defining control macros on the compiler command line. Generally, these macros are named like {\ttfamily G\+T\+E\+S\+T\+\_\+\+X\+YZ} and you define them to either 1 or 0 to enable or disable a certain feature.
+
+We list the most frequently used macros below. For a complete list, see file \href{../googletest/include/gtest/internal/gtest-port.h}{\texttt{ \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}/include/gtest/internal/gtest-\/port.h}}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md651}{}\doxysubsection{Choosing a T\+R1 Tuple Library}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md651}
+Google \mbox{\hyperlink{class_mock}{Mock}} uses the C++ Technical Report 1 (T\+R1) tuple library heavily. Unfortunately T\+R1 tuple is not yet widely available with all compilers. The good news is that Google Test 1.\+4.\+0+ implements a subset of T\+R1 tuple that\textquotesingle{}s enough for Google \mbox{\hyperlink{class_mock}{Mock}}\textquotesingle{}s need. Google \mbox{\hyperlink{class_mock}{Mock}} will automatically use that implementation when the compiler doesn\textquotesingle{}t provide T\+R1 tuple.
+
+Usually you don\textquotesingle{}t need to care about which tuple library Google Test and Google \mbox{\hyperlink{class_mock}{Mock}} use. However, if your project already uses T\+R1 tuple, you need to tell Google Test and Google \mbox{\hyperlink{class_mock}{Mock}} to use the same T\+R1 tuple library the rest of your project uses, or the two tuple implementations will clash. To do that, add \begin{DoxyVerb}-DGTEST_USE_OWN_TR1_TUPLE=0
+\end{DoxyVerb}
+
+
+to the compiler flags while compiling Google Test, Google \mbox{\hyperlink{class_mock}{Mock}}, and your tests. If you want to force Google Test and Google \mbox{\hyperlink{class_mock}{Mock}} to use their own tuple library, just add \begin{DoxyVerb}-DGTEST_USE_OWN_TR1_TUPLE=1
+\end{DoxyVerb}
+
+
+to the compiler flags instead.
+
+If you want to use Boost\textquotesingle{}s T\+R1 tuple library with Google \mbox{\hyperlink{class_mock}{Mock}}, please refer to the Boost website (\href{http://www.boost.org/}{\texttt{ http\+://www.\+boost.\+org/}}) for how to obtain it and set it up.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md652}{}\doxysubsection{As a Shared Library (\+D\+L\+L)}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md652}
+Google \mbox{\hyperlink{class_mock}{Mock}} is compact, so most users can build and link it as a static library for the simplicity. Google \mbox{\hyperlink{class_mock}{Mock}} can be used as a D\+LL, but the same D\+LL must contain Google Test as well. See ../googletest/\+R\+E\+A\+D\+ME.md \char`\"{}\+Google Test\textquotesingle{}s R\+E\+A\+D\+M\+E\char`\"{} for instructions on how to set up necessary compiler settings.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md653}{}\doxysubsection{Tweaking Google Mock}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md653}
+Most of Google Test\textquotesingle{}s control macros apply to Google \mbox{\hyperlink{class_mock}{Mock}} as well. Please see ../googletest/\+R\+E\+A\+D\+ME.md \char`\"{}\+Google Test\textquotesingle{}s R\+E\+A\+D\+M\+E\char`\"{} for how to tweak them.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md654}{}\doxysubsection{Upgrading from an Earlier Version}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md654}
+We strive to keep Google \mbox{\hyperlink{class_mock}{Mock}} releases backward compatible. Sometimes, though, we have to make some breaking changes for the users\textquotesingle{} long-\/term benefits. This section describes what you\textquotesingle{}ll need to do if you are upgrading from an earlier version of Google \mbox{\hyperlink{class_mock}{Mock}}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md655}{}\doxysubsubsection{Upgrading from 1.\+1.\+0 or Earlier}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md655}
+You may need to explicitly enable or disable Google Test\textquotesingle{}s own T\+R1 tuple library. See the instructions in section \char`\"{}\mbox{[}\+Choosing a T\+R1 Tuple
+\+Library\mbox{]}(../googletest/\#choosing-\/a-\/tr1-\/tuple-\/library)\char`\"{}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md656}{}\doxysubsubsection{Upgrading from 1.\+4.\+0 or Earlier}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md656}
+On platforms where the pthread library is available, Google Test and Google \mbox{\hyperlink{class_mock}{Mock}} use it in order to be thread-\/safe. For this to work, you may need to tweak your compiler and/or linker flags. Please see the \char`\"{}\mbox{[}\+Multi-\/threaded Tests\mbox{]}(../googletest\#multi-\/threaded-\/tests
+)\char`\"{} section in file Google Test\textquotesingle{}s R\+E\+A\+D\+ME for what you may need to do.
+
+If you have custom matchers defined using {\ttfamily Matcher\+Interface} or {\ttfamily Make\+Polymorphic\+Matcher()}, you\textquotesingle{}ll need to update their definitions to use the new matcher A\+PI ( \href{http://code.google.com/p/googlemock/wiki/CookBook\#Writing_New_Monomorphic_Matchers}{\texttt{ monomorphic}}, \href{http://code.google.com/p/googlemock/wiki/CookBook\#Writing_New_Polymorphic_Matchers}{\texttt{ polymorphic}}). Matchers defined using {\ttfamily M\+A\+T\+C\+H\+E\+R()} or {\ttfamily M\+A\+T\+C\+H\+E\+R\+\_\+\+P$\ast$()} aren\textquotesingle{}t affected.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md657}{}\doxysubsection{Developing Google Mock}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md657}
+This section discusses how to make your own changes to Google \mbox{\hyperlink{class_mock}{Mock}}.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md658}{}\doxysubsubsection{Testing Google Mock Itself}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md658}
+To make sure your changes work as intended and don\textquotesingle{}t break existing functionality, you\textquotesingle{}ll want to compile and run Google Test\textquotesingle{}s own tests. For that you\textquotesingle{}ll need Autotools. First, make sure you have followed the instructions above to configure Google \mbox{\hyperlink{class_mock}{Mock}}. Then, create a build output directory and enter it. Next, \begin{DoxyVerb}${GMOCK_DIR}/configure  # try --help for more info
+\end{DoxyVerb}
+
+
+Once you have successfully configured Google \mbox{\hyperlink{class_mock}{Mock}}, the build steps are standard for G\+N\+U-\/style O\+SS packages. \begin{DoxyVerb}make        # Standard makefile following GNU conventions
+make check  # Builds and runs all tests - all should pass.
+\end{DoxyVerb}
+
+
+Note that when building your project against Google \mbox{\hyperlink{class_mock}{Mock}}, you are building against Google Test as well. There is no need to configure Google Test separately.\hypertarget{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md659}{}\doxysubsubsection{Contributing a Patch}\label{md_vendor_googletest_googlemock__r_e_a_d_m_e_autotoc_md659}
+We welcome patches. Please read the Developer\textquotesingle{}s Guide for how you can contribute. In particular, make sure you have signed the Contributor License Agreement, or we won\textquotesingle{}t be able to accept the patch.
+
+Happy testing! 

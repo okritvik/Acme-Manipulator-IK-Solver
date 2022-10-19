@@ -1,0 +1,143 @@
+\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1230}{}\doxysubsubsection{Setup}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1230}
+To build Google Test and your tests that use it, you need to tell your build system where to find its headers and source files. The exact way to do it depends on which build system you use, and is usually straightforward.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1231}{}\doxysubsubsection{Build}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1231}
+Suppose you put Google Test in directory {\ttfamily \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}}. To build it, create a library build target (or a project as called by Visual Studio and Xcode) to compile \begin{DoxyVerb}${GTEST_DIR}/src/gtest-all.cc
+\end{DoxyVerb}
+
+
+with {\ttfamily \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}/include} in the system header search path and {\ttfamily \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}} in the normal header search path. Assuming a Linux-\/like system and gcc, something like the following will do\+: \begin{DoxyVerb}g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
+    -pthread -c ${GTEST_DIR}/src/gtest-all.cc
+ar -rv libgtest.a gtest-all.o
+\end{DoxyVerb}
+
+
+(We need {\ttfamily -\/pthread} as Google Test uses threads.)
+
+Next, you should compile your test source file with {\ttfamily \$\{G\+T\+E\+S\+T\+\_\+\+D\+IR\}/include} in the system header search path, and link it with gtest and any other necessary libraries\+: \begin{DoxyVerb}g++ -isystem ${GTEST_DIR}/include -pthread path/to/your_test.cc libgtest.a \
+    -o your_test
+\end{DoxyVerb}
+
+
+As an example, the make/ directory contains a Makefile that you can use to build Google Test on systems where G\+NU make is available (e.\+g. Linux, Mac OS X, and Cygwin). It doesn\textquotesingle{}t try to build Google Test\textquotesingle{}s own tests. Instead, it just builds the Google Test library and a sample test. You can use it as a starting point for your own build script.
+
+If the default settings are correct for your environment, the following commands should succeed\+: \begin{DoxyVerb}cd ${GTEST_DIR}/make
+make
+./sample1_unittest
+\end{DoxyVerb}
+
+
+If you see errors, try to tweak the contents of {\ttfamily make/\+Makefile} to make them go away. There are instructions in {\ttfamily make/\+Makefile} on how to do it.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1232}{}\doxysubsection{Using C\+Make}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1232}
+Google Test comes with a C\+Make build script ( \href{CMakeLists.txt}{\texttt{ C\+Make\+Lists.\+txt}}) that can be used on a wide range of platforms (\char`\"{}\+C\char`\"{} stands for cross-\/platform.). If you don\textquotesingle{}t have C\+Make installed already, you can download it for free from \href{http://www.cmake.org/}{\texttt{ http\+://www.\+cmake.\+org/}}.
+
+C\+Make works by generating native makefiles or build projects that can be used in the compiler environment of your choice. The typical workflow starts with\+: \begin{DoxyVerb}mkdir mybuild       # Create a directory to hold the build output.
+cd mybuild
+cmake ${GTEST_DIR}  # Generate native build scripts.
+\end{DoxyVerb}
+
+
+If you want to build Google Test\textquotesingle{}s samples, you should replace the last command with \begin{DoxyVerb}cmake -Dgtest_build_samples=ON ${GTEST_DIR}
+\end{DoxyVerb}
+
+
+If you are on a $\ast$nix system, you should now see a Makefile in the current directory. Just type \textquotesingle{}make\textquotesingle{} to build gtest.
+
+If you use Windows and have Visual Studio installed, a {\ttfamily gtest.\+sln} file and several {\ttfamily .vcproj} files will be created. You can then build them using Visual Studio.
+
+On Mac OS X with Xcode installed, a {\ttfamily .xcodeproj} file will be generated.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1233}{}\doxysubsection{Legacy Build Scripts}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1233}
+Before settling on C\+Make, we have been providing hand-\/maintained build projects/scripts for Visual Studio, Xcode, and Autotools. While we continue to provide them for convenience, they are not actively maintained any more. We highly recommend that you follow the instructions in the previous two sections to integrate Google Test with your existing build system.
+
+If you still need to use the legacy build scripts, here\textquotesingle{}s how\+:
+
+The msvc\textbackslash{} folder contains two solutions with Visual C++ projects. Open the {\ttfamily gtest.\+sln} or {\ttfamily gtest-\/md.\+sln} file using Visual Studio, and you are ready to build Google Test the same way you build any Visual Studio project. Files that have names ending with -\/md use D\+LL versions of Microsoft runtime libraries (the /\+MD or the /\+M\+Dd compiler option). Files without that suffix use static versions of the runtime libraries (the /\+MT or the /\+M\+Td option). Please note that one must use the same option to compile both gtest and the test code. If you use Visual Studio 2005 or above, we recommend the -\/md version as /\+MD is the default for new projects in these versions of Visual Studio.
+
+On Mac OS X, open the {\ttfamily gtest.\+xcodeproj} in the {\ttfamily xcode/} folder using Xcode. Build the \char`\"{}gtest\char`\"{} target. The universal binary framework will end up in your selected build directory (selected in the Xcode \char`\"{}\+Preferences...\char`\"{} -\/$>$ \char`\"{}\+Building\char`\"{} pane and defaults to xcode/build). Alternatively, at the command line, enter\+: \begin{DoxyVerb}xcodebuild
+\end{DoxyVerb}
+
+
+This will build the \char`\"{}\+Release\char`\"{} configuration of gtest.\+framework in your default build location. See the \char`\"{}xcodebuild\char`\"{} man page for more information about building different configurations and building in different locations.
+
+If you wish to use the Google Test Xcode project with Xcode 4.\+x and above, you need to either\+:
+
+
+\begin{DoxyItemize}
+\item update the S\+DK configuration options in xcode/\+Config/\+General.\+xconfig. Comment options {\ttfamily S\+D\+K\+R\+O\+OT}, {\ttfamily M\+A\+C\+O\+S\+\_\+\+D\+E\+P\+L\+O\+Y\+M\+E\+N\+T\+\_\+\+T\+A\+R\+G\+ET}, and {\ttfamily G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON}. If you choose this route you lose the ability to target earlier versions of Mac\+OS X.
+\item Install an S\+DK for an earlier version. This doesn\textquotesingle{}t appear to be supported by Apple, but has been reported to work (\href{http://stackoverflow.com/questions/5378518}{\texttt{ http\+://stackoverflow.\+com/questions/5378518}}).
+\end{DoxyItemize}\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1234}{}\doxysubsection{Tweaking Google Test}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1234}
+Google Test can be used in diverse environments. The default configuration may not work (or may not work well) out of the box in some environments. However, you can easily tweak Google Test by defining control macros on the compiler command line. Generally, these macros are named like {\ttfamily G\+T\+E\+S\+T\+\_\+\+X\+YZ} and you define them to either 1 or 0 to enable or disable a certain feature.
+
+We list the most frequently used macros below. For a complete list, see file \href{include/gtest/internal/gtest-port.h}{\texttt{ include/gtest/internal/gtest-\/port.\+h}}.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1235}{}\doxysubsection{Choosing a T\+R1 Tuple Library}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1235}
+Some Google Test features require the C++ Technical Report 1 (T\+R1) tuple library, which is not yet available with all compilers. The good news is that Google Test implements a subset of T\+R1 tuple that\textquotesingle{}s enough for its own need, and will automatically use this when the compiler doesn\textquotesingle{}t provide T\+R1 tuple.
+
+Usually you don\textquotesingle{}t need to care about which tuple library Google Test uses. However, if your project already uses T\+R1 tuple, you need to tell Google Test to use the same T\+R1 tuple library the rest of your project uses, or the two tuple implementations will clash. To do that, add \begin{DoxyVerb}-DGTEST_USE_OWN_TR1_TUPLE=0
+\end{DoxyVerb}
+
+
+to the compiler flags while compiling Google Test and your tests. If you want to force Google Test to use its own tuple library, just add \begin{DoxyVerb}-DGTEST_USE_OWN_TR1_TUPLE=1
+\end{DoxyVerb}
+
+
+to the compiler flags instead.
+
+If you don\textquotesingle{}t want Google Test to use tuple at all, add \begin{DoxyVerb}-DGTEST_HAS_TR1_TUPLE=0
+\end{DoxyVerb}
+
+
+and all features using tuple will be disabled.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1236}{}\doxysubsection{Multi-\/threaded Tests}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1236}
+Google Test is thread-\/safe where the pthread library is available. After {\ttfamily \#include \char`\"{}gtest/gtest.\+h\char`\"{}}, you can check the {\ttfamily G\+T\+E\+S\+T\+\_\+\+I\+S\+\_\+\+T\+H\+R\+E\+A\+D\+S\+A\+FE} macro to see whether this is the case (yes if the macro is {\ttfamily \#defined} to 1, no if it\textquotesingle{}s undefined.).
+
+If Google Test doesn\textquotesingle{}t correctly detect whether pthread is available in your environment, you can force it with \begin{DoxyVerb}-DGTEST_HAS_PTHREAD=1
+\end{DoxyVerb}
+
+
+or \begin{DoxyVerb}-DGTEST_HAS_PTHREAD=0
+\end{DoxyVerb}
+
+
+When Google Test uses pthread, you may need to add flags to your compiler and/or linker to select the pthread library, or you\textquotesingle{}ll get link errors. If you use the C\+Make script or the deprecated Autotools script, this is taken care of for you. If you use your own build script, you\textquotesingle{}ll need to read your compiler and linker\textquotesingle{}s manual to figure out what flags to add.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1237}{}\doxysubsection{As a Shared Library (\+D\+L\+L)}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1237}
+Google Test is compact, so most users can build and link it as a static library for the simplicity. You can choose to use Google Test as a shared library (known as a D\+LL on Windows) if you prefer.
+
+To compile {\itshape gtest} as a shared library, add \begin{DoxyVerb}-DGTEST_CREATE_SHARED_LIBRARY=1
+\end{DoxyVerb}
+
+
+to the compiler flags. You\textquotesingle{}ll also need to tell the linker to produce a shared library instead -\/ consult your linker\textquotesingle{}s manual for how to do it.
+
+To compile your {\itshape tests} that use the gtest shared library, add \begin{DoxyVerb}-DGTEST_LINKED_AS_SHARED_LIBRARY=1
+\end{DoxyVerb}
+
+
+to the compiler flags.
+
+Note\+: while the above steps aren\textquotesingle{}t technically necessary today when using some compilers (e.\+g. G\+CC), they may become necessary in the future, if we decide to improve the speed of loading the library (see \href{http://gcc.gnu.org/wiki/Visibility}{\texttt{ http\+://gcc.\+gnu.\+org/wiki/\+Visibility}} for details). Therefore you are recommended to always add the above flags when using Google Test as a shared library. Otherwise a future release of Google Test may break your build script.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1238}{}\doxysubsection{Avoiding Macro Name Clashes}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1238}
+In C++, macros don\textquotesingle{}t obey namespaces. Therefore two libraries that both define a macro of the same name will clash if you {\ttfamily \#include} both definitions. In case a Google Test macro clashes with another library, you can force Google Test to rename its macro to avoid the conflict.
+
+Specifically, if both Google Test and some other code define macro F\+OO, you can add \begin{DoxyVerb}-DGTEST_DONT_DEFINE_FOO=1
+\end{DoxyVerb}
+
+
+to the compiler flags to tell Google Test to change the macro\textquotesingle{}s name from {\ttfamily F\+OO} to {\ttfamily G\+T\+E\+S\+T\+\_\+\+F\+OO}. Currently {\ttfamily F\+OO} can be {\ttfamily F\+A\+IL}, {\ttfamily S\+U\+C\+C\+E\+ED}, or {\ttfamily T\+E\+ST}. For example, with {\ttfamily -\/D\+G\+T\+E\+S\+T\+\_\+\+D\+O\+N\+T\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+T\+E\+ST=1}, you\textquotesingle{}ll need to write \begin{DoxyVerb}GTEST_TEST(SomeTest, DoesThis) { ... }
+\end{DoxyVerb}
+
+
+instead of \begin{DoxyVerb}TEST(SomeTest, DoesThis) { ... }
+\end{DoxyVerb}
+
+
+in order to define a test.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1239}{}\doxysection{Developing Google Test}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1239}
+This section discusses how to make your own changes to Google Test.\hypertarget{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1240}{}\doxysubsection{Testing Google Test Itself}\label{md_vendor_googletest_googletest__r_e_a_d_m_e_autotoc_md1240}
+To make sure your changes work as intended and don\textquotesingle{}t break existing functionality, you\textquotesingle{}ll want to compile and run Google Test\textquotesingle{}s own tests. For that you can use C\+Make\+: \begin{DoxyVerb}mkdir mybuild
+cd mybuild
+cmake -Dgtest_build_tests=ON ${GTEST_DIR}
+\end{DoxyVerb}
+
+
+Make sure you have Python installed, as some of Google Test\textquotesingle{}s tests are written in Python. If the cmake command complains about not being able to find Python ({\ttfamily Could N\+OT find Python\+Interp (missing\+: P\+Y\+T\+H\+O\+N\+\_\+\+E\+X\+E\+C\+U\+T\+A\+B\+LE)}), try telling it explicitly where your Python executable can be found\+: \begin{DoxyVerb}cmake -DPYTHON_EXECUTABLE=path/to/python -Dgtest_build_tests=ON ${GTEST_DIR}
+\end{DoxyVerb}
+
+
+Next, you can build Google Test and all of its own tests. On $\ast$nix, this is usually done by \textquotesingle{}make\textquotesingle{}. To run the tests, do \begin{DoxyVerb}make test
+\end{DoxyVerb}
+
+
+All tests should pass.
+
+Normally you don\textquotesingle{}t need to worry about regenerating the source files, unless you need to modify them. In that case, you should modify the corresponding .pump files instead and run the \mbox{\hyperlink{pump_8py_source}{pump.\+py}} Python script to regenerate them. You can find \mbox{\hyperlink{pump_8py_source}{pump.\+py}} in the \href{scripts/}{\texttt{ scripts/}} directory. Read the Pump manual for how to use it. 

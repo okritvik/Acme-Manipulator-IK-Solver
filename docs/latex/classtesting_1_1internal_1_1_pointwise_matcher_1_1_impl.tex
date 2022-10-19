@@ -1,0 +1,71 @@
+\hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl}{}\doxysection{testing\+::internal\+::Pointwise\+Matcher$<$ Tuple\+Matcher, Rhs\+Container $>$\+::Impl$<$ Lhs\+Container $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl}\index{testing::internal::PointwiseMatcher$<$ TupleMatcher, RhsContainer $>$::Impl$<$ LhsContainer $>$@{testing::internal::PointwiseMatcher$<$ TupleMatcher, RhsContainer $>$::Impl$<$ LhsContainer $>$}}
+
+
+Inheritance diagram for testing\+::internal\+::Pointwise\+Matcher$<$ Tuple\+Matcher, Rhs\+Container $>$\+::Impl$<$ Lhs\+Container $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for testing\+::internal\+::Pointwise\+Matcher$<$ Tuple\+Matcher, Rhs\+Container $>$\+::Impl$<$ Lhs\+Container $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a5240abc710bb0a5bedfd180bf6701fae}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a5240abc710bb0a5bedfd180bf6701fae}} 
+typedef \mbox{\hyperlink{classtesting_1_1internal_1_1_stl_container_view}{internal\+::\+Stl\+Container\+View}}$<$ G\+T\+E\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+A\+N\+D\+\_\+\+C\+O\+N\+S\+T\+\_\+(Lhs\+Container)$>$ {\bfseries Lhs\+View}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a23420b57b4cd6d83cec8afda746c27f2}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a23420b57b4cd6d83cec8afda746c27f2}} 
+typedef Lhs\+View\+::type {\bfseries Lhs\+Stl\+Container}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a9df3eb0866f76d59dbdd35fafeb5590c}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a9df3eb0866f76d59dbdd35fafeb5590c}} 
+typedef Lhs\+View\+::const\+\_\+reference {\bfseries Lhs\+Stl\+Container\+Reference}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a453769e721f4212e399f76c980b4b65c}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a453769e721f4212e399f76c980b4b65c}} 
+typedef Lhs\+Stl\+Container\+::value\+\_\+type {\bfseries Lhs\+Value}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_aba9d983881cbfbb37724b8b40e863898}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_aba9d983881cbfbb37724b8b40e863898}} 
+typedef \+::testing\+::tuple$<$ const Lhs\+Value \&, const Rhs\+Value \& $>$ {\bfseries Inner\+Matcher\+Arg}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_aaf6841b254ef78395919dfc5705dd152}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_aaf6841b254ef78395919dfc5705dd152}} 
+{\bfseries Impl} (const Tuple\+Matcher \&tuple\+\_\+matcher, const Rhs\+Stl\+Container \&rhs)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a0c699f62bbd02595471b793baa9cc75e}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a0c699f62bbd02595471b793baa9cc75e}} 
+virtual void {\bfseries Describe\+To} (\+::std\+::ostream $\ast$os) const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a26d3a829149e4c497aaced42aad7b247}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a26d3a829149e4c497aaced42aad7b247}} 
+virtual void {\bfseries Describe\+Negation\+To} (\+::std\+::ostream $\ast$os) const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a4253946989f3743c4dd983909f2d062b}\label{classtesting_1_1internal_1_1_pointwise_matcher_1_1_impl_a4253946989f3743c4dd983909f2d062b}} 
+virtual bool {\bfseries Match\+And\+Explain} (Lhs\+Container lhs, \mbox{\hyperlink{classtesting_1_1_match_result_listener}{Match\+Result\+Listener}} $\ast$listener) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Tuple\+Matcher, typename Rhs\+Container$>$\newline
+template$<$typename Lhs\+Container$>$\newline
+class testing\+::internal\+::\+Pointwise\+Matcher$<$ Tuple\+Matcher, Rhs\+Container $>$\+::\+Impl$<$ Lhs\+Container $>$}
+
+
+
+Definition at line 2715 of file gmock-\/matchers.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vendor/googletest/googlemock/include/gmock/gmock-\/matchers.\+h\end{DoxyCompactItemize}

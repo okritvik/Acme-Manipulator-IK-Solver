@@ -1,0 +1,164 @@
+\hypertarget{class_robot}{}\doxysection{Robot Class Reference}
+\label{class_robot}\index{Robot@{Robot}}
+
+
+Defines the \mbox{\hyperlink{class_robot}{Robot}} class containing 3 children classes -\/ \mbox{\hyperlink{class_controller}{Controller}}, \mbox{\hyperlink{class_kinematics}{Kinematics}} and \mbox{\hyperlink{class_simulator}{Simulator}}.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}{Robot}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_robot}{Robot}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_a2be26e4c47c92a7a12659ccd607567e6}{execute\+\_\+path}} ()
+\begin{DoxyCompactList}\small\item\em Generates and executes a trajectory for the robot\textquotesingle{}s path from the initial pose to the final pose. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_ae25c61db69c5f1fd0df2f743521be033}{set\+\_\+initial\+\_\+pose}} (std\+::vector$<$ double $>$ $\ast$pose)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the initial pose of the robot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_ad03ee7e8edcc25b1f6522eb03586aecc}{set\+\_\+final\+\_\+pose}} (std\+::vector$<$ double $>$ $\ast$pose)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the desired final pose of the robot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}{set\+\_\+joint\+\_\+angles}} (std\+::vector$<$ double $>$ $\ast$joint\+\_\+angles)
+\begin{DoxyCompactList}\small\item\em Mutator function to set the robot\textquotesingle{}s joint angles. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_robot_a3e489543ecc90e10881e7b035a04f01b}{get\+\_\+joint\+\_\+angles}} ()
+\begin{DoxyCompactList}\small\item\em Accessor function to get the joint angles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the \mbox{\hyperlink{class_robot}{Robot}} class containing 3 children classes -\/ \mbox{\hyperlink{class_controller}{Controller}}, \mbox{\hyperlink{class_kinematics}{Kinematics}} and \mbox{\hyperlink{class_simulator}{Simulator}}. 
+
+
+
+Definition at line 26 of file Robot.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}\label{class_robot_a4fc7c70ae20623f05e06f2ecb388b6c4}} 
+\index{Robot@{Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{Robot()}{Robot()}}
+{\footnotesize\ttfamily Robot\+::\+Robot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_robot}{Robot}} object. 
+
+
+
+Definition at line 19 of file Robot.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_robot_a2be26e4c47c92a7a12659ccd607567e6}\label{class_robot_a2be26e4c47c92a7a12659ccd607567e6}} 
+\index{Robot@{Robot}!execute\_path@{execute\_path}}
+\index{execute\_path@{execute\_path}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{execute\_path()}{execute\_path()}}
+{\footnotesize\ttfamily bool Robot\+::execute\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates and executes a trajectory for the robot\textquotesingle{}s path from the initial pose to the final pose. 
+
+\begin{DoxyReturn}{Returns}
+true When a valid path exists and the robot executes it. 
+
+false When the path is invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_a3e489543ecc90e10881e7b035a04f01b}\label{class_robot_a3e489543ecc90e10881e7b035a04f01b}} 
+\index{Robot@{Robot}!get\_joint\_angles@{get\_joint\_angles}}
+\index{get\_joint\_angles@{get\_joint\_angles}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{get\_joint\_angles()}{get\_joint\_angles()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Robot\+::get\+\_\+joint\+\_\+angles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor function to get the joint angles. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ Joint angles of the robot (rad) 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_ad03ee7e8edcc25b1f6522eb03586aecc}\label{class_robot_ad03ee7e8edcc25b1f6522eb03586aecc}} 
+\index{Robot@{Robot}!set\_final\_pose@{set\_final\_pose}}
+\index{set\_final\_pose@{set\_final\_pose}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_final\_pose()}{set\_final\_pose()}}
+{\footnotesize\ttfamily bool Robot\+::set\+\_\+final\+\_\+pose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{pose }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the desired final pose of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Final position of the robot\textquotesingle{}s end-\/effector w.\+r.\+t. the base frame (m) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Final position value is valid and set 
+
+false Final position value is invalid 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_ae25c61db69c5f1fd0df2f743521be033}\label{class_robot_ae25c61db69c5f1fd0df2f743521be033}} 
+\index{Robot@{Robot}!set\_initial\_pose@{set\_initial\_pose}}
+\index{set\_initial\_pose@{set\_initial\_pose}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_initial\_pose()}{set\_initial\_pose()}}
+{\footnotesize\ttfamily bool Robot\+::set\+\_\+initial\+\_\+pose (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{pose }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the initial pose of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Initial position of the robot\textquotesingle{}s end-\/effector w.\+r.\+t. the base frame (m) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Initial position value is valid and set 
+
+false Initial position value is invalid 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file Robot.\+cpp.
+
+\mbox{\Hypertarget{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}\label{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}} 
+\index{Robot@{Robot}!set\_joint\_angles@{set\_joint\_angles}}
+\index{set\_joint\_angles@{set\_joint\_angles}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{set\_joint\_angles()}{set\_joint\_angles()}}
+{\footnotesize\ttfamily bool Robot\+::set\+\_\+joint\+\_\+angles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{joint\+\_\+angles }\end{DoxyParamCaption})}
+
+
+
+Mutator function to set the robot\textquotesingle{}s joint angles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint\+\_\+angles} & Joint angles of the robot (rad) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Robot.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_robot_8hpp}{Robot.\+hpp}}\item 
+/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}

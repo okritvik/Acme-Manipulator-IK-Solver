@@ -1,21 +1,55 @@
-#ifndef POSITIONFK_HPP_
-#define POSITIONFK_HPP_
+/**
+ * @file PositionFK.hpp
+ * @author Adarsh Malapaka (amalapak@terpmail.umd.edu)
+ * @author Kumara Ritvik Oruganti (okritvik@umd.edu)
+ * @brief Class definition for Acme's Robot Manipulator's Forward Kinematics (Position) solver.
+ * @version 0.1
+ * @date 2022-10-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+#pragma once
 
 #include <vector>
 
-#include "NumCpp.hpp"
+#include <NumCpp.hpp>
 
-class PositionFK{
+/**
+ * @brief Defines the Position Forward Kinematics solver class using the standard form of the Denavit-Hartenberg convention.
+ * 
+ */
+class PositionFK {
  public:
+    /**
+     * @brief Constructor for PositionFK to initialize the robot's D-H table matrix.
+     * 
+     */
     PositionFK();
+
+    /**
+     * @brief Accessor function to get the D-H table of the robot.
+     * 
+     * @return nc::NdArray<double> D-H table matrix of the robot (theta, a , d, alpha).
+     */
     nc::NdArray<double> get_dh();
+
+    /**
+     * @brief Computes the homogeneous transformation matrix between successive links on the robot.
+     * 
+     * @return nc::NdArray<double> Transformation matrix between links 'i-1' and 'i'
+     */
     nc::NdArray<double> link_transformation();
-    void set_joint_angles(std::vector<double> joint_angles);
+
+    /**
+     * @brief Mutator function to set the robot's joint angles.
+     * 
+     * @param joint_angles Joint angles of the robot (rad)
+     */
+    void set_joint_angles(std::vector<double> *joint_angles);
 
  private:
-    std::vector<double> m_joint_angles;
-    nc::NdArray<double> m_dh_table;
+    std::vector<double> m_joint_angles;    // Joint angles of the robot
+    nc::NdArray<double> m_dh_table;    // D-H table matrix
     std::vector<std::vector<double>> m_joint_positions;
 };
-
-#endif  // POSITIONFK_HPP_

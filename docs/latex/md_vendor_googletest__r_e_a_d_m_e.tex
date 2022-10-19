@@ -1,0 +1,86 @@
+\href{https://travis-ci.org/google/googletest}{\texttt{ }} \href{https://ci.appveyor.com/project/BillyDonahue/googletest/branch/master}{\texttt{ }}
+
+Welcome to {\bfseries{Google Test}}, Google\textquotesingle{}s C++ test framework!
+
+This repository is a merger of the formerly separate Google\+Test and Google\+Mock projects. These were so closely related that it makes sense to maintain and release them together.
+
+Please see the project page above for more information as well as the mailing list for questions, discussions, and development. There is also an I\+RC channel on O\+F\+TC (\href{irc.oftc.net}{\texttt{ irc.\+oftc.\+net}}) \#gtest available. Please join us!
+
+Getting started information for {\bfseries{Google Test}} is available in the Google Test Primer documentation.
+
+{\bfseries{Google \mbox{\hyperlink{class_mock}{Mock}}}} is an extension to Google Test for writing and using C++ mock classes. See the separate Google Mock documentation.
+
+More detailed documentation for googletest (including build instructions) are in its interior googletest/\+R\+E\+A\+D\+ME.md file.\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1243}{}\doxysection{Features}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1243}
+
+\begin{DoxyItemize}
+\item An \href{https://en.wikipedia.org/wiki/XUnit}{\texttt{ X\+Unit}} test framework.
+\item Test discovery.
+\item A rich set of assertions.
+\item User-\/defined assertions.
+\item Death tests.
+\item Fatal and non-\/fatal failures.
+\item Value-\/parameterized tests.
+\item Type-\/parameterized tests.
+\item Various options for running the tests.
+\item X\+ML test report generation.
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1244}{}\doxysection{Platforms}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1244}
+Google test has been used on a variety of platforms\+:
+
+
+\begin{DoxyItemize}
+\item Linux
+\item Mac OS X
+\item Windows
+\item Cygwin
+\item Min\+GW
+\item Windows Mobile
+\item Symbian
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1245}{}\doxysection{Who Is Using Google Test?}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1245}
+In addition to many internal projects at Google, Google Test is also used by the following notable projects\+:
+
+
+\begin{DoxyItemize}
+\item The \href{http://www.chromium.org/}{\texttt{ Chromium projects}} (behind the Chrome browser and Chrome OS).
+\item The \href{http://llvm.org/}{\texttt{ L\+L\+VM}} compiler.
+\item \href{https://github.com/google/protobuf}{\texttt{ Protocol Buffers}}, Google\textquotesingle{}s data interchange format.
+\item The \href{http://opencv.org/}{\texttt{ Open\+CV}} computer vision library.
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1246}{}\doxysection{Related Open Source Projects}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1246}
+\href{https://github.com/ospector/gtest-gbar}{\texttt{ Google Test UI}} is test runner that runs your test binary, allows you to track its progress via a progress bar, and displays a list of test failures. Clicking on one shows failure text. Google Test UI is written in C\#.
+
+\href{https://github.com/kinow/gtest-tap-listener}{\texttt{ G\+Test T\+AP Listener}} is an event listener for Google Test that implements the \href{https://en.wikipedia.org/wiki/Test_Anything_Protocol}{\texttt{ T\+AP protocol}} for test result output. If your test runner understands T\+AP, you may find it useful.\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1247}{}\doxysection{Requirements}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1247}
+Google Test is designed to have fairly minimal requirements to build and use with your projects, but there are some. Currently, we support Linux, Windows, Mac OS X, and Cygwin. We will also make our best effort to support other platforms (e.\+g. Solaris, A\+IX, and z/\+OS). However, since core members of the Google Test project have no access to these platforms, Google Test may have outstanding issues there. If you notice any problems on your platform, please notify \href{mailto:googletestframework@googlegroups.com}{\texttt{ googletestframework@googlegroups.\+com}}. Patches for fixing them are even more welcome!\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1248}{}\doxysubsection{Linux Requirements}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1248}
+These are the base requirements to build and use Google Test from a source package (as described below)\+:
+
+
+\begin{DoxyItemize}
+\item G\+N\+U-\/compatible Make or gmake
+\item P\+O\+S\+I\+X-\/standard shell
+\item P\+O\+S\+IX(-\/2) Regular Expressions (regex.\+h)
+\item A C++98-\/standard-\/compliant compiler
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1249}{}\doxysubsection{Windows Requirements}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1249}
+
+\begin{DoxyItemize}
+\item Microsoft Visual C++ v7.\+1 or newer
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1250}{}\doxysubsection{Cygwin Requirements}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1250}
+
+\begin{DoxyItemize}
+\item Cygwin v1.\+5.\+25-\/14 or newer
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1251}{}\doxysubsection{Mac O\+S X Requirements}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1251}
+
+\begin{DoxyItemize}
+\item Mac OS X v10.\+4 Tiger or newer
+\item Xcode Developer Tools
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1252}{}\doxysubsection{Requirements for Contributors}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1252}
+We welcome patches. If you plan to contribute a patch, you need to build Google Test and its own tests from a git checkout (described below), which has further requirements\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.python.org/}{\texttt{ Python}} v2.\+3 or newer (for running some of the tests and re-\/generating certain source files from templates)
+\item \href{https://cmake.org/}{\texttt{ C\+Make}} v2.\+6.\+4 or newer
+\end{DoxyItemize}\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1253}{}\doxysection{Regenerating Source Files}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1253}
+Some of Google Test\textquotesingle{}s source files are generated from templates (not in the C++ sense) using a script. For example, the file include/gtest/internal/gtest-\/type-\/util.\+h.\+pump is used to generate \mbox{\hyperlink{gtest-type-util_8h_source}{gtest-\/type-\/util.\+h}} in the same directory.
+
+You don\textquotesingle{}t need to worry about regenerating the source files unless you need to modify them. You would then modify the corresponding {\ttfamily .pump} files and run the \textquotesingle{}\href{googletest/scripts/pump.py}{\texttt{ pump.\+py}}\textquotesingle{} generator script. See the Pump Manual.\hypertarget{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1254}{}\doxysubsection{Contributing Code}\label{md_vendor_googletest__r_e_a_d_m_e_autotoc_md1254}
+We welcome patches. Please read the Developer\textquotesingle{}s Guide for how you can contribute. In particular, make sure you have signed the Contributor License Agreement, or we won\textquotesingle{}t be able to accept the patch.
+
+Happy testing! 
