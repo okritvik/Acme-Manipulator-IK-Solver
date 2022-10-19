@@ -39,6 +39,7 @@ roles are exchanged during each phase of the project to effectively develop and 
 https://docs.google.com/spreadsheets/d/1HQ5xud5pmoVvb_mYnJKh-MRk1BLdxQRhTKgOH5_86q8/edit?usp=sharing
 
 ### Sprint Planning Notes
+https://docs.google.com/document/d/1ijUpFVlCYz2PgyUbk9tgiPQKvrySPF6OE5J3ujOBgIA/edit?usp=sharing
 
 ### Quad Chart
 <p align="center">
