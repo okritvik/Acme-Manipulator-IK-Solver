@@ -23,15 +23,31 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "ACME-IK-Solver", "index.html", [
-    [ "readme", "md_readme.html", [
-      [ "Acme Robotics: Manipulator Inverse Kinematics Path Planner", "md_readme.html#autotoc_md0", [
-        [ "Overview", "md_readme.html#autotoc_md1", null ],
-        [ "Team Members:", "md_readme.html#autotoc_md2", null ],
-        [ "Proposal", "md_readme.html#autotoc_md3", [
-          [ "Quad Chart", "md_readme.html#autotoc_md4", null ],
-          [ "Video", "md_readme.html#autotoc_md5", null ]
+    [ "readme", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html", [
+      [ "Acme Robotics: Manipulator Inverse Kinematics Path Planner", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md0", [
+        [ "Overview", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md1", null ],
+        [ "Personnel:", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md2", null ],
+        [ "Agile-Iterative Process (AIP) Resources", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md3", [
+          [ "Phase 01 Video", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md4", null ],
+          [ "Product Backlog:", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md5", null ],
+          [ "Sprint Planning Notes", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md6", null ],
+          [ "Quad Chart", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md7", null ],
+          [ "Proposal", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md8", null ]
         ] ],
-        [ "File Tree", "md_readme.html#autotoc_md6", null ]
+        [ "Developer Documentation", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md9", [
+          [ "Environment Setup", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md10", null ],
+          [ "Dependencies", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md11", null ],
+          [ "Build", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md12", null ],
+          [ "Build for Code Coverage", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md13", null ],
+          [ "Run Demo", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md14", null ],
+          [ "Run Tests", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md15", null ],
+          [ "Doxygen Docs", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md16", null ],
+          [ "cppcheck", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md17", null ],
+          [ "cpplint", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md18", null ]
+        ] ],
+        [ "Known Issues/Bugs", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md19", null ],
+        [ "File Tree", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md20", null ],
+        [ "License", "md__media_adarsh__h_d_d__ubuntu__mid-_term__acme-_manipulator-_i_k-_solver_readme.html#autotoc_md21", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

@@ -34,7 +34,7 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
   </td>
@@ -98,10 +98,11 @@ $(document).ready(function(){initNavTree('class_controller.html',''); initResiza
 
 <p>This is the complete list of members for <a class="el" href="class_controller.html">Controller</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_controller.html#a9d72c07e85a467588f169cee503c243a">control_action</a>(std::vector&lt; double &gt; present_pose, std::vector&lt; double &gt; target_pose)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">get_gains</a>()</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_controller.html#a2547c3e6df73c5e31cd21712c35f9ac9">saturation</a>(double min_vel, double max_vel)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_controller.html#aba1c2c973f09ab831ea4f50b6894536d">set_gains</a>(double kp, double ki, double kd)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">control_action</a>(std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_controller.html#a95c56822d667e94b031451729ce069a9">Controller</a>()</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">get_gains</a>()</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4">saturation</a>(double *min_vel, double *max_vel)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_controller.html#a73a23885d522a0787792215ca3f34a64">set_gains</a>(double *kp, double *ki, double *kd)</td><td class="entry"><a class="el" href="class_controller.html">Controller</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

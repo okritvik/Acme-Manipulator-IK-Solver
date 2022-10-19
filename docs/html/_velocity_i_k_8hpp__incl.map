@@ -1,6 +1,5 @@
-<map id="include/VelocityIK.hpp" name="include/VelocityIK.hpp">
-<area shape="rect" id="node1" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="79,5,245,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="92,80,232,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="257,80,363,107"/>
+<map id="/media/adarsh/HDD/Ubuntu/Mid&#45;Term/Acme&#45;Manipulator&#45;IK&#45;Solver/include/VelocityIK.hpp" name="/media/adarsh/HDD/Ubuntu/Mid&#45;Term/Acme&#45;Manipulator&#45;IK&#45;Solver/include/VelocityIK.hpp">
+<area shape="rect" id="node1" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="5,5,239,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="36,109,99,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="123,109,230,136"/>
 </map>

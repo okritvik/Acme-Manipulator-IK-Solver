@@ -1,7 +1,8 @@
 var class_controller =
 [
-    [ "control_action", "class_controller.html#a9d72c07e85a467588f169cee503c243a", null ],
+    [ "Controller", "class_controller.html#a95c56822d667e94b031451729ce069a9", null ],
+    [ "control_action", "class_controller.html#a002fb930e8f0293156973752f1f2dd61", null ],
     [ "get_gains", "class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39", null ],
-    [ "saturation", "class_controller.html#a2547c3e6df73c5e31cd21712c35f9ac9", null ],
-    [ "set_gains", "class_controller.html#aba1c2c973f09ab831ea4f50b6894536d", null ]
+    [ "saturation", "class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4", null ],
+    [ "set_gains", "class_controller.html#a73a23885d522a0787792215ca3f34a64", null ]
 ];

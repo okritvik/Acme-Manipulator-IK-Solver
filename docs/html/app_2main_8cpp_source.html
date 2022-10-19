@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: app/main.cpp Source File</title>
+<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/main.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,7 +34,7 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
   </td>
@@ -103,13 +103,13 @@ $(document).ready(function(){initNavTree('app_2main_8cpp_source.html',''); initR
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">int</span> main() {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_robot.html">Robot</a> acme_kuka;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;double&gt; start_pose;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> test = acme_kuka.<a class="code" href="class_robot.html#a9cc418a6d28c92f4fc0349b513ba6a55">set_initial_pose</a>(start_pose);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> test = acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;start_pose);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::cout &lt;&lt; test &lt;&lt; <span class="stringliteral">&quot; DONE&quot;</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_robot_html_a9cc418a6d28c92f4fc0349b513ba6a55"><div class="ttname"><a href="class_robot.html#a9cc418a6d28c92f4fc0349b513ba6a55">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00023">Robot.cpp:23</a></div></div>
-<div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdoc">Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hpp_source.html#l00025">Robot.hpp:25</a></div></div>
+<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00026">Robot.cpp:26</a></div></div>
+<div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdoc">Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hpp_source.html#l00026">Robot.hpp:26</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

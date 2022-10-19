@@ -12,13 +12,15 @@ Defines the P\+ID controller class.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{class_controller_aba1c2c973f09ab831ea4f50b6894536d}{set\+\_\+gains}} (double kp, double ki, double kd)
+\mbox{\hyperlink{class_controller_a95c56822d667e94b031451729ce069a9}{Controller}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_controller}{Controller}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_controller_a73a23885d522a0787792215ca3f34a64}{set\+\_\+gains}} (double $\ast$kp, double $\ast$ki, double $\ast$kd)
 \begin{DoxyCompactList}\small\item\em Mutator function to set the values of controller gains (Kp, Ki, Kd) \end{DoxyCompactList}\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{class_controller_a15e8c6de3ebf3abcf29e705f08c78e39}{get\+\_\+gains}} ()
 \begin{DoxyCompactList}\small\item\em Accessor function to get the values of controller gains (Kp, Ki, Kd) \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_controller_a9d72c07e85a467588f169cee503c243a}{control\+\_\+action}} (std\+::vector$<$ double $>$ present\+\_\+pose, std\+::vector$<$ double $>$ target\+\_\+pose)
+double \mbox{\hyperlink{class_controller_a002fb930e8f0293156973752f1f2dd61}{control\+\_\+action}} (std\+::vector$<$ double $>$ $\ast$present\+\_\+pose, std\+::vector$<$ double $>$ $\ast$target\+\_\+pose)
 \begin{DoxyCompactList}\small\item\em Computes the error in pose (between present and target) and applies the P\+ID control action on the error to drive it to zero. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_controller_a2547c3e6df73c5e31cd21712c35f9ac9}{saturation}} (double min\+\_\+vel, double max\+\_\+vel)
+double \mbox{\hyperlink{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}{saturation}} (double $\ast$min\+\_\+vel, double $\ast$max\+\_\+vel)
 \begin{DoxyCompactList}\small\item\em Saturates the controller output to within \{min\+\_\+vel, max\+\_\+vel\} for safety reasons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -27,16 +29,33 @@ Defines the P\+ID controller class.
 
 
 
-Definition at line 23 of file Controller.\+hpp.
+Definition at line 22 of file Controller.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_controller_a95c56822d667e94b031451729ce069a9}\label{class_controller_a95c56822d667e94b031451729ce069a9}} 
+\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{Controller()}{Controller()}}
+{\footnotesize\ttfamily Controller\+::\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_controller}{Controller}} object. 
+
+
+
+Definition at line 18 of file Controller.\+cpp.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_controller_a9d72c07e85a467588f169cee503c243a}\label{class_controller_a9d72c07e85a467588f169cee503c243a}} 
+\mbox{\Hypertarget{class_controller_a002fb930e8f0293156973752f1f2dd61}\label{class_controller_a002fb930e8f0293156973752f1f2dd61}} 
 \index{Controller@{Controller}!control\_action@{control\_action}}
 \index{control\_action@{control\_action}!Controller@{Controller}}
 \doxysubsubsection{\texorpdfstring{control\_action()}{control\_action()}}
-{\footnotesize\ttfamily double Controller\+::control\+\_\+action (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{present\+\_\+pose,  }\item[{std\+::vector$<$ double $>$}]{target\+\_\+pose }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Controller\+::control\+\_\+action (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{present\+\_\+pose,  }\item[{std\+::vector$<$ double $>$ $\ast$}]{target\+\_\+pose }\end{DoxyParamCaption})}
 
 
 
@@ -54,7 +73,7 @@ double Control action (sec) to change the numerical integration time-\/step
 \end{DoxyReturn}
 
 
-Definition at line 27 of file Controller.\+cpp.
+Definition at line 30 of file Controller.\+cpp.
 
 \mbox{\Hypertarget{class_controller_a15e8c6de3ebf3abcf29e705f08c78e39}\label{class_controller_a15e8c6de3ebf3abcf29e705f08c78e39}} 
 \index{Controller@{Controller}!get\_gains@{get\_gains}}
@@ -71,13 +90,13 @@ std\+::vector$<$double$>$ \mbox{\hyperlink{class_controller}{Controller}} gains 
 \end{DoxyReturn}
 
 
-Definition at line 22 of file Controller.\+cpp.
+Definition at line 25 of file Controller.\+cpp.
 
-\mbox{\Hypertarget{class_controller_a2547c3e6df73c5e31cd21712c35f9ac9}\label{class_controller_a2547c3e6df73c5e31cd21712c35f9ac9}} 
+\mbox{\Hypertarget{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}\label{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}} 
 \index{Controller@{Controller}!saturation@{saturation}}
 \index{saturation@{saturation}!Controller@{Controller}}
 \doxysubsubsection{\texorpdfstring{saturation()}{saturation()}}
-{\footnotesize\ttfamily double Controller\+::saturation (\begin{DoxyParamCaption}\item[{double}]{min\+\_\+vel,  }\item[{double}]{max\+\_\+vel }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Controller\+::saturation (\begin{DoxyParamCaption}\item[{double $\ast$}]{min\+\_\+vel,  }\item[{double $\ast$}]{max\+\_\+vel }\end{DoxyParamCaption})}
 
 
 
@@ -95,13 +114,13 @@ double Saturated controller output
 \end{DoxyReturn}
 
 
-Definition at line 32 of file Controller.\+cpp.
+Definition at line 35 of file Controller.\+cpp.
 
-\mbox{\Hypertarget{class_controller_aba1c2c973f09ab831ea4f50b6894536d}\label{class_controller_aba1c2c973f09ab831ea4f50b6894536d}} 
+\mbox{\Hypertarget{class_controller_a73a23885d522a0787792215ca3f34a64}\label{class_controller_a73a23885d522a0787792215ca3f34a64}} 
 \index{Controller@{Controller}!set\_gains@{set\_gains}}
 \index{set\_gains@{set\_gains}!Controller@{Controller}}
 \doxysubsubsection{\texorpdfstring{set\_gains()}{set\_gains()}}
-{\footnotesize\ttfamily bool Controller\+::set\+\_\+gains (\begin{DoxyParamCaption}\item[{double}]{kp,  }\item[{double}]{ki,  }\item[{double}]{kd }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Controller\+::set\+\_\+gains (\begin{DoxyParamCaption}\item[{double $\ast$}]{kp,  }\item[{double $\ast$}]{ki,  }\item[{double $\ast$}]{kd }\end{DoxyParamCaption})}
 
 
 
@@ -123,11 +142,11 @@ false Gain values are invalid
 \end{DoxyReturn}
 
 
-Definition at line 18 of file Controller.\+cpp.
+Definition at line 21 of file Controller.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{_controller_8hpp}{Controller.\+hpp}}\item 
-app/\mbox{\hyperlink{_controller_8cpp}{Controller.\+cpp}}\end{DoxyCompactItemize}
+/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_controller_8hpp}{Controller.\+hpp}}\item 
+/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_controller_8cpp}{Controller.\+cpp}}\end{DoxyCompactItemize}

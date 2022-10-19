@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "cegklmprstuv",
   1: "ckprsv",
   2: "ckmprstv",
-  3: "ceglpstu",
+  3: "ceglprstuv",
   4: "r"
 };
 
