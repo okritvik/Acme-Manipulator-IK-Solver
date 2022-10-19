@@ -1,0 +1,30 @@
+./app/Robot.cpp:36:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &joint_angles  [runtime/references] [2]
+./include/Controller.hpp:39:  Is this a non-const reference? If so, make const or use a pointer: double &kp  [runtime/references] [2]
+./include/Controller.hpp:39:  Is this a non-const reference? If so, make const or use a pointer: double &ki  [runtime/references] [2]
+./include/Controller.hpp:39:  Is this a non-const reference? If so, make const or use a pointer: double &kd  [runtime/references] [2]
+./include/Controller.hpp:55:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &present_pose  [runtime/references] [2]
+./include/Controller.hpp:56:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &target_pose  [runtime/references] [2]
+./include/Controller.hpp:65:  Is this a non-const reference? If so, make const or use a pointer: double &min_vel  [runtime/references] [2]
+./include/Controller.hpp:65:  Is this a non-const reference? If so, make const or use a pointer: double &max_vel  [runtime/references] [2]
+./include/PositionFK.hpp:49:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &joint_angles  [runtime/references] [2]
+./include/Robot.hpp:47:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &pose  [runtime/references] [2]
+./include/Robot.hpp:56:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &pose  [runtime/references] [2]
+./include/Robot.hpp:63:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &joint_angles  [runtime/references] [2]
+./include/Simulator.hpp:33:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &config  [runtime/references] [2]
+./include/VelocityIK.hpp:45:  Is this a non-const reference? If so, make const or use a pointer: double &dt  [runtime/references] [2]
+./include/VelocityIK.hpp:46:  Is this a non-const reference? If so, make const or use a pointer: std::vector<double> &present_joint_angle  [runtime/references] [2]
+Done processing ./app/Controller.cpp
+Done processing ./app/PositionFK.cpp
+Done processing ./app/Robot.cpp
+Done processing ./app/Simulator.cpp
+Done processing ./app/VelocityIK.cpp
+Done processing ./app/main.cpp
+Done processing ./include/Controller.hpp
+Done processing ./include/Kinematics.hpp
+Done processing ./include/PositionFK.hpp
+Done processing ./include/Robot.hpp
+Done processing ./include/Simulator.hpp
+Done processing ./include/VelocityIK.hpp
+Done processing ./test/main.cpp
+Done processing ./test/test.cpp
+Total errors found: 15
