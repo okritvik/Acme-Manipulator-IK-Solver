@@ -67,7 +67,7 @@ jobs:
 
       - name: Install 6
         working-directory: ${{github.workspace}}/NumCpp/build
-        run: cmake -DNUMCPP_NO_USE_BOOST="ON" ..
+        run: cmake -DNUMCPP_NO_USE_BOOST=ON ..
 
       - name: Install 7
         working-directory: ${{github.workspace}}/NumCpp/build
