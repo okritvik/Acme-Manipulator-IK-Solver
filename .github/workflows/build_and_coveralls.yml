@@ -42,16 +42,20 @@ jobs:
         run: mkdir build
 
       - name: Install 1
-        working-directory: ${{github.workspace}}/matplotplusplus/build
-        run: cmake --preset=system
+        working-directory: ${{github.workspace}}/matplotplusplus
+        run: cd build
 
       - name: Install 2
         working-directory: ${{github.workspace}}/matplotplusplus/build
-        run: cmake --build --preset=system
+        run: cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-O2" -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
 
       - name: Install 3
         working-directory: ${{github.workspace}}/matplotplusplus/build
-        run: sudo cmake --install build/system
+        run: sudo cmake --build . --parallel 2 --config Release
+      
+      - name: Install 4
+        working-directory: ${{github.workspace}}/matplotplusplus/build
+        run: sudo cmake --install .
 
 
       # Run CMake to setup compilation flags
