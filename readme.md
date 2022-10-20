@@ -30,8 +30,7 @@ Thus, the following personnel shall implement the above using pair-programming w
 * **Adarsh Malapaka** </br>
     UID: 118119625 </br>
     Adarsh Malapaka is currently a Master's student in Robotics at the University of Maryland, College Park, MD (Batch of 2023). His interests include Control Systems, Robot Kinematics, Path Planning, and ADAS. </br>
-    Contact: amalapak@terpmail.umd.edu </br>!
-
+    Contact: amalapak@terpmail.umd.edu </br>
     LinkedIn: https://www.linkedin.com/in/adarsh-malapaka/
 * **Kumara Ritvik Oruganti** </br>
     UID: 117368963 </br>
