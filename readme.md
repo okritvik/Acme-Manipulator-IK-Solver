@@ -30,7 +30,8 @@ Thus, the following personnel shall implement the above using pair-programming w
 * **Adarsh Malapaka** </br>
     UID: 118119625 </br>
     Adarsh Malapaka is currently a Master's student in Robotics at the University of Maryland, College Park, MD (Batch of 2023). His interests include Control Systems, Robot Kinematics, Path Planning, and ADAS. </br>
-    Contact: amalapak@terpmail.umd.edu </br>
+    Contact: amalapak@terpmail.umd.edu </br>!
+
     LinkedIn: https://www.linkedin.com/in/adarsh-malapaka/
 * **Kumara Ritvik Oruganti** </br>
     UID: 117368963 </br>
@@ -41,6 +42,16 @@ Thus, the following personnel shall implement the above using pair-programming w
 ## Agile-Iterative Process (AIP) Resources
 
 ### Phase 01 Video
+
+<p align="center">
+<a href="https://youtu.be/XuBHocW3JBg" target="_blank">
+ <img src="https://user-images.githubusercontent.com/40200916/196843591-d9f9bff3-eaef-4c28-819f-fee0d0c54eb9.jpg" alt="Watch the video" width="350" height="200" border="10" />
+</a>
+</p>
+
+<p align = "center">
+Link: https://youtu.be/XuBHocW3JBg
+</p>
 
 ### Product Backlog: 
 https://docs.google.com/spreadsheets/d/1HQ5xud5pmoVvb_mYnJKh-MRk1BLdxQRhTKgOH5_86q8/edit?usp=sharing
