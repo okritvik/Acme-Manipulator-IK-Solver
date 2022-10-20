@@ -71,7 +71,7 @@ jobs:
 
       - name: Install 7
         working-directory: ${{github.workspace}}/NumCpp/build
-        run: cmake --build . --target install .
+        run: sudo cmake --build . --target install .
 
 
       # Run CMake to setup compilation flags
