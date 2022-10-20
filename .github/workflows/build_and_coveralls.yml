@@ -57,6 +57,22 @@ jobs:
         working-directory: ${{github.workspace}}/matplotplusplus/build
         run: sudo cmake --install .
 
+      - name: Install 5
+        working-directory: ${{github.workspace}}/NumCpp
+        run: mkdir build
+
+      - name: Install 5
+        working-directory: ${{github.workspace}}/NumCpp
+        run: cd build
+
+      - name: Install 6
+        working-directory: ${{github.workspace}}/NumCpp/build
+        run: cmake ..
+
+      - name: Install 7
+        working-directory: ${{github.workspace}}/matplotplusplus/build
+        run: cmake --build . --target install .
+
 
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
