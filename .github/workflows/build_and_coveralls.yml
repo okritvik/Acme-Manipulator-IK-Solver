@@ -70,7 +70,7 @@ jobs:
         run: cmake ..
 
       - name: Install 7
-        working-directory: ${{github.workspace}}/matplotplusplus/build
+        working-directory: ${{github.workspace}}/NumCpp/build
         run: cmake --build . --target install .
 
 
