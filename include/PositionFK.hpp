@@ -39,7 +39,7 @@ class PositionFK {
      * 
      * @return nc::NdArray<double> Transformation matrix between links 'i-1' and 'i'
      */
-    nc::NdArray<double> link_transformation();
+    std::vector<nc::NdArray<double>> link_transformation();
 
     /**
      * @brief Mutator function to set the robot's joint angles.
