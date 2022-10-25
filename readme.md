@@ -25,7 +25,14 @@ As previously mentioned, the KUKA robot was chosen as the robot for which such a
 
 Thus, the following personnel shall implement the above using pair-programming where one of them serves as the driver while the other as the navigator and switching roles after each iteration, with appropriately defined test cases to validate the solution at each stage in the iterative process, which shall last about two weeks in total. 
 
- 
+### Robot Kinematics
+<p align="center">
+<img width="40%" alt="Frames" src="https://user-images.githubusercontent.com/40200916/197856935-84038271-2189-40de-88c0-2176eba9e620.png">
+</p>
+<p align="center">
+<img width="80%" alt="D-H Table" src="https://user-images.githubusercontent.com/40200916/197856182-211ff7ea-aa85-4c04-86ef-5a43a17b3afb.jpg">
+</p>
+
 ## Personnel:
 * **Adarsh Malapaka** </br>
     UID: 118119625 </br>
