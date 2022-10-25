@@ -10,7 +10,7 @@
  * 
  */
 
-// #include <matplot/matplot.h>
+#include <matplot/matplot.h>
 
 #include "../include/VelocityIK.hpp"
 #include <NumCpp.hpp>

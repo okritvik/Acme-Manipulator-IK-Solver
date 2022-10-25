@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2.1)
+cmake_minimum_required(VERSION 3.14)
 project (scratch)
 
 # Add project cmake modules to path.
@@ -9,7 +9,7 @@ option(COVERAGE "Generate Coverage Data" OFF)
 
 if (COVERAGE)
     include(CodeCoverage)
-    set(LCOV_REMOVE_EXTRA "'vendor/*'")
+    set(LCOV_REMOVE_EXTRA "'*vendor/*'")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
     set(COVERAGE_SRCS app/main.cpp include/lib.hpp)
 
@@ -22,7 +22,7 @@ endif()
 
 include(CMakeToolsHelpers OPTIONAL)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # add_subdirectory(matplotplusplus)
 add_subdirectory(app)
