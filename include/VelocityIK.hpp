@@ -31,7 +31,7 @@ class VelocityIK {
      * 
      * @return std::vector<double> Cartesian velocity of the robot's end effector.
      */
-    std::vector<double> cartesian_velocity();
+    nc::NdArray<double> cartesian_velocity(double *theta);
 
     /**
      * @brief Performs numerical integration of the joint speed to obtain joint position for a small time-step
@@ -42,13 +42,14 @@ class VelocityIK {
      * @return std::vector<double> Next value of joint angle (rad)
      */
     std::vector<double> update_joint_angles(double *dt,
-                std::vector<double> *present_joint_angle);
+                std::vector<double> *present_joint_angle,
+                std::vector<double> *joint_angle_dot);
 
     /**
      * @brief Computes the Jacobian matrix of the robot
      * 
      */
-    void compute_jacobian();
+    void compute_jacobian(std::vector<double> *joint_angle);
 
     /**
      * @brief Accessor function to get the Jacobian matrix of the robot.
