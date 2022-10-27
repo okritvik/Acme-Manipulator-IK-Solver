@@ -75,8 +75,6 @@ class Robot {
     std::vector<double> get_joint_angles();
 
  private:
-    
-
     unsigned int m_dof;    // Degrees of Freedom of the robot
     double m_max_vel;    // Max permissible joint velocity of the robot
     double m_min_vel;    // Min permissible joint velocity of the robot

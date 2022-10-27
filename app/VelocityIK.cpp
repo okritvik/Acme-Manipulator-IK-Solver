@@ -10,13 +10,14 @@
  * 
  */
 
+#include <matplot/matplot.h>
+#include <cstddef>
+#include <vector>
 #include <NumCpp/Functions/ones.hpp>
 #include <NumCpp/NdArray/NdArrayCore.hpp>
-#include <matplot/matplot.h>
-
-#include "../include/VelocityIK.hpp"
 #include <NumCpp.hpp>
-#include <vector>
+#include "../include/VelocityIK.hpp"
+
 #define PI nc::constants::pi
 using namespace nc;
 
@@ -36,7 +37,7 @@ std::vector<double> VelocityIK::update_joint_angles(double *dt,
                 std::vector<double> *joint_angle_dot) {
     std::vector<double> next_joint_angle;
 
-    for (auto i = 0; i < present_joint_angle->size(); i++) {
+    for (size_t i = 0; i < present_joint_angle->size(); i++) {
        next_joint_angle.push_back(present_joint_angle->at(i) +
         joint_angle_dot->at(i) * (*dt));
     }

@@ -24,5 +24,6 @@ int main() {
     acme_kuka.m_kinematics.fk_solver.get_dh();
     std::vector<double> start_pose;
     bool test = acme_kuka.set_initial_pose(&start_pose);
+    acme_kuka.execute_path();
     std::cout << test << " DONE";
 }
