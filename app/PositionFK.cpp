@@ -72,7 +72,7 @@ std::vector<nc::NdArray<double>> PositionFK::link_transformation() {
 
     nc::NdArray<double> tr6n = {
                 {nc::cos(m_joint_angles[5]), -nc::sin(m_joint_angles[5]), 0, 0},
-                {nc::sin(m_joint_angles[0]), nc::cos(m_joint_angles[0]), 0, 0},
+                {nc::sin(m_joint_angles[5]), nc::cos(m_joint_angles[5]), 0, 0},
                 {0, 0, 1, 20.55},
                 {0, 0, 0, 1},
                 };

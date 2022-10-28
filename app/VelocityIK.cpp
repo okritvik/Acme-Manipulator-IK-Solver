@@ -36,11 +36,15 @@ std::vector<double> VelocityIK::update_joint_angles(double *dt,
                 std::vector<double> *present_joint_angle,
                 std::vector<double> *joint_angle_dot) {
     std::vector<double> next_joint_angle;
+    std::vector<double> p_joint_angle = *present_joint_angle;
+    std::vector<double> j_angle_dot =  *joint_angle_dot;
 
-    for (size_t i = 0; i < present_joint_angle->size(); i++) {
-       next_joint_angle.push_back(present_joint_angle->at(i) +
-        joint_angle_dot->at(i) * (*dt));
+    for (size_t i = 0; i < p_joint_angle.size(); i++) {
+       next_joint_angle.push_back(p_joint_angle.at(i) +
+        j_angle_dot.at(i) * (*dt));
     }
+    // std::cout << next_joint_angle.size() << "\n";
+
     return next_joint_angle;
 }
 

@@ -11,7 +11,7 @@
  */
 #pragma once
 
-// #include <matplot/matplot.h>
+#include <matplot/matplot.h>
 #include <vector>
 
 #include "../include/Controller.hpp"
