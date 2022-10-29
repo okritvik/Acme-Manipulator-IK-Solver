@@ -43,4 +43,11 @@ class Simulator {
      * @param ylim Y-axis limit
      * @param zlim Z-axis limit
      */
+    bool set_axes(std::vector<double> *xlim, std::vector<double> *ylim,
+         std::vector<double> *zlim);
+
+ private:
+    std::vector<double> m_xlim;
+    std::vector<double> m_ylim;
+    std::vector<double> m_zlim;
 };

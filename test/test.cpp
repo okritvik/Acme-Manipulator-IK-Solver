@@ -12,6 +12,7 @@
 
 #include <NumCpp/Functions/array_equal.hpp>
 #include <NumCpp/NdArray/NdArrayCore.hpp>
+#include <cstddef>
 #include <gtest/gtest.h>
 #include <vector>
 #define PI nc::constants::pi
@@ -206,4 +207,47 @@ TEST(SimulatorTest, setAxes1) {
   std::vector<double> yl = {0, 10};
   std::vector<double> zl = {0, 10};
   ASSERT_EQ(acme_sim.set_axes(&xl, &yl, &zl), true);
+}
+
+TEST(ControllerTest, setGains) {
+  double kp = 1.5;
+  double ki = 0.01;
+  double kd = 0.001;
+  ASSERT_EQ(acme_cont.set_gains(&kp, &ki, &kd), true);
+}
+
+TEST(ControllerTest, getGains) {
+  double kp = 1.6;
+  double ki = 0.01;
+  double kd = 0.001;
+  acme_cont.set_gains(&kp, &ki, &kd);
+  std::vector<double> gain_vector = {kp, ki, kd};
+  auto res_gain = acme_cont.get_gains();
+  for (size_t i =0; i < gain_vector.size(); i++) {
+    ASSERT_EQ(gain_vector.at(i), res_gain.at(i));
+  }
+}
+
+TEST(ControllerTest, controlAction) {
+  double kp = 1.5;
+  double ki = 0.01;
+  double kd = 0.001;
+  acme_cont.set_gains(&kp, &ki, &kd);
+  std::vector<double> pos1 = {0};
+  std::vector<double> pos2 = {2};
+  ASSERT_EQ(acme_cont.control_action(&pos1, &pos2), 3.0);
+}
+
+TEST(ControllerTest, saturation1) {
+  double val1 = 0;
+  double val2 = 5;
+  double val = 6;
+  ASSERT_EQ(acme_cont.saturation(&val1, &val2, &val), 0.0);
+}
+
+TEST(ControllerTest, saturation2) {
+  double val1 = 0;
+  double val2 = 5;
+  double val = 2;
+  ASSERT_EQ(acme_cont.saturation(&val1, &val2, &val), 2);
 }

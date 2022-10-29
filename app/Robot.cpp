@@ -9,11 +9,6 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#include <NumCpp/Core/Types.hpp>
-#include <NumCpp/Functions/identity.hpp>
-#include <NumCpp/Functions/linspace.hpp>
-#include <NumCpp/Linalg/inv.hpp>
-#include <NumCpp/NdArray/NdArrayCore.hpp>
 
 #include <matplot/core/figure_registry.h>
 #include <matplot/freestanding/axes_functions.h>
@@ -21,14 +16,19 @@
 #include <matplot/freestanding/plot.h>
 #include <matplot/util/handle_types.h>
 #include <unistd.h>
+
 #include <vector>
-#include <unistd.h>
+
+#include <NumCpp/Core/Types.hpp>
+#include <NumCpp/Functions/identity.hpp>
+#include <NumCpp/Functions/linspace.hpp>
+#include <NumCpp/Linalg/inv.hpp>
+#include <NumCpp/NdArray/NdArrayCore.hpp>
 
 #include "../include/Controller.hpp"
 #include "../include/Kinematics.hpp"
 #include "../include/Simulator.hpp"
 #include "../include/Robot.hpp"
-
 
 #define PI nc::constants::pi
 
@@ -44,77 +44,45 @@ Robot::Robot() {
 
 bool Robot::execute_path() {
     using namespace matplot;
-    // using namespace matplot;
-    // Debug the Transformation Matrix
-    // m_kinematics.fk_solver.set_joint_angles(&m_current_angle);
-    // std::vector<nc::NdArray<double>> tr;
-    // tr = m_kinematics.fk_solver.link_transformation();
-    // nc::NdArray<double> tr_0_n = nc::identity<double>(4);
-    // for (auto tr_i_j : tr) {
-    //     tr_0_n = tr_0_n.dot(tr_i_j);
-    //     // tr_i_j.print();
-    //     // std::cout << "\n\n";
-    // }
-    // tr_0_n.print();
-    nc::uint32 N = 40;  // Number of data points
-    double dt = 5.0/N;  // Time interval between successive data points
 
+    nc::uint32 N = 40;  // Number of data points
+    std::vector<double> curr_pose = {0};
+    std::vector<double> tgt_pose = {5};
+    double prop_gain = 1;
+    double derivative_gain = 0;
+    double integral_gain = 0;
+    m_control.set_gains(&prop_gain, &integral_gain, &derivative_gain);
+    double error = m_control.control_action(&curr_pose,
+            &tgt_pose);  // Time interval between successive data points
+
+    double vel_min = 0;
+    double vel_max = N;
+    double vel = error/N;
+
+    double dt = m_control.saturation(&vel_min, &vel_max, &vel);
     std::vector<nc::NdArray<double>> tr;
     nc::NdArray<double> x_dot;
     std::vector<double> next_j_angle;
     std::vector<double> x_0p, y_0p, z_0p;
 
+    std::vector<double> x_limit = {-50, 50};
+    std::vector<double> y_limit = {0, 65};
+    std::vector<double> z_limit = {0, 80};
 
-    // std::vector<std::vector<double>> Y = {
-    //     {1, 3, 1, 2}, {5, 2, 5, 6}, {3, 7, 3, 1}};
+    m_sim.set_axes(&x_limit, &y_limit, &z_limit);
 
-
-    // f->width(f->width() * 2);
-
-    // subplot(1, 2, 0);
-    // area(Y);
-    // title("Stacked");
-
-    // subplot(1, 2, 1);
-    // area(Y, false);
-    // title("Not stacked");
-
-    // show();
-
-    // auto f = matplot::gcf();
-    // auto ax = f->current_axes();
-    // ax->xlim({-50, 50});
-    // ax->ylim({0, 65});
-    // ax->zlim({0, 80});
-
-    for (auto theta : nc::linspace(PI/2, 5*PI/2, N)) {
+    for (auto theta : nc::linspace(PI/2, 3*PI/2, N)) {
         nc::NdArray<double> tr_0_n = nc::identity<double>(4);
-        // std::cout << theta << "\n";
         x_dot = m_kinematics.ik_solver.cartesian_velocity(&theta);
         x_dot = x_dot.transpose();
-        // for (auto i : x_dot) {
-        //     std::cout << i <<" ";
-        // }
-        // std::cout << "\n";
 
         m_kinematics.ik_solver.compute_jacobian(&m_current_angle);
         nc::NdArray<double> J = m_kinematics.ik_solver.get_jacobian();
         auto q_dot = nc::linalg::inv(J).dot(x_dot).toStlVector();
-        // nc::linalg::inv(J).print();
-        // std::cout << "\n";
-        // for (auto i : q_dot) {
-        //     std::cout << i <<" ";
-        // }
-        // std::cout << "\n";
 
         next_j_angle = m_kinematics.ik_solver.update_joint_angles(&dt,
                 &m_current_angle, &q_dot);
         Robot::set_joint_angles(&next_j_angle);
-
-        // for (auto ang : next_j_angle) {
-        //     std::cout << ang << " ";
-        // }
-        // std::cout << "\n";
 
         m_kinematics.fk_solver.set_joint_angles(&next_j_angle);
         tr = m_kinematics.fk_solver.link_transformation();
@@ -126,10 +94,10 @@ bool Robot::execute_path() {
         x_0p.push_back(tr_0_n.at(0, 3));
         y_0p.push_back(tr_0_n.at(1, 3));
         z_0p.push_back(tr_0_n.at(2, 3));
+
         m_sim.simulate_robot(&x_0p, &y_0p, &z_0p, &tr);
-        sleep(1);
+        // sleep(1);
     }
-    matplot::show();
 
     return true;
 }

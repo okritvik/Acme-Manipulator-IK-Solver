@@ -49,7 +49,7 @@ class VelocityIK {
      * @brief Computes the Jacobian matrix of the robot
      * 
      */
-    void compute_jacobian(std::vector<double> *joint_angle);
+    bool compute_jacobian(std::vector<double> *joint_angle);
 
     /**
      * @brief Accessor function to get the Jacobian matrix of the robot.

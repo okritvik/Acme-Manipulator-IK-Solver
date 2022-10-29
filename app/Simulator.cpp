@@ -49,10 +49,18 @@ void Simulator::simulate_robot(const std::vector<double> *x_0p,
         auto l = plot3(ox, oy, oz);
         l->line_width(6);
     }
-    // axis({-50, 50, 0, 65});
-    zlim({0, 80});
-    xlim({-50, 50});
-    ylim({0, 65});
 
+    xlim({m_xlim.at(0), m_xlim.at(1)});
+    ylim({m_ylim.at(0), m_ylim.at(1)});
+    zlim({m_zlim.at(0), m_zlim.at(1)});
     hold(off);
+}
+
+bool Simulator::set_axes(std::vector<double> *xlim, std::vector<double> *ylim,
+         std::vector<double> *zlim) {
+        m_xlim = *xlim;
+        m_ylim = *ylim;
+        m_zlim = *zlim;
+
+        return true;
 }

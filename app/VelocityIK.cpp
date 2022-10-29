@@ -48,7 +48,7 @@ std::vector<double> VelocityIK::update_joint_angles(double *dt,
     return next_joint_angle;
 }
 
-void VelocityIK::compute_jacobian(std::vector<double> *joint_angle) {
+bool VelocityIK::compute_jacobian(std::vector<double> *joint_angle) {
     std::vector<double> thetas = *joint_angle;
     m_jacobian = nc::ones<double>(6, 6);
 
@@ -167,6 +167,8 @@ void VelocityIK::compute_jacobian(std::vector<double> *joint_angle) {
 
     m_jacobian.at(5, 5) = -sin(q6) * sin(q2 - q4) * cos(q5)
     + cos(q6) * cos(q2 - q4);
+
+    return true;
 }
 
 
