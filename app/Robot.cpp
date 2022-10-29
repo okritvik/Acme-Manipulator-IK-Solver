@@ -14,21 +14,26 @@
 #include <NumCpp/Functions/linspace.hpp>
 #include <NumCpp/Linalg/inv.hpp>
 #include <NumCpp/NdArray/NdArrayCore.hpp>
+
+#include <matplot/core/figure_registry.h>
+#include <matplot/freestanding/axes_functions.h>
+#include <matplot/freestanding/axes_lim.h>
 #include <matplot/freestanding/plot.h>
 #include <matplot/util/handle_types.h>
-#include <matplot/matplot.h>
+#include <unistd.h>
 #include <vector>
-// #include <matplot/matplot.h>
+#include <unistd.h>
 
 #include "../include/Controller.hpp"
 #include "../include/Kinematics.hpp"
 #include "../include/Simulator.hpp"
 #include "../include/Robot.hpp"
 
+
 #define PI nc::constants::pi
 
 using namespace nc;
-using namespace matplot;
+
 
 Robot::Robot() {
     m_dof = 6;
@@ -38,6 +43,8 @@ Robot::Robot() {
 }
 
 bool Robot::execute_path() {
+    using namespace matplot;
+    // using namespace matplot;
     // Debug the Transformation Matrix
     // m_kinematics.fk_solver.set_joint_angles(&m_current_angle);
     // std::vector<nc::NdArray<double>> tr;
@@ -55,7 +62,30 @@ bool Robot::execute_path() {
     std::vector<nc::NdArray<double>> tr;
     nc::NdArray<double> x_dot;
     std::vector<double> next_j_angle;
-    double x_0p, y_0p, z_0p;
+    std::vector<double> x_0p, y_0p, z_0p;
+
+
+    // std::vector<std::vector<double>> Y = {
+    //     {1, 3, 1, 2}, {5, 2, 5, 6}, {3, 7, 3, 1}};
+
+
+    // f->width(f->width() * 2);
+
+    // subplot(1, 2, 0);
+    // area(Y);
+    // title("Stacked");
+
+    // subplot(1, 2, 1);
+    // area(Y, false);
+    // title("Not stacked");
+
+    // show();
+
+    // auto f = matplot::gcf();
+    // auto ax = f->current_axes();
+    // ax->xlim({-50, 50});
+    // ax->ylim({0, 65});
+    // ax->zlim({0, 80});
 
     for (auto theta : nc::linspace(PI/2, 5*PI/2, N)) {
         nc::NdArray<double> tr_0_n = nc::identity<double>(4);
@@ -93,13 +123,14 @@ bool Robot::execute_path() {
             tr_0_n = tr_0_n.dot(tr_i_j);
         }
 
-        x_0p = tr_0_n.at(0, 3);
-        y_0p = tr_0_n.at(1, 3);
-        z_0p = tr_0_n.at(2, 3);
-
-        scatter(x_0p, z_0p);
+        x_0p.push_back(tr_0_n.at(0, 3));
+        y_0p.push_back(tr_0_n.at(1, 3));
+        z_0p.push_back(tr_0_n.at(2, 3));
+        m_sim.simulate_robot(&x_0p, &y_0p, &z_0p, &tr);
+        sleep(1);
     }
     matplot::show();
+
     return true;
 }
 

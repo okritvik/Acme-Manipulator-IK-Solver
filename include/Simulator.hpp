@@ -11,7 +11,9 @@
  */
 #pragma once
 
+#include <matplot/matplot.h>
 #include <vector>
+#include <NumCpp.hpp>
 
 /**
  * @brief Defines the Simulator class.
@@ -30,7 +32,9 @@ class Simulator {
      * 
      * @param config Robot configuration
      */
-    void simulate_robot(std::vector<double> *config);
+    void simulate_robot(const std::vector<double> *x_0p,
+        const std::vector<double> *y_0p, const std::vector<double> *z_0p,
+        const std::vector<nc::NdArray<double>> *tr);
 
     /**
      * @brief Mutator function to set the axes limits of the simulation window. 
@@ -39,10 +43,4 @@ class Simulator {
      * @param ylim Y-axis limit
      * @param zlim Z-axis limit
      */
-    void set_axes(const double &xlim, const double &ylim, const double &zlim);
-
- private:
-    double m_xlim;    // Simulation x-axis limit
-    double m_ylim;    // Simulation y-axis limit
-    double m_zlim;    // Simulation z-axis limit
 };

@@ -26,4 +26,5 @@ int main() {
     bool test = acme_kuka.set_initial_pose(&start_pose);
     acme_kuka.execute_path();
     std::cout << test << " DONE";
+    return 0;
 }

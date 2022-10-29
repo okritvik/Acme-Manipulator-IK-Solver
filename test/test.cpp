@@ -44,10 +44,10 @@ TEST(RobotTest, should_pass3) {
 }
 
 
-/**
- * @brief Tests the execute_path() method
- * 
- */
-TEST(RobotTest, should_pass4) {
-  ASSERT_EQ(acme_kuka.execute_path(), false);
-}
+// /**
+//  * @brief Tests the execute_path() method
+//  * 
+//  */
+// TEST(RobotTest, should_pass4) {
+//   ASSERT_EQ(acme_kuka.execute_path(), false);
+// }
