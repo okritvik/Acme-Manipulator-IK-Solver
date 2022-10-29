@@ -62,7 +62,7 @@ class Controller {
      * @param max_vel Maximum possible value of controller output
      * @return double Saturated controller output
      */
-    double saturation(double *min_vel, double *max_vel);
+    double saturation(double *min_vel, double *max_vel, double *val);
 
  private:
     double m_kp;    // Proportional gain
