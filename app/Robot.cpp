@@ -10,11 +10,6 @@
  * 
  */
 
-#include <matplot/core/figure_registry.h>
-#include <matplot/freestanding/axes_functions.h>
-#include <matplot/freestanding/axes_lim.h>
-#include <matplot/freestanding/plot.h>
-#include <matplot/util/handle_types.h>
 #include <unistd.h>
 
 #include <vector>
@@ -41,8 +36,6 @@ Robot::Robot() {
 }
 
 bool Robot::execute_path() {
-    using namespace matplot;
-
     nc::uint32 N = 40;  // Number of data points
 
     // calculate the dt from control module

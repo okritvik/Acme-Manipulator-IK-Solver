@@ -9,19 +9,21 @@
  * @copyright Copyright (c) 2022
  * 
  */
+#include <gtest/gtest.h>
+
+#include <vector>
+#include <cstddef>
 
 #include <NumCpp/Functions/array_equal.hpp>
 #include <NumCpp/NdArray/NdArrayCore.hpp>
-#include <cstddef>
-#include <gtest/gtest.h>
-#include <vector>
-#define PI nc::constants::pi
+
 #include "../include/Robot.hpp"
 #include "../include/PositionFK.hpp"
 #include "../include/VelocityIK.hpp"
 #include "../include/Simulator.hpp"
 #include "../include/Controller.hpp"
 
+#define PI nc::constants::pi
 
 Robot acme_kuka;
 Simulator acme_sim;
