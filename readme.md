@@ -47,6 +47,19 @@ Thus, the following personnel shall implement the above using pair-programming w
 
 ## Agile-Iterative Process (AIP) Resources
 
+### Phase 02 Video
+
+<p align="center">
+<a href="https://youtu.be/_AC6UycvSlw" target="_blank">
+ <img src="https://user-images.githubusercontent.com/40200916/198861692-d1f1d05e-7e8c-496d-8420-586ad59b9da3.jpeg" alt="Watch the video" width="350" height="200" border="10" />
+</a>
+</p>
+
+<p align = "center">
+Link: 
+https://youtu.be/_AC6UycvSlw
+</p>
+
 ### Phase 01 Video
 
 <p align="center">
