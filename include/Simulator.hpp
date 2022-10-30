@@ -30,7 +30,10 @@ class Simulator {
     /**
      * @brief Simulates the robot in a 3D environment for the given robot configuration.
      * 
-     * @param config Robot configuration
+     * @param x_0p std::vector<double> X-coordinate of the robot's end-effector
+     * @param y_0p std::vector<double> Y-coordinate of the robot's end-effector 
+     * @param z_0p std::vector<double> Z-coordinate of the robot's end-effector 
+     * @param tr std::vector<nc::NdArray<double>>  Link transformation matrices
      */
     void simulate_robot(const std::vector<double> *x_0p,
         const std::vector<double> *y_0p, const std::vector<double> *z_0p,
@@ -42,6 +45,9 @@ class Simulator {
      * @param xlim X-axis limit
      * @param ylim Y-axis limit
      * @param zlim Z-axis limit
+     * 
+     * @return true If the axes are set correctly
+     * @return false If the axes are set incorrectly
      */
     bool set_axes(std::vector<double> *xlim, std::vector<double> *ylim,
          std::vector<double> *zlim);

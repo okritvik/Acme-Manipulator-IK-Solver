@@ -19,12 +19,14 @@
 #include "../include/VelocityIK.hpp"
 
 #define PI nc::constants::pi
-using namespace nc;
+// using namespace nc;
 
 VelocityIK::VelocityIK() {
 }
 
 nc::NdArray<double> VelocityIK::cartesian_velocity(double *theta) {
+    // Compute the x velocity and z velocity of the manipulator
+    // end-effector frame.
     nc::NdArray<double> X_dot;
     double x_dot = -4.0 * PI * sin(*theta);
     double z_dot = 4.0 * PI * cos(*theta);
@@ -35,15 +37,15 @@ nc::NdArray<double> VelocityIK::cartesian_velocity(double *theta) {
 std::vector<double> VelocityIK::update_joint_angles(double *dt,
                 std::vector<double> *present_joint_angle,
                 std::vector<double> *joint_angle_dot) {
+    // Using next_q = prev_q + q_dot * dt
     std::vector<double> next_joint_angle;
     std::vector<double> p_joint_angle = *present_joint_angle;
     std::vector<double> j_angle_dot =  *joint_angle_dot;
-
+    // Update the joint angles
     for (size_t i = 0; i < p_joint_angle.size(); i++) {
        next_joint_angle.push_back(p_joint_angle.at(i) +
         j_angle_dot.at(i) * (*dt));
     }
-    // std::cout << next_joint_angle.size() << "\n";
 
     return next_joint_angle;
 }
@@ -51,7 +53,7 @@ std::vector<double> VelocityIK::update_joint_angles(double *dt,
 bool VelocityIK::compute_jacobian(std::vector<double> *joint_angle) {
     std::vector<double> thetas = *joint_angle;
     m_jacobian = nc::ones<double>(6, 6);
-
+    // get the joint angles for use of parametrical computation of J matrix
     auto q1 = thetas[0];
     auto q2 = thetas[1];
     auto q4 = thetas[2];
@@ -173,5 +175,6 @@ bool VelocityIK::compute_jacobian(std::vector<double> *joint_angle) {
 
 
 nc::NdArray<double> VelocityIK::get_jacobian() {
+    // Return the jacobian matrix
     return m_jacobian;
 }

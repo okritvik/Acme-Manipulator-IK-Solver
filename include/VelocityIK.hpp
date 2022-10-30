@@ -29,7 +29,8 @@ class VelocityIK {
     /**
      * @brief Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be zero.
      * 
-     * @return std::vector<double> Cartesian velocity of the robot's end effector.
+     * @param theta Cylindrical co-ordinate system angle for the trajectory. 
+     * @return nc::NdArray<double> Cartesian velocity of the robot's end effector.
      */
     nc::NdArray<double> cartesian_velocity(double *theta);
 
@@ -38,7 +39,8 @@ class VelocityIK {
      *        using the update equation, q_next = q_curr + q_dot * dt
      * 
      * @param dt Time-step (sec)
-     * @param present_joint_angle Current value of joint angle (rad) 
+     * @param present_joint_angle Current value of joint angle (rad)
+     * @param joint_angle_dot Joint angular speed from inverse kinematics (rad/s) 
      * @return std::vector<double> Next value of joint angle (rad)
      */
     std::vector<double> update_joint_angles(double *dt,
@@ -48,6 +50,9 @@ class VelocityIK {
     /**
      * @brief Computes the Jacobian matrix of the robot
      * 
+     * @param joint_angle Current joint angles of the robot
+     * @return true If the Jacobian exists and is computed.
+     * @return false If the Jacobian is singular.
      */
     bool compute_jacobian(std::vector<double> *joint_angle);
 

@@ -16,15 +16,15 @@
 #include "../include/Robot.hpp"
 
 int main() {
-    Robot acme_kuka;
-    std::vector<double> ja = {0, 0, 0, 0, 0, 0};
-    acme_kuka.m_kinematics.fk_solver.set_joint_angles(&ja);
-    std::vector<nc::NdArray<double>> temp =
-                    acme_kuka.m_kinematics.fk_solver.link_transformation();
-    acme_kuka.m_kinematics.fk_solver.get_dh();
-    std::vector<double> start_pose;
-    bool test = acme_kuka.set_initial_pose(&start_pose);
+    Robot acme_kuka;  // Instantiate Robot object
+    std::vector<double> start_pose = {0, 0, 78};
+    // Set initial pose
+    acme_kuka.set_initial_pose(&start_pose);
+    // set final pose
+    std::vector<double> end_pose = {0, 0, 58};
+    acme_kuka.set_initial_pose(&start_pose);
+    // Execute the path from initial position to target position
+    // by considering the parameters of the manipulator.
     acme_kuka.execute_path();
-    std::cout << test << " DONE";
     return 0;
 }
