@@ -76,6 +76,9 @@ jobs:
       - name: Install Boost
         run: sudo apt-get install libboost-all-dev
 
+      - name: Install Gnuplot
+        run: sudo apt-get install gnuplot
+
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
         run: cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -B ${{github.workspace}}/build 
