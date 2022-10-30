@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/Simulator.hpp File Reference</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/Simulator.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -100,27 +100,31 @@ $(document).ready(function(){initNavTree('_simulator_8hpp.html',''); initResizab
 
 <p>Class definition for Acme's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> Manipulator's <a class="el" href="class_simulator.html" title="Defines the Simulator class.">Simulator</a>, to simulate the robot in action.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;matplot/matplot.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;NumCpp.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Simulator.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_simulator_8hpp__incl.png" border="0" usemap="#_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp" alt=""/></div>
-<map name="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp" id="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp">
-<area shape="rect" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="5,5,236,61"/>
-<area shape="rect" title=" " alt="" coords="89,109,152,136"/>
+<div class="center"><img src="_simulator_8hpp__incl.png" border="0" usemap="#_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp" alt=""/></div>
+<map name="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp" id="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hpp">
+<area shape="rect" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="83,5,318,76"/>
+<area shape="rect" title=" " alt="" coords="5,124,145,151"/>
+<area shape="rect" title=" " alt="" coords="169,124,232,151"/>
+<area shape="rect" title=" " alt="" coords="257,124,363,151"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_simulator_8hpp__dep__incl.png" border="0" usemap="#_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep" alt=""/></div>
-<map name="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep" id="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep">
-<area shape="rect" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="439,5,669,61"/>
-<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="284,109,493,165"/>
-<area shape="rect" href="_robot_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="472,213,681,269"/>
-<area shape="rect" href="_simulator_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Simulator class." alt="" coords="592,109,801,165"/>
-<area shape="rect" href="app_2main_8cpp.html" title="Main function for Acme&#39;s Robot Manipulator&#39;s API." alt="" coords="5,213,215,269"/>
-<area shape="rect" href="test_8cpp.html" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="239,213,448,269"/>
+<div class="center"><img src="_simulator_8hpp__dep__incl.png" border="0" usemap="#_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep" alt=""/></div>
+<map name="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep" id="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2include_2_simulator_8hppdep">
+<area shape="rect" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="341,5,576,76"/>
+<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="264,124,499,195"/>
+<area shape="rect" href="_robot_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="5,243,240,313"/>
+<area shape="rect" href="test_8cpp.html" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="523,243,757,313"/>
+<area shape="rect" href="_simulator_8cpp.html" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Simulator class." alt="" coords="573,124,808,195"/>
+<area shape="rect" href="app_2main_8cpp.html" title="Main function for Acme&#39;s Robot Manipulator&#39;s API." alt="" coords="264,243,499,313"/>
 </map>
 </div>
 </div>

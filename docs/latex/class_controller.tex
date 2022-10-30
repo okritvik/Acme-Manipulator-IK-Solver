@@ -20,7 +20,7 @@ std\+::vector$<$ double $>$ \mbox{\hyperlink{class_controller_a15e8c6de3ebf3abcf
 \begin{DoxyCompactList}\small\item\em Accessor function to get the values of controller gains (Kp, Ki, Kd) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_controller_a002fb930e8f0293156973752f1f2dd61}{control\+\_\+action}} (std\+::vector$<$ double $>$ $\ast$present\+\_\+pose, std\+::vector$<$ double $>$ $\ast$target\+\_\+pose)
 \begin{DoxyCompactList}\small\item\em Computes the error in pose (between present and target) and applies the P\+ID control action on the error to drive it to zero. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}{saturation}} (double $\ast$min\+\_\+vel, double $\ast$max\+\_\+vel)
+double \mbox{\hyperlink{class_controller_a20bb74e979c1a21ef56df18b5fdad7fe}{saturation}} (double $\ast$min\+\_\+vel, double $\ast$max\+\_\+vel, double $\ast$val)
 \begin{DoxyCompactList}\small\item\em Saturates the controller output to within \{min\+\_\+vel, max\+\_\+vel\} for safety reasons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -46,7 +46,7 @@ Construct a new \mbox{\hyperlink{class_controller}{Controller}} object.
 
 
 
-Definition at line 18 of file Controller.\+cpp.
+Definition at line 17 of file Controller.\+cpp.
 
 
 
@@ -73,7 +73,7 @@ double Control action (sec) to change the numerical integration time-\/step
 \end{DoxyReturn}
 
 
-Definition at line 30 of file Controller.\+cpp.
+Definition at line 43 of file Controller.\+cpp.
 
 \mbox{\Hypertarget{class_controller_a15e8c6de3ebf3abcf29e705f08c78e39}\label{class_controller_a15e8c6de3ebf3abcf29e705f08c78e39}} 
 \index{Controller@{Controller}!get\_gains@{get\_gains}}
@@ -90,13 +90,13 @@ std\+::vector$<$double$>$ \mbox{\hyperlink{class_controller}{Controller}} gains 
 \end{DoxyReturn}
 
 
-Definition at line 25 of file Controller.\+cpp.
+Definition at line 34 of file Controller.\+cpp.
 
-\mbox{\Hypertarget{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}\label{class_controller_adb8cd16dcd8269d4a72502b4005a7ef4}} 
+\mbox{\Hypertarget{class_controller_a20bb74e979c1a21ef56df18b5fdad7fe}\label{class_controller_a20bb74e979c1a21ef56df18b5fdad7fe}} 
 \index{Controller@{Controller}!saturation@{saturation}}
 \index{saturation@{saturation}!Controller@{Controller}}
 \doxysubsubsection{\texorpdfstring{saturation()}{saturation()}}
-{\footnotesize\ttfamily double Controller\+::saturation (\begin{DoxyParamCaption}\item[{double $\ast$}]{min\+\_\+vel,  }\item[{double $\ast$}]{max\+\_\+vel }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Controller\+::saturation (\begin{DoxyParamCaption}\item[{double $\ast$}]{min\+\_\+vel,  }\item[{double $\ast$}]{max\+\_\+vel,  }\item[{double $\ast$}]{val }\end{DoxyParamCaption})}
 
 
 
@@ -114,7 +114,7 @@ double Saturated controller output
 \end{DoxyReturn}
 
 
-Definition at line 35 of file Controller.\+cpp.
+Definition at line 54 of file Controller.\+cpp.
 
 \mbox{\Hypertarget{class_controller_a73a23885d522a0787792215ca3f34a64}\label{class_controller_a73a23885d522a0787792215ca3f34a64}} 
 \index{Controller@{Controller}!set\_gains@{set\_gains}}
@@ -142,11 +142,11 @@ false Gain values are invalid
 \end{DoxyReturn}
 
 
-Definition at line 21 of file Controller.\+cpp.
+Definition at line 26 of file Controller.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_controller_8hpp}{Controller.\+hpp}}\item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_controller_8cpp}{Controller.\+cpp}}\end{DoxyCompactItemize}
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_controller_8hpp}{Controller.\+hpp}}\item 
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_controller_8cpp}{Controller.\+cpp}}\end{DoxyCompactItemize}

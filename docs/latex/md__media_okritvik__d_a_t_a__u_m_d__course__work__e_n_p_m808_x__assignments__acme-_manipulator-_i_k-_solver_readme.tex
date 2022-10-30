@@ -1,0 +1,130 @@
+\href{https://opensource.org/licenses/MIT}{\texttt{ }} \href{https://github.com/okritvik/Acme-Manipulator-IK-Solver/actions/workflows/build_and_coveralls.yml}{\texttt{ }} \href{https://coveralls.io/github/okritvik/Acme-Manipulator-IK-Solver?branch=master}{\texttt{ }}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md0}{}\doxysection{Acme Robotics\+: Manipulator Inverse Kinematics Path Planner}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md0}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md1}{}\doxysubsection{Overview}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md1}
+ 
+
+Image for representative purposes only. Source\+: \href{https://www.kuka.com/en-us/industries/automotive}{\texttt{ https\+://www.\+kuka.\+com/en-\/us/industries/automotive}} 
+
+In order to augment the robotic solution capabilities of Acme Robotics Inc., a manipulator inverse kinematics based path planner software project is proposed to be deployed on the 7 D\+OF K\+U\+KA W\+I\+IA industrial robot in an automobile manufacturing plant\textquotesingle{}s assembly-\/line. The proposed software solution shall consist of a Jacobian based Inverse \mbox{\hyperlink{class_kinematics}{Kinematics}} (IK) solver to generate a smooth trajectory for the end-\/effector of the robot to be able to transport various automobile components between different stations in the assembly-\/line. The generated joint angular velocity profiles from the desired end-\/effector cartesian velocities (obtained from the position trajectory) are then numerically integrated to obtain the joint angles required to achieve such a configuration. Such a velocity-\/based approach to computing the inverse kinematics of the robot, in lieu of the traditional position-\/based approach, ensures a smooth joint velocity profile in addition to achieving the desired trajectory, which is of importance in a large scale assembly-\/unit involving heavy payloads and human workers. The usage of an existing industrial maniuplator like the K\+U\+KA provides the company with easy access to scheduled maintenance and repairs of the robotic setup. ~\newline
+
+
+The software design and development process shall involve adhering to an amalgamation of Agile Iterative Processes and pair-\/programming techniques over a course of two weeks. The efficacy of the implementation shall be verified using the test-\/driven development approach. The driver and navigator roles are exchanged during each phase of the project to effectively develop and complete the backlogs.\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md2}{}\doxysubsection{Purpose \& Methodology}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md2}
+The main aim of this project is to implement the complete A\+PI for the robot manipulator arm to enable it to perform tasks similar to \textquotesingle{}pick and place\textquotesingle{} in an automobile industry setting such that it can be directly placed in the corresponding zone in the assembly line and ready to be used. The approach taken to develop this A\+PI also enables in modularity of usage of this robot wherein the robot arm can be mounted in a new zone and with minor changes can immediately adapt to the new task. Also, more sensor and end-\/effector tools can be added to augment its capabilities in the assembly-\/line. This is because a car manufacturing assembly line typically contains multiple use cases for robot manipulators such as, transporting payloads, spray-\/painting the assembled vehicles, visual inspection of the automobile surface for defects, and so on, all under one room. Hence, this project was proposed to Acme Robotics Inc. as an opportunity to leverage their expertise in a fast-\/growing and in-\/demand sector.
+
+As previously mentioned, the K\+U\+KA robot was chosen as the robot for which such an A\+PI is to be developed, due to the extensive use of such robots in the automobile manufacturing industry (for example\+: M\+I\+NI Cooper). The major components in the \mbox{\hyperlink{class_robot}{Robot}}\textquotesingle{}s A\+PI are the \mbox{\hyperlink{class_kinematics}{Kinematics}} Solver, \mbox{\hyperlink{class_controller}{Controller}} and \mbox{\hyperlink{class_simulator}{Simulator}}. Additional components may be integrated if the requirement arises. The \mbox{\hyperlink{class_kinematics}{Kinematics}} Solver module is responsible for performing the forward and inverse kinematics of the robot, for both position and velocities, to generate a trajectory for the robot end-\/effector, using the Denavit-\/\+Hartenberg convention and the Jacobian of the robot. In reality, the path/solution generated by the \mbox{\hyperlink{class_kinematics}{Kinematics}} module is never accurate due to mechanical wear and tear of robot joints, expansion/contraction of robot links due to change in temperature conditions and inaccuracies in the kinematic parameters of the robot. Hence, the \mbox{\hyperlink{class_controller}{Controller}} module defines a Proportional-\/\+Integral-\/\+Derivative (P\+ID) based control strategy to ensure the robot follows the desired trajectory to reach the final position within an error threshold. Before the deployment of the above on the actual robot, it is important to verify on a simulated robot so as to prevent workspace singularities. Hence, the \mbox{\hyperlink{class_simulator}{Simulator}} module enables the visualization of the robot and it\textquotesingle{}s kinematic solutions.
+
+Thus, the following personnel shall implement the above using pair-\/programming where one of them serves as the driver while the other as the navigator and switching roles after each iteration, with appropriately defined test cases to validate the solution at each stage in the iterative process, which shall last about two weeks in total.\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md3}{}\doxysubsubsection{Robot Kinematics}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md3}
+ 
+
+ \hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md4}{}\doxysubsection{Personnel\+:}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Adarsh Malapaka}}  U\+ID\+: 118119625  Adarsh Malapaka is currently a Master\textquotesingle{}s student in Robotics at the University of Maryland, College Park, MD (Batch of 2023). His interests include Control Systems, \mbox{\hyperlink{class_robot}{Robot}} \mbox{\hyperlink{class_kinematics}{Kinematics}}, Path Planning, and A\+D\+AS.  Contact\+: \href{mailto:amalapak@terpmail.umd.edu}{\texttt{ amalapak@terpmail.\+umd.\+edu}}  Linked\+In\+: \href{https://www.linkedin.com/in/adarsh-malapaka/}{\texttt{ https\+://www.\+linkedin.\+com/in/adarsh-\/malapaka/}}
+\item {\bfseries{Kumara Ritvik Oruganti}}  U\+ID\+: 117368963  Kumara Ritvik Oruganti is currently a Master\textquotesingle{}s student in Robotics at the University of Maryland, College Park, MD (Batch of 2023). His interests include developing sustainable, efficient and intelligent robots and embedded systems for real-\/world problems.  Contact\+: \href{mailto:okritvik@terpmail.umd.edu}{\texttt{ okritvik@terpmail.\+umd.\+edu}}  Website\+: \href{https://www.okritvik.com/}{\texttt{ https\+://www.\+okritvik.\+com/}}
+\end{DoxyItemize}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md5}{}\doxysubsection{Agile-\/\+Iterative Process (\+A\+I\+P) Resources}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md5}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md6}{}\doxysubsubsection{Phase 01 Video}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md6}
+\href{https://youtu.be/XuBHocW3JBg}{\texttt{  }} 
+
+Link\+: \href{https://youtu.be/XuBHocW3JBg}{\texttt{ https\+://youtu.\+be/\+Xu\+B\+Hoc\+W3\+J\+Bg}} \hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md7}{}\doxysubsubsection{Product Backlog\+:}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md7}
+\href{https://docs.google.com/spreadsheets/d/1HQ5xud5pmoVvb_mYnJKh-MRk1BLdxQRhTKgOH5_86q8/edit?usp=sharing}{\texttt{ https\+://docs.\+google.\+com/spreadsheets/d/1\+H\+Q5xud5pmo\+Vvb\+\_\+m\+Yn\+J\+Kh-\/\+M\+Rk1\+B\+Ldx\+Q\+Rh\+T\+Kg\+O\+H5\+\_\+86q8/edit?usp=sharing}}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md8}{}\doxysubsubsection{Sprint Planning Notes}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md8}
+\href{https://docs.google.com/document/d/1ijUpFVlCYz2PgyUbk9tgiPQKvrySPF6OE5J3ujOBgIA/edit?usp=sharing}{\texttt{ https\+://docs.\+google.\+com/document/d/1ij\+Up\+F\+Vl\+C\+Yz2\+Pgy\+Ubk9tgi\+P\+Q\+Kvry\+S\+P\+F6\+O\+E5\+J3uj\+O\+Bg\+I\+A/edit?usp=sharing}}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md9}{}\doxysubsubsection{Quad Chart}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md9}
+ \hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md10}{}\doxysubsubsection{Proposal}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md10}
+\href{https://www.youtube.com/watch?v=WIcdu61a00w&feature=youtu.be}{\texttt{  }} 
+
+Link\+: \href{https://www.youtube.com/watch?v=WIcdu61a00w}{\texttt{ https\+://www.\+youtube.\+com/watch?v=\+W\+Icdu61a00w}} \hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md11}{}\doxysubsection{Developer Documentation}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md11}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md12}{}\doxysubsubsection{Environment Setup}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md12}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone -\/-\/recursive https://github.com/okritvik/Acme-\/Manipulator-\/IK-\/Solver/tree/Phase1.git}
+\end{DoxyCode}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md13}{}\doxysubsubsection{Dependencies}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item \href{https://dpilger26.github.io/NumCpp/doxygen/html/index.html}{\texttt{ Num\+Cpp}}\+: This is used to make use of Num\+Py functionalities such as the creation of matrices and their associated operations in C++. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd Acme-\/Manipulator-\/IK-\/Solver/NumCpp}
+\DoxyCodeLine{mkdir build}
+\DoxyCodeLine{cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/target install .}
+\end{DoxyCode}
+
+\item \href{https://alandefreitas.github.io/matplotplusplus/}{\texttt{ Matplot++}}\+: This is used to leverage M\+A\+T\+L\+AB styled plotting functions in C++, to visualize the \mbox{\hyperlink{class_robot}{Robot}}.  This dependency is already included with the project\textquotesingle{}s {\ttfamily C\+Make\+Lists.\+txt} file, and hence requires no additional installation/build.
+\end{DoxyEnumerate}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md14}{}\doxysubsubsection{Build}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md14}
+In the project\textquotesingle{}s top level directory {\ttfamily /\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver}, run the following\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir -\/p build}
+\DoxyCodeLine{cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{make}
+\end{DoxyCode}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md15}{}\doxysubsubsection{Build for Code Coverage}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md15}
+Change to the project\textquotesingle{}s {\ttfamily /build} directory using the {\ttfamily cd build} command. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install lcov}
+\DoxyCodeLine{cmake -\/D COVERAGE=ON -\/D CMAKE\_BUILD\_TYPE=Debug ../}
+\DoxyCodeLine{make }
+\DoxyCodeLine{make code\_coverage}
+\end{DoxyCode}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md16}{}\doxysubsubsection{Run Demo}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md16}
+To run the demo, change to the {\ttfamily /build} directory as done previously\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./app/shell-\/app}
+\end{DoxyCode}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md17}{}\doxysubsubsection{Run Tests}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md17}
+To run the Google Test cases\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./test/cpp-\/test}
+\end{DoxyCode}
+\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md18}{}\doxysubsubsection{Doxygen Docs}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md18}
+\href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}} is used to generate H\+T\+ML and La\+T\+EX documentation for the project\textquotesingle{}s A\+PI. To install and run Doxygen\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt install doxywizard}
+\DoxyCodeLine{sudo apt install doxygen-\/gui}
+\DoxyCodeLine{sudo apt install graphviz}
+\DoxyCodeLine{}
+\DoxyCodeLine{// To run the GUI and generate documentation}
+\DoxyCodeLine{dozywizard}
+\end{DoxyCode}
+
+
+To display the documentation in a Web Browser (like firefox)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{firefox ./docs/html/index.html}
+\end{DoxyCode}
+
+
+The documentation is saved in the {\ttfamily /docs} directory.\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md19}{}\doxysubsubsection{cppcheck}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md19}
+Change to the root directory of the project, and run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cppcheck -\/-\/enable=all -\/-\/std=c++17 ./app/*.cpp ./include/*.hpp ./test/*.cpp -\/-\/suppress=missingIncludeSystem -\/-\/suppress=unmatchedSuppression -\/-\/suppress=unusedFunction -\/-\/suppress=missingInclude > results/cppcheck.txt}
+\end{DoxyCode}
+
+
+The results of running {\ttfamily cppcheck} can be found in {\ttfamily /results/cppcheck.txt}.\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md20}{}\doxysubsubsection{cpplint}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md20}
+Change to the root directory of the project, and run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cpplint ./app/*.cpp ./include/*.hpp ./test/*.cpp \&> ./results/cpplint.txt}
+\end{DoxyCode}
+
+
+The results of running {\ttfamily cpplint} can be found in {\ttfamily /results/cpplint.txt}.\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md21}{}\doxysubsection{Known Issues/\+Bugs}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item Installation of Num\+Cpp from the author might run into \href{https://www.boost.org/}{\texttt{ Boost}} requirement errors. To address this, change {\ttfamily option(N\+U\+M\+C\+P\+P\+\_\+\+N\+O\+\_\+\+U\+S\+E\+\_\+\+B\+O\+O\+ST \char`\"{}\+Don\textquotesingle{}t use the boost libraries\char`\"{} O\+FF)} to {\ttfamily option(N\+U\+M\+C\+P\+P\+\_\+\+N\+O\+\_\+\+U\+S\+E\+\_\+\+B\+O\+O\+ST \char`\"{}\+Don\textquotesingle{}t use the boost libraries\char`\"{} ON)}in the {\ttfamily C\+Make\+Lists.\+txt} of the Num\+Cpp directory.
+\item {\ttfamily make} command may produce some errors from the matplotplusplus dependencies. This will be rectified in the next iteration.
+\end{DoxyEnumerate}\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md22}{}\doxysubsection{File Tree}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md22}
+├── app ~\newline
+ │ ├── C\+Make\+Lists.\+txt \# Contains Num\+Cpp and matplotplusplus dependencies defined │ ├── \mbox{\hyperlink{_controller_8cpp}{Controller.\+cpp}} \# Stub implementation for \mbox{\hyperlink{class_controller}{Controller}} class │ ├── \mbox{\hyperlink{_position_f_k_8cpp}{Position\+F\+K.\+cpp}} \# Stub implementation for \mbox{\hyperlink{class_position_f_k}{Position\+FK}} class │ ├── \mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}} \# Stub implementation for \mbox{\hyperlink{class_robot}{Robot}} class │ ├── \mbox{\hyperlink{_simulator_8cpp}{Simulator.\+cpp}} \# Stub implementation for \mbox{\hyperlink{class_simulator}{Simulator}} class │ ├── \mbox{\hyperlink{_velocity_i_k_8cpp}{Velocity\+I\+K.\+cpp}} \# Stub implementation for \mbox{\hyperlink{class_velocity_i_k}{Velocity\+IK}} class │ └── main.\+cpp \# Main script ├── docs │ ├── html \# Folder containing H\+T\+ML Doxygen documentation │ └── latex \# Folder containing La\+T\+EX Doxygen documentation ├── include ~\newline
+ │ ├── \mbox{\hyperlink{_controller_8hpp}{Controller.\+hpp}} \# \mbox{\hyperlink{class_controller}{Controller}} class header file │ ├── \mbox{\hyperlink{_kinematics_8hpp}{Kinematics.\+hpp}} \# \mbox{\hyperlink{class_kinematics}{Kinematics}} class header file │ ├── \mbox{\hyperlink{_position_f_k_8hpp}{Position\+F\+K.\+hpp}} \# \mbox{\hyperlink{class_position_f_k}{Position\+FK}} class header file │ ├── \mbox{\hyperlink{_robot_8hpp}{Robot.\+hpp}} \# \mbox{\hyperlink{class_robot}{Robot}} class header file ~\newline
+ │ ├── \mbox{\hyperlink{_simulator_8hpp}{Simulator.\+hpp}} \# \mbox{\hyperlink{class_simulator}{Simulator}} class header file │ └── \mbox{\hyperlink{_velocity_i_k_8hpp}{Velocity\+I\+K.\+hpp}} \# \mbox{\hyperlink{class_velocity_i_k}{Velocity\+IK}} class header file ├── proposal ~\newline
+ │ └── mid\+\_\+term\+\_\+proposal.\+pdf \# Proposal document ├── quadchart ~\newline
+ │ └── quad\+\_\+chart\+\_\+v1.\+png \# Proposal Quad chart ~\newline
+ ├── results ~\newline
+ │ ├── cppcheck.\+txt \# Results of cppcheck │ └── cpplint.\+txt \# Results of cpplint ├── test ~\newline
+ │ ├── main.\+cpp \# Main script to run tests │ └── \mbox{\hyperlink{test_8cpp}{test.\+cpp}} \# Initial implemenatation of Google Test cases └── U\+ML ~\newline
+ ├── initial ~\newline
+ │ ├── activity\+\_\+diagram\+\_\+v1.\+pdf \# Activity diagram for proposed implementation │ └── class\+\_\+diagram\+\_\+v1 \# Class diagram for proposed implementation └── revised ~\newline
+ └── activity\+\_\+diagram\+\_\+v2.\+pdf \# Revised Activity diagram (Phase 1)\hypertarget{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md23}{}\doxysubsection{License}\label{md__media_okritvik__d_a_t_a__u_m_d__course__work__e_n_p_m808_x__assignments__acme-_manipulator-_i_k-_solver_readme_autotoc_md23}
+This project is licensed under the \href{https://opensource.org/licenses/MIT}{\texttt{ M\+IT License}} and can be found in the {\ttfamily L\+I\+C\+E\+N\+SE} file. 

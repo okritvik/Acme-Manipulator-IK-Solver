@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/test/test.cpp File Reference</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/test/test.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('test_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -103,54 +104,143 @@ $(document).ready(function(){initNavTree('test_8cpp.html',''); initResizable(); 
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;gtest/gtest.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;NumCpp/Functions/array_equal.hpp&gt;</code><br />
+<code>#include &lt;NumCpp/NdArray/NdArrayCore.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="_robot_8hpp_source.html">../include/Robot.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_position_f_k_8hpp_source.html">../include/PositionFK.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_velocity_i_k_8hpp_source.html">../include/VelocityIK.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_simulator_8hpp_source.html">../include/Simulator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_controller_8hpp_source.html">../include/Controller.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for test.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="test_8cpp__incl.png" border="0" usemap="#_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp" alt=""/></div>
-<map name="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp" id="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp">
-<area shape="rect" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="42,5,251,61"/>
-<area shape="rect" title=" " alt="" coords="5,109,109,136"/>
-<area shape="rect" title=" " alt="" coords="394,333,457,360"/>
-<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="325,109,475,136"/>
-<area shape="rect" href="_controller_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s PID controller." alt="" coords="185,184,362,211"/>
-<area shape="rect" href="_kinematics_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="637,184,824,211"/>
-<area shape="rect" href="_simulator_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="437,184,613,211"/>
-<area shape="rect" title=" " alt="" coords="296,259,363,285"/>
-<area shape="rect" href="_position_f_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Forward Kinematics (Position) solver." alt="" coords="489,259,671,285"/>
-<area shape="rect" href="_velocity_i_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="696,259,875,285"/>
-<area shape="rect" title=" " alt="" coords="629,333,736,360"/>
+<div class="center"><img src="test_8cpp__incl.png" border="0" usemap="#_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp" alt=""/></div>
+<map name="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp" id="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2test_2test_8cpp">
+<area shape="rect" title="Implementation of Google Test cases framework for Acme&#39;s Robot Manipulator." alt="" coords="576,5,811,76"/>
+<area shape="rect" title=" " alt="" coords="5,131,109,158"/>
+<area shape="rect" title=" " alt="" coords="826,363,889,389"/>
+<area shape="rect" title=" " alt="" coords="185,131,255,158"/>
+<area shape="rect" title=" " alt="" coords="279,124,462,165"/>
+<area shape="rect" title=" " alt="" coords="487,131,737,158"/>
+<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="813,131,963,158"/>
+<area shape="rect" href="_controller_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s PID controller." alt="" coords="535,213,713,240"/>
+<area shape="rect" href="_position_f_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Forward Kinematics (Position) solver." alt="" coords="1257,288,1439,315"/>
+<area shape="rect" href="_velocity_i_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="1053,288,1232,315"/>
+<area shape="rect" href="_simulator_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="856,213,1032,240"/>
+<area shape="rect" title=" " alt="" coords="787,288,927,315"/>
+<area shape="rect" href="_kinematics_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="1056,213,1243,240"/>
+<area shape="rect" title=" " alt="" coords="591,288,657,315"/>
+<area shape="rect" title=" " alt="" coords="1089,363,1196,389"/>
 </map>
 </div>
 </div>
 <p><a href="test_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top"><a id="a598a3330b3c21701223ee0ca14316eca"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PI</b>&#160;&#160;&#160;nc::constants::pi</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a382ae0203c35c4b80565ef72fc4cc317"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a> (RobotTest, should_pass1)</td></tr>
-<tr class="memdesc:a382ae0203c35c4b80565ef72fc4cc317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_initial_pose() method.  <a href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">More...</a><br /></td></tr>
-<tr class="separator:a382ae0203c35c4b80565ef72fc4cc317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcf646d5b9d9c5b8c99bbb703354857b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#adcf646d5b9d9c5b8c99bbb703354857b">TEST</a> (RobotTest, should_pass2)</td></tr>
-<tr class="memdesc:adcf646d5b9d9c5b8c99bbb703354857b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_final_pose() method.  <a href="test_8cpp.html#adcf646d5b9d9c5b8c99bbb703354857b">More...</a><br /></td></tr>
-<tr class="separator:adcf646d5b9d9c5b8c99bbb703354857b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabfeb0b67261c7bf26b264c4d6ebd6f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#aabfeb0b67261c7bf26b264c4d6ebd6f8">TEST</a> (RobotTest, should_pass3)</td></tr>
-<tr class="memdesc:aabfeb0b67261c7bf26b264c4d6ebd6f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_joint_angles() method.  <a href="test_8cpp.html#aabfeb0b67261c7bf26b264c4d6ebd6f8">More...</a><br /></td></tr>
-<tr class="separator:aabfeb0b67261c7bf26b264c4d6ebd6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a797de0ce924c73ea43ab8ca9ce9549e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a797de0ce924c73ea43ab8ca9ce9549e5">TEST</a> (RobotTest, should_pass4)</td></tr>
-<tr class="memdesc:a797de0ce924c73ea43ab8ca9ce9549e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the execute_path() method.  <a href="test_8cpp.html#a797de0ce924c73ea43ab8ca9ce9549e5">More...</a><br /></td></tr>
-<tr class="separator:a797de0ce924c73ea43ab8ca9ce9549e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c4af929e94796208762d2b38a1865b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a> (RobotTest, initialPose1)</td></tr>
+<tr class="memdesc:af3c4af929e94796208762d2b38a1865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_initial_pose() method with one set of pose values.  <a href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">More...</a><br /></td></tr>
+<tr class="separator:af3c4af929e94796208762d2b38a1865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b6f8a1bf45c2ff095de757397268cd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a3b6f8a1bf45c2ff095de757397268cd4">TEST</a> (RobotTest, initialPose2)</td></tr>
+<tr class="memdesc:a3b6f8a1bf45c2ff095de757397268cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_initial_pose() method with another set of pose values.  <a href="test_8cpp.html#a3b6f8a1bf45c2ff095de757397268cd4">More...</a><br /></td></tr>
+<tr class="separator:a3b6f8a1bf45c2ff095de757397268cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a95d9994d021aaba8d37eb2344e6424"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a8a95d9994d021aaba8d37eb2344e6424">TEST</a> (RobotTest, finalPose1)</td></tr>
+<tr class="memdesc:a8a95d9994d021aaba8d37eb2344e6424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_final_pose() method for one set of pose values.  <a href="test_8cpp.html#a8a95d9994d021aaba8d37eb2344e6424">More...</a><br /></td></tr>
+<tr class="separator:a8a95d9994d021aaba8d37eb2344e6424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad852aa323c26ad8615755f55743216"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#afad852aa323c26ad8615755f55743216">TEST</a> (RobotTest, finalPose2)</td></tr>
+<tr class="memdesc:afad852aa323c26ad8615755f55743216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_final_pose() method for another set of pose values.  <a href="test_8cpp.html#afad852aa323c26ad8615755f55743216">More...</a><br /></td></tr>
+<tr class="separator:afad852aa323c26ad8615755f55743216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31080a9751a9d4162adc1be37bd30bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ad31080a9751a9d4162adc1be37bd30bf">TEST</a> (RobotTest, setAngle1)</td></tr>
+<tr class="memdesc:ad31080a9751a9d4162adc1be37bd30bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_joint_angles() method for one set of angles.  <a href="test_8cpp.html#ad31080a9751a9d4162adc1be37bd30bf">More...</a><br /></td></tr>
+<tr class="separator:ad31080a9751a9d4162adc1be37bd30bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4299f480d3879e69cdd83330de1801cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a4299f480d3879e69cdd83330de1801cb">TEST</a> (RobotTest, setAngle2)</td></tr>
+<tr class="memdesc:a4299f480d3879e69cdd83330de1801cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_joint_angles() method for another set of angles.  <a href="test_8cpp.html#a4299f480d3879e69cdd83330de1801cb">More...</a><br /></td></tr>
+<tr class="separator:a4299f480d3879e69cdd83330de1801cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17bdbbff7d1eb77490ad88d788e89fdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a17bdbbff7d1eb77490ad88d788e89fdf">TEST</a> (RobotTest, getAngle1)</td></tr>
+<tr class="memdesc:a17bdbbff7d1eb77490ad88d788e89fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the get_joint_angles() method for one set of angles.  <a href="test_8cpp.html#a17bdbbff7d1eb77490ad88d788e89fdf">More...</a><br /></td></tr>
+<tr class="separator:a17bdbbff7d1eb77490ad88d788e89fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebcc4c3b808bc88e877722b9dcac655"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a8ebcc4c3b808bc88e877722b9dcac655">TEST</a> (RobotTest, getAngle2)</td></tr>
+<tr class="memdesc:a8ebcc4c3b808bc88e877722b9dcac655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the get_joint_angles() method for another set of angles.  <a href="test_8cpp.html#a8ebcc4c3b808bc88e877722b9dcac655">More...</a><br /></td></tr>
+<tr class="separator:a8ebcc4c3b808bc88e877722b9dcac655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a554873ea2be359fa130c7c3425014715"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a554873ea2be359fa130c7c3425014715">TEST</a> (RobotTest, execute1)</td></tr>
+<tr class="memdesc:a554873ea2be359fa130c7c3425014715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the execute_path() method for one set of initial angles.  <a href="test_8cpp.html#a554873ea2be359fa130c7c3425014715">More...</a><br /></td></tr>
+<tr class="separator:a554873ea2be359fa130c7c3425014715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617416807ea694877ccac59904e97d85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a617416807ea694877ccac59904e97d85">TEST</a> (RobotTest, execute2)</td></tr>
+<tr class="memdesc:a617416807ea694877ccac59904e97d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the execute_path() method for another set of initial angles.  <a href="test_8cpp.html#a617416807ea694877ccac59904e97d85">More...</a><br /></td></tr>
+<tr class="separator:a617416807ea694877ccac59904e97d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd245b8947b107ffe039dd4ac939aff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a3bd245b8947b107ffe039dd4ac939aff">TEST</a> (PositionFKTest, getDH)</td></tr>
+<tr class="memdesc:a3bd245b8947b107ffe039dd4ac939aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the get_dh() method.  <a href="test_8cpp.html#a3bd245b8947b107ffe039dd4ac939aff">More...</a><br /></td></tr>
+<tr class="separator:a3bd245b8947b107ffe039dd4ac939aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f05d53018adc5fad44f275a11666a5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a1f05d53018adc5fad44f275a11666a5a">TEST</a> (PositionFKTest, linkTransform)</td></tr>
+<tr class="memdesc:a1f05d53018adc5fad44f275a11666a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the link_transformation() method.  <a href="test_8cpp.html#a1f05d53018adc5fad44f275a11666a5a">More...</a><br /></td></tr>
+<tr class="separator:a1f05d53018adc5fad44f275a11666a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2f8674bc7e224404bf90c49b229dfb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a6e2f8674bc7e224404bf90c49b229dfb">TEST</a> (PositionFKTest, setAngle1)</td></tr>
+<tr class="memdesc:a6e2f8674bc7e224404bf90c49b229dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_joint_angles() method for one set of values.  <a href="test_8cpp.html#a6e2f8674bc7e224404bf90c49b229dfb">More...</a><br /></td></tr>
+<tr class="separator:a6e2f8674bc7e224404bf90c49b229dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad830b43b5f3419dd5b4b258872e1da7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ad830b43b5f3419dd5b4b258872e1da7c">TEST</a> (PositionFKTest, setAngle2)</td></tr>
+<tr class="memdesc:ad830b43b5f3419dd5b4b258872e1da7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_joint_angles() method for another set of values.  <a href="test_8cpp.html#ad830b43b5f3419dd5b4b258872e1da7c">More...</a><br /></td></tr>
+<tr class="separator:ad830b43b5f3419dd5b4b258872e1da7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c49e5f7efc53cc722e32a93d1d4f601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a3c49e5f7efc53cc722e32a93d1d4f601">TEST</a> (VelocityIKTest, getJacobian)</td></tr>
+<tr class="memdesc:a3c49e5f7efc53cc722e32a93d1d4f601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the get_jacobian() method.  <a href="test_8cpp.html#a3c49e5f7efc53cc722e32a93d1d4f601">More...</a><br /></td></tr>
+<tr class="separator:a3c49e5f7efc53cc722e32a93d1d4f601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafcdcf2207a13c8b4f08544e2b444003"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#aafcdcf2207a13c8b4f08544e2b444003">TEST</a> (VelocityIKTest, computeJacobian1)</td></tr>
+<tr class="memdesc:aafcdcf2207a13c8b4f08544e2b444003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the compute_jacobian() method for one set of angles.  <a href="test_8cpp.html#aafcdcf2207a13c8b4f08544e2b444003">More...</a><br /></td></tr>
+<tr class="separator:aafcdcf2207a13c8b4f08544e2b444003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d6e277bfe06cd08d6424ff4c1bf513"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a26d6e277bfe06cd08d6424ff4c1bf513">TEST</a> (VelocityIKTest, computeJacobian2)</td></tr>
+<tr class="memdesc:a26d6e277bfe06cd08d6424ff4c1bf513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the compute_jacobian() method for another set of angles.  <a href="test_8cpp.html#a26d6e277bfe06cd08d6424ff4c1bf513">More...</a><br /></td></tr>
+<tr class="separator:a26d6e277bfe06cd08d6424ff4c1bf513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c19d4fb973fe6bf37bd8ac46756e53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a59c19d4fb973fe6bf37bd8ac46756e53">TEST</a> (VelocityIKTest, updateAngle1)</td></tr>
+<tr class="memdesc:a59c19d4fb973fe6bf37bd8ac46756e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the update_joint_angles() method for one set of values.  <a href="test_8cpp.html#a59c19d4fb973fe6bf37bd8ac46756e53">More...</a><br /></td></tr>
+<tr class="separator:a59c19d4fb973fe6bf37bd8ac46756e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3878e57a66b91fc1cc3d1bb00a83d898"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a3878e57a66b91fc1cc3d1bb00a83d898">TEST</a> (VelocityIKTest, updateAngle2)</td></tr>
+<tr class="memdesc:a3878e57a66b91fc1cc3d1bb00a83d898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the update_joint_angles() method for another set of values.  <a href="test_8cpp.html#a3878e57a66b91fc1cc3d1bb00a83d898">More...</a><br /></td></tr>
+<tr class="separator:a3878e57a66b91fc1cc3d1bb00a83d898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fee0ba176cdf9279974d0477c7795c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a2fee0ba176cdf9279974d0477c7795c3">TEST</a> (VelocityIKTest, cartesianVel1)</td></tr>
+<tr class="memdesc:a2fee0ba176cdf9279974d0477c7795c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the cartesian_velocity() method.  <a href="test_8cpp.html#a2fee0ba176cdf9279974d0477c7795c3">More...</a><br /></td></tr>
+<tr class="separator:a2fee0ba176cdf9279974d0477c7795c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66030187f3e711b79a5fdf3c0b3b3a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ac66030187f3e711b79a5fdf3c0b3b3a0">TEST</a> (SimulatorTest, setAxes1)</td></tr>
+<tr class="memdesc:ac66030187f3e711b79a5fdf3c0b3b3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_axes() method.  <a href="test_8cpp.html#ac66030187f3e711b79a5fdf3c0b3b3a0">More...</a><br /></td></tr>
+<tr class="separator:ac66030187f3e711b79a5fdf3c0b3b3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01d82d397b493ba29b0559a9b64e0dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ac01d82d397b493ba29b0559a9b64e0dc">TEST</a> (ControllerTest, setGains)</td></tr>
+<tr class="memdesc:ac01d82d397b493ba29b0559a9b64e0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the set_gains() method.  <a href="test_8cpp.html#ac01d82d397b493ba29b0559a9b64e0dc">More...</a><br /></td></tr>
+<tr class="separator:ac01d82d397b493ba29b0559a9b64e0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d9935ff03f4b8374c634e3f1da3260a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a8d9935ff03f4b8374c634e3f1da3260a">TEST</a> (ControllerTest, getGains)</td></tr>
+<tr class="memdesc:a8d9935ff03f4b8374c634e3f1da3260a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the get_gains() method.  <a href="test_8cpp.html#a8d9935ff03f4b8374c634e3f1da3260a">More...</a><br /></td></tr>
+<tr class="separator:a8d9935ff03f4b8374c634e3f1da3260a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68218fa0123c43e7e990e0c539593856"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a68218fa0123c43e7e990e0c539593856">TEST</a> (ControllerTest, controlAction)</td></tr>
+<tr class="memdesc:a68218fa0123c43e7e990e0c539593856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the control_action() method.  <a href="test_8cpp.html#a68218fa0123c43e7e990e0c539593856">More...</a><br /></td></tr>
+<tr class="separator:a68218fa0123c43e7e990e0c539593856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ce1cda78b7dc6518c39c4c561b720b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a82ce1cda78b7dc6518c39c4c561b720b">TEST</a> (ControllerTest, saturation1)</td></tr>
+<tr class="memdesc:a82ce1cda78b7dc6518c39c4c561b720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the saturation() method for one set of values.  <a href="test_8cpp.html#a82ce1cda78b7dc6518c39c4c561b720b">More...</a><br /></td></tr>
+<tr class="separator:a82ce1cda78b7dc6518c39c4c561b720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac880c8999127c2193e5f37007a6609"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a2ac880c8999127c2193e5f37007a6609">TEST</a> (ControllerTest, saturation2)</td></tr>
+<tr class="memdesc:a2ac880c8999127c2193e5f37007a6609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests the saturation() method for another set of values.  <a href="test_8cpp.html#a2ac880c8999127c2193e5f37007a6609">More...</a><br /></td></tr>
+<tr class="separator:a2ac880c8999127c2193e5f37007a6609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a50f046eab3d54284c75df9491f31b420"><td class="memItemLeft" align="right" valign="top"><a id="a50f046eab3d54284c75df9491f31b420"></a>
 <a class="el" href="class_robot.html">Robot</a>&#160;</td><td class="memItemRight" valign="bottom"><b>acme_kuka</b></td></tr>
 <tr class="separator:a50f046eab3d54284c75df9491f31b420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d670f453b8fda667580b85fdf03b55f"><td class="memItemLeft" align="right" valign="top"><a id="a0d670f453b8fda667580b85fdf03b55f"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>init_pose</b> = {1, 2, 3, 4, 5, 6}</td></tr>
-<tr class="separator:a0d670f453b8fda667580b85fdf03b55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae17f8815cf440135e7b9ccbf8243e5e0"><td class="memItemLeft" align="right" valign="top"><a id="ae17f8815cf440135e7b9ccbf8243e5e0"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fin_pose</b> = {1, 2, 3, 4, 5, 6}</td></tr>
-<tr class="separator:ae17f8815cf440135e7b9ccbf8243e5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa47e824dca4136618ed54523c54011e7"><td class="memItemLeft" align="right" valign="top"><a id="aa47e824dca4136618ed54523c54011e7"></a>
+<a class="el" href="class_simulator.html">Simulator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>acme_sim</b></td></tr>
+<tr class="separator:aa47e824dca4136618ed54523c54011e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7d5e5649c596996a391dc497e614d1"><td class="memItemLeft" align="right" valign="top"><a id="a5a7d5e5649c596996a391dc497e614d1"></a>
+<a class="el" href="class_velocity_i_k.html">VelocityIK</a>&#160;</td><td class="memItemRight" valign="bottom"><b>acme_vik</b></td></tr>
+<tr class="separator:a5a7d5e5649c596996a391dc497e614d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5132c3b85d95cc28ed321945ba8d657"><td class="memItemLeft" align="right" valign="top"><a id="ac5132c3b85d95cc28ed321945ba8d657"></a>
+<a class="el" href="class_position_f_k.html">PositionFK</a>&#160;</td><td class="memItemRight" valign="bottom"><b>acme_pfk</b></td></tr>
+<tr class="separator:ac5132c3b85d95cc28ed321945ba8d657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ce35e1b928aeac8b8bf5200424f6bc"><td class="memItemLeft" align="right" valign="top"><a id="a79ce35e1b928aeac8b8bf5200424f6bc"></a>
+<a class="el" href="class_controller.html">Controller</a>&#160;</td><td class="memItemRight" valign="bottom"><b>acme_cont</b></td></tr>
+<tr class="separator:a79ce35e1b928aeac8b8bf5200424f6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of Google Test cases framework for Acme's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> Manipulator. </p>
@@ -163,8 +253,296 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
 
 <p class="definition">Definition in file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a382ae0203c35c4b80565ef72fc4cc317"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a382ae0203c35c4b80565ef72fc4cc317">&#9670;&nbsp;</a></span>TEST() <span class="overload">[1/4]</span></h2>
+<a id="a68218fa0123c43e7e990e0c539593856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68218fa0123c43e7e990e0c539593856">&#9670;&nbsp;</a></span>TEST() <span class="overload">[1/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ControllerTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">controlAction&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the control_action() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00321">321</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d9935ff03f4b8374c634e3f1da3260a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d9935ff03f4b8374c634e3f1da3260a">&#9670;&nbsp;</a></span>TEST() <span class="overload">[2/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ControllerTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getGains&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the get_gains() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00305">305</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a82ce1cda78b7dc6518c39c4c561b720b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ce1cda78b7dc6518c39c4c561b720b">&#9670;&nbsp;</a></span>TEST() <span class="overload">[3/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ControllerTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">saturation1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the saturation() method for one set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00335">335</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2ac880c8999127c2193e5f37007a6609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ac880c8999127c2193e5f37007a6609">&#9670;&nbsp;</a></span>TEST() <span class="overload">[4/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ControllerTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">saturation2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the saturation() method for another set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00346">346</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac01d82d397b493ba29b0559a9b64e0dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac01d82d397b493ba29b0559a9b64e0dc">&#9670;&nbsp;</a></span>TEST() <span class="overload">[5/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">ControllerTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setGains&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_gains() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00294">294</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3bd245b8947b107ffe039dd4ac939aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd245b8947b107ffe039dd4ac939aff">&#9670;&nbsp;</a></span>TEST() <span class="overload">[6/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">PositionFKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getDH&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the get_dh() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00144">144</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1f05d53018adc5fad44f275a11666a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f05d53018adc5fad44f275a11666a5a">&#9670;&nbsp;</a></span>TEST() <span class="overload">[7/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">PositionFKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">linkTransform&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the link_transformation() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00164">164</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6e2f8674bc7e224404bf90c49b229dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2f8674bc7e224404bf90c49b229dfb">&#9670;&nbsp;</a></span>TEST() <span class="overload">[8/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">PositionFKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setAngle1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_joint_angles() method for one set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00181">181</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad830b43b5f3419dd5b4b258872e1da7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad830b43b5f3419dd5b4b258872e1da7c">&#9670;&nbsp;</a></span>TEST() <span class="overload">[9/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">PositionFKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setAngle2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_joint_angles() method for another set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00190">190</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a554873ea2be359fa130c7c3425014715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a554873ea2be359fa130c7c3425014715">&#9670;&nbsp;</a></span>TEST() <span class="overload">[10/26]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +556,7 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">should_pass1&#160;</td>
+          <td class="paramtype">execute1&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -189,14 +567,14 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
       </table>
 </div><div class="memdoc">
 
-<p>Tests the set_initial_pose() method. </p>
+<p>Tests the execute_path() method for one set of initial angles. </p>
 
-<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00026">26</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00122">122</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
 
 </div>
 </div>
-<a id="adcf646d5b9d9c5b8c99bbb703354857b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcf646d5b9d9c5b8c99bbb703354857b">&#9670;&nbsp;</a></span>TEST() <span class="overload">[2/4]</span></h2>
+<a id="a617416807ea694877ccac59904e97d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a617416807ea694877ccac59904e97d85">&#9670;&nbsp;</a></span>TEST() <span class="overload">[11/26]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +588,7 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">should_pass2&#160;</td>
+          <td class="paramtype">execute2&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -221,14 +599,14 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
       </table>
 </div><div class="memdoc">
 
-<p>Tests the set_final_pose() method. </p>
+<p>Tests the execute_path() method for another set of initial angles. </p>
 
-<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00034">34</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00132">132</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aabfeb0b67261c7bf26b264c4d6ebd6f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabfeb0b67261c7bf26b264c4d6ebd6f8">&#9670;&nbsp;</a></span>TEST() <span class="overload">[3/4]</span></h2>
+<a id="a8a95d9994d021aaba8d37eb2344e6424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a95d9994d021aaba8d37eb2344e6424">&#9670;&nbsp;</a></span>TEST() <span class="overload">[12/26]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +620,7 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">should_pass3&#160;</td>
+          <td class="paramtype">finalPose1&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -253,14 +631,14 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
       </table>
 </div><div class="memdoc">
 
-<p>Tests the set_joint_angles() method. </p>
+<p>Tests the set_final_pose() method for one set of pose values. </p>
 
-<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00042">42</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00058">58</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a797de0ce924c73ea43ab8ca9ce9549e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a797de0ce924c73ea43ab8ca9ce9549e5">&#9670;&nbsp;</a></span>TEST() <span class="overload">[4/4]</span></h2>
+<a id="afad852aa323c26ad8615755f55743216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad852aa323c26ad8615755f55743216">&#9670;&nbsp;</a></span>TEST() <span class="overload">[13/26]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,7 +652,7 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">should_pass4&#160;</td>
+          <td class="paramtype">finalPose2&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -285,9 +663,425 @@ Kumara Ritvik Oruganti (<a href="#" onclick="location.href='mai'+'lto:'+'okr'+'i
       </table>
 </div><div class="memdoc">
 
-<p>Tests the execute_path() method. </p>
+<p>Tests the set_final_pose() method for another set of pose values. </p>
 
-<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00051">51</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00067">67</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a17bdbbff7d1eb77490ad88d788e89fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17bdbbff7d1eb77490ad88d788e89fdf">&#9670;&nbsp;</a></span>TEST() <span class="overload">[14/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getAngle1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the get_joint_angles() method for one set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00094">94</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8ebcc4c3b808bc88e877722b9dcac655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ebcc4c3b808bc88e877722b9dcac655">&#9670;&nbsp;</a></span>TEST() <span class="overload">[15/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getAngle2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the get_joint_angles() method for another set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00108">108</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af3c4af929e94796208762d2b38a1865b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c4af929e94796208762d2b38a1865b">&#9670;&nbsp;</a></span>TEST() <span class="overload">[16/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">initialPose1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_initial_pose() method with one set of pose values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00040">40</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3b6f8a1bf45c2ff095de757397268cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b6f8a1bf45c2ff095de757397268cd4">&#9670;&nbsp;</a></span>TEST() <span class="overload">[17/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">initialPose2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_initial_pose() method with another set of pose values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00049">49</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad31080a9751a9d4162adc1be37bd30bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31080a9751a9d4162adc1be37bd30bf">&#9670;&nbsp;</a></span>TEST() <span class="overload">[18/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setAngle1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_joint_angles() method for one set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00076">76</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4299f480d3879e69cdd83330de1801cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4299f480d3879e69cdd83330de1801cb">&#9670;&nbsp;</a></span>TEST() <span class="overload">[19/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">RobotTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setAngle2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_joint_angles() method for another set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00085">85</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac66030187f3e711b79a5fdf3c0b3b3a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66030187f3e711b79a5fdf3c0b3b3a0">&#9670;&nbsp;</a></span>TEST() <span class="overload">[20/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">SimulatorTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">setAxes1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the set_axes() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00281">281</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2fee0ba176cdf9279974d0477c7795c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fee0ba176cdf9279974d0477c7795c3">&#9670;&nbsp;</a></span>TEST() <span class="overload">[21/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cartesianVel1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the cartesian_velocity() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00269">269</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aafcdcf2207a13c8b4f08544e2b444003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafcdcf2207a13c8b4f08544e2b444003">&#9670;&nbsp;</a></span>TEST() <span class="overload">[22/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">computeJacobian1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the compute_jacobian() method for one set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00219">219</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26d6e277bfe06cd08d6424ff4c1bf513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26d6e277bfe06cd08d6424ff4c1bf513">&#9670;&nbsp;</a></span>TEST() <span class="overload">[23/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">computeJacobian2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the compute_jacobian() method for another set of angles. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00228">228</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3c49e5f7efc53cc722e32a93d1d4f601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c49e5f7efc53cc722e32a93d1d4f601">&#9670;&nbsp;</a></span>TEST() <span class="overload">[24/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">getJacobian&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the get_jacobian() method. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00201">201</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a59c19d4fb973fe6bf37bd8ac46756e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c19d4fb973fe6bf37bd8ac46756e53">&#9670;&nbsp;</a></span>TEST() <span class="overload">[25/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">updateAngle1&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the update_joint_angles() method for one set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00237">237</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3878e57a66b91fc1cc3d1bb00a83d898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3878e57a66b91fc1cc3d1bb00a83d898">&#9670;&nbsp;</a></span>TEST() <span class="overload">[26/26]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">VelocityIKTest&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">updateAngle2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tests the update_joint_angles() method for another set of values. </p>
+
+<p class="definition">Definition at line <a class="el" href="test_8cpp_source.html#l00253">253</a> of file <a class="el" href="test_8cpp_source.html">test.cpp</a>.</p>
 
 </div>
 </div>

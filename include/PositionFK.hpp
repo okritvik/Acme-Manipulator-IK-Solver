@@ -35,18 +35,21 @@ class PositionFK {
     nc::NdArray<double> get_dh();
 
     /**
-     * @brief Computes the homogeneous transformation matrix between successive links on the robot.
+     * @brief Computes all of the homogeneous transformation matrices between successive links on the robot.
      * 
-     * @return nc::NdArray<double> Transformation matrix between links 'i-1' and 'i'
+     * @return std::vector<nc::NdArray<double>> Transformation matrices between links 'i-1' and 'i'
      */
-    nc::NdArray<double> link_transformation();
+    std::vector<nc::NdArray<double>> link_transformation();
 
     /**
      * @brief Mutator function to set the robot's joint angles.
      * 
      * @param joint_angles Joint angles of the robot (rad)
+     *
+     * @return true If joint angles are set correctly, 
+     * @return false If the joint angles are incorrectly set.
      */
-    void set_joint_angles(std::vector<double> *joint_angles);
+    bool set_joint_angles(std::vector<double> *joint_angles);
 
  private:
     std::vector<double> m_joint_angles;    // Joint angles of the robot

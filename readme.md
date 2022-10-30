@@ -25,7 +25,14 @@ As previously mentioned, the KUKA robot was chosen as the robot for which such a
 
 Thus, the following personnel shall implement the above using pair-programming where one of them serves as the driver while the other as the navigator and switching roles after each iteration, with appropriately defined test cases to validate the solution at each stage in the iterative process, which shall last about two weeks in total. 
 
- 
+### Robot Kinematics
+<p align="center">
+<img width="40%" alt="Frames" src="https://user-images.githubusercontent.com/40200916/197856935-84038271-2189-40de-88c0-2176eba9e620.png">
+</p>
+<p align="center">
+<img width="80%" alt="D-H Table" src="https://user-images.githubusercontent.com/40200916/197856182-211ff7ea-aa85-4c04-86ef-5a43a17b3afb.jpg">
+</p>
+
 ## Personnel:
 * **Adarsh Malapaka** </br>
     UID: 118119625 </br>
@@ -93,6 +100,10 @@ cmake --build . --target install .
 2. [Matplot++](https://alandefreitas.github.io/matplotplusplus/): This is used to leverage MATLAB styled plotting functions in C++, to visualize the Robot. </br>
 This dependency is already included with the project's `CMakeLists.txt` file, and hence requires no additional installation/build.
 
+3. [Gnuplot](http://www.gnuplot.info): This is a graphic utility used by Matplotplusplus as a plotting engine. To install this dependency, run:
+```
+sudo apt-get install gnuplot
+```
 ### Build
 In the project's top level directory `/Acme-Manipulator-IK-Solver`, run the following:
 ```
@@ -114,13 +125,13 @@ make code_coverage
 ### Run Demo
 To run the demo, change to the `/build` directory as done previously: 
 ```
-./app/shell-app
+./app/acme-demo
 ```
 
 ### Run Tests
 To run the Google Test cases: 
 ```
-./test/cpp-test
+./test/acme-test
 ```
 
 ### Doxygen Docs
@@ -145,7 +156,7 @@ The documentation is saved in the ```/docs``` directory.
 ### cppcheck
 Change to the root directory of the project, and run:
 ```
-cppcheck --enable=all --std=c++17 ./app/*.cpp ./include/*.hpp ./test/*.cpp --suppress=missingIncludeSystem --suppress=unmatchedSuppression --suppress=unusedFunction --suppress=missingInclude > results/cppcheck.txt
+cppcheck --enable=all --std=c++17 ./app/*.cpp ./include/*.hpp ./test/*.cpp --suppress=missingIncludeSystem --suppress=unmatchedSuppression --suppress=unusedFunction --suppress=missingInclude --suppress=useInitializationList > results/cppcheck.txt
 ```
 The results of running ```cppcheck``` can be found in ```/results/cppcheck.txt```.
 
@@ -156,9 +167,27 @@ cpplint ./app/*.cpp ./include/*.hpp ./test/*.cpp &> ./results/cpplint.txt
 ```
 The results of running ```cpplint``` can be found in ```/results/cpplint.txt```.
 
+### Valgrind
+Change to the root directory of the project, and run:
+```
+sudo apt install valgrind
+cd build
+valgrind --leak-check=full -v ./app/acme-demo >& ../results/valgrind_result.txt
+```
+### KCachegrind
+Change to the root directory of the project, and run:
+```
+sudo apt-get install -y kcachegrind
+cd build
+valgrind --tool=callgrind ./app/acme-demo
+kcachegrind
+```
+If `kcachegrind` doesn't open the required file, open the file `callgrind.out.xxxx` file in the GUI.
+
 ## Known Issues/Bugs
 1. Installation of NumCpp from the author might run into [Boost](https://www.boost.org/) requirement errors. To address this, change `option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" OFF)` to `option(NUMCPP_NO_USE_BOOST "Don't use the boost libraries" ON)`in the `CMakeLists.txt` of the NumCpp directory.
-2. `make` command may produce some errors from the matplotplusplus dependencies. This will be rectified in the next iteration.
+2. `make` command may produce some errors from the matplotplusplus dependencies. This can be rectified by properly linking all the executables with matplotplusplus and installing gnuplot.
+3. While executing the software, the terminal may show warnings corresponding to the limits of simulation figure axes. These can be ignored.
 
 ## File Tree
     ├── app                    

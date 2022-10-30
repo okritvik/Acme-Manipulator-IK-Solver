@@ -1,11 +1,17 @@
-\hypertarget{_robot_8cpp}{}\doxysection{/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\+Robot.cpp File Reference}
-\label{_robot_8cpp}\index{/media/adarsh/HDD/Ubuntu/Mid-\/Term/Acme-\/Manipulator-\/IK-\/Solver/app/Robot.cpp@{/media/adarsh/HDD/Ubuntu/Mid-\/Term/Acme-\/Manipulator-\/IK-\/Solver/app/Robot.cpp}}
+\hypertarget{_robot_8cpp}{}\doxysection{/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\+Robot.cpp File Reference}
+\label{_robot_8cpp}\index{/media/okritvik/DATA/UMD/Course\_Work/ENPM808X/Assignments/Acme-\/Manipulator-\/IK-\/Solver/app/Robot.cpp@{/media/okritvik/DATA/UMD/Course\_Work/ENPM808X/Assignments/Acme-\/Manipulator-\/IK-\/Solver/app/Robot.cpp}}
 
 
 Implementation of Acme\textquotesingle{}s \mbox{\hyperlink{class_robot}{Robot}} Manipulator\textquotesingle{}s \mbox{\hyperlink{class_robot}{Robot}} class.  
 
 
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Core/\+Types.\+hpp$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Functions/identity.\+hpp$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Functions/linspace.\+hpp$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Linalg/inv.\+hpp$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Nd\+Array/\+Nd\+Array\+Core.\+hpp$>$}\newline
 {\ttfamily \#include \char`\"{}../include/\+Controller.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../include/\+Kinematics.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../include/\+Simulator.\+hpp\char`\"{}}\newline
@@ -18,6 +24,12 @@ Include dependency graph for Robot.\+cpp\+:
 \includegraphics[width=350pt]{_robot_8cpp__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_robot_8cpp_a598a3330b3c21701223ee0ca14316eca}\label{_robot_8cpp_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~nc\+::constants\+::pi
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

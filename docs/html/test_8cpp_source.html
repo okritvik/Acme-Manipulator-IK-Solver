@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/test/test.cpp Source File</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/test/test.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -96,39 +96,267 @@ $(document).ready(function(){initNavTree('test_8cpp_source.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <a href="test_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="class_robot.html">Robot</a> acme_kuka;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;std::vector&lt;double&gt; init_pose = {1, 2, 3, 4, 5, 6};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;std::vector&lt;double&gt; fin_pose = {1, 2, 3, 4, 5, 6};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">   26</a></span>&#160;<a class="code" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a>(RobotTest, should_pass1) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;init_pose), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="test_8cpp.html#adcf646d5b9d9c5b8c99bbb703354857b">   34</a></span>&#160;<a class="code" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a>(RobotTest, should_pass2) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">set_final_pose</a>(&amp;fin_pose), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="test_8cpp.html#aabfeb0b67261c7bf26b264c4d6ebd6f8">   42</a></span>&#160;<a class="code" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a>(RobotTest, should_pass3) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;init_pose), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="test_8cpp.html#a797de0ce924c73ea43ab8ca9ce9549e5">   51</a></span>&#160;<a class="code" href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a>(RobotTest, should_pass4) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">execute_path</a>(), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;NumCpp/Functions/array_equal.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;NumCpp/NdArray/NdArrayCore.hpp&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../include/PositionFK.hpp&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../include/VelocityIK.hpp&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../include/Simulator.hpp&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../include/Controller.hpp&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define PI nc::constants::pi</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="class_robot.html">Robot</a> acme_kuka;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="class_simulator.html">Simulator</a> acme_sim;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="class_velocity_i_k.html">VelocityIK</a> acme_vik;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="class_position_f_k.html">PositionFK</a> acme_pfk;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="class_controller.html">Controller</a> acme_cont;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// Test cases for Robot Methods</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">   40</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, initialPose1) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::vector&lt;double&gt; init_pose = {0.0, 10.5, 62.4};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;init_pose), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="test_8cpp.html#a3b6f8a1bf45c2ff095de757397268cd4">   49</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, initialPose2) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::vector&lt;double&gt; init_pose = {30.4, 0.0, 0.0};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;init_pose), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="test_8cpp.html#a8a95d9994d021aaba8d37eb2344e6424">   58</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, finalPose1) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  std::vector&lt;double&gt; fin_pose = {0.0, 20.5, -32.5};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">set_final_pose</a>(&amp;fin_pose), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="test_8cpp.html#afad852aa323c26ad8615755f55743216">   67</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, finalPose2) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  std::vector&lt;double&gt; fin_pose = {20.55, 68.2, 0.0};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">set_final_pose</a>(&amp;fin_pose), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="test_8cpp.html#ad31080a9751a9d4162adc1be37bd30bf">   76</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, setAngle1) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {PI/2, 0, -PI/2, 0, 0, 0};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="test_8cpp.html#a4299f480d3879e69cdd83330de1801cb">   85</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, setAngle2) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, -PI/2, 0, 0, 0};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="test_8cpp.html#a17bdbbff7d1eb77490ad88d788e89fdf">   94</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, getAngle1) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, -PI/2, 0, 0, 0};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;jnt_angle);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  std::vector&lt;double&gt; set_angle = acme_kuka.<a class="code" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">get_joint_angles</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; set_angle.size(); i++) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    ASSERT_EQ(set_angle[i], jnt_angle[i]);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="test_8cpp.html#a8ebcc4c3b808bc88e877722b9dcac655">  108</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, getAngle2) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {PI/2, 0, -PI/2, PI/6, 0, PI/4};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;jnt_angle);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  std::vector&lt;double&gt; set_angle = acme_kuka.<a class="code" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">get_joint_angles</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; set_angle.size(); i++) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    ASSERT_EQ(set_angle[i], jnt_angle[i]);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="test_8cpp.html#a554873ea2be359fa130c7c3425014715">  122</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, execute1) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  std::vector&lt;double&gt; init_angle =  {PI/2, 0, -PI/2, 0, 0.00001, 0};</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;init_angle);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">execute_path</a>(), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="test_8cpp.html#a617416807ea694877ccac59904e97d85">  132</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(RobotTest, execute2) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  std::vector&lt;double&gt; init_angle =  {5*PI/2, 0, 3*PI/2, 0, 0.0001, 0};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  acme_kuka.<a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">set_joint_angles</a>(&amp;init_angle);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  ASSERT_EQ(acme_kuka.<a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">execute_path</a>(), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">// Test cases for PositionFK Methods</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="test_8cpp.html#a3bd245b8947b107ffe039dd4ac939aff">  144</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(PositionFKTest, getDH) {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  nc::NdArray&lt;double&gt; dh_matrix = {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                            {0, 0, -PI/2, 36},</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                            {0, 0, PI/2, 0},</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                            {0, 0, PI/2, 42},</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                            {0, 0, -PI/2, 0},</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                            {0, 0, -PI/2, 39.95},</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                            {0, 0, PI/2, 0},</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                            {0, 0, 0, 20.55}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                            };</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, 0, 0, 0, 0};</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  acme_pfk.<a class="code" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a>(&amp;jnt_angle);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  nc::NdArray&lt;double&gt; new_dh = acme_pfk.<a class="code" href="class_position_f_k.html#a2c82602e92bfe972b12ea2821a7329b3">get_dh</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  ASSERT_EQ(nc::array_equal(new_dh, dh_matrix), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="test_8cpp.html#a1f05d53018adc5fad44f275a11666a5a">  164</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(PositionFKTest, linkTransform) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, 0, 0, 0, 0};</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  acme_pfk.<a class="code" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a>(&amp;jnt_angle);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  nc::NdArray&lt;double&gt; tr = {{1, 0, 0, 0},</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                {0, 0, 1, 0},</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                {0, -1, 0, 36},</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                {0, 0, 0, 1},</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                };</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  nc::NdArray&lt;double&gt; new_tr =</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                acme_pfk.<a class="code" href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">link_transformation</a>().at(0);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  ASSERT_EQ(nc::array_equal(new_tr, tr), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="test_8cpp.html#a6e2f8674bc7e224404bf90c49b229dfb">  181</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(PositionFKTest, setAngle1) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, -PI/2, 0, 0, 0};</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  ASSERT_EQ(acme_pfk.<a class="code" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="test_8cpp.html#ad830b43b5f3419dd5b4b258872e1da7c">  190</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(PositionFKTest, setAngle2) {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {PI/2, PI/4, -PI/4, 0, 0, PI};</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  ASSERT_EQ(acme_pfk.<a class="code" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">// Test cases for VelocityIK Methods</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="test_8cpp.html#a3c49e5f7efc53cc722e32a93d1d4f601">  201</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, getJacobian) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  nc::NdArray&lt;double&gt; jac = {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                            {0, 102.5, -60.5, 0, 20.55, 0},</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                            {0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                            {0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                            {0, 0, 0, 0, 0, 0},</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                            {0, 1, 0, 0, 1, 0},</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                            {1, 0, 1, 1, 0, 1}</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                            };</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, 0, 0, 0, 0};</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  acme_vik.<a class="code" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a>(&amp;jnt_angle);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  ASSERT_EQ(nc::array_equal(acme_vik.<a class="code" href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">get_jacobian</a>(), jac), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="test_8cpp.html#aafcdcf2207a13c8b4f08544e2b444003">  219</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, computeJacobian1) {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {PI/2, PI/4, -PI/4, 0, 0, PI};</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  ASSERT_EQ(acme_vik.<a class="code" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="test_8cpp.html#a26d6e277bfe06cd08d6424ff4c1bf513">  228</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, computeJacobian2) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, PI/4, 0, 0, PI};</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  ASSERT_EQ(acme_vik.<a class="code" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a>(&amp;jnt_angle), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="test_8cpp.html#a59c19d4fb973fe6bf37bd8ac46756e53">  237</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, updateAngle1) {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keywordtype">double</span> dt = 0.1;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {0, 0, PI/4, 0, 0, PI};</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  std::vector&lt;double&gt; jnt_angle_dot = {0, 0, 0, 0, 0, 0};</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  std::vector&lt;double&gt; nxt_angle =  {0, 0, PI/4, 0, 0, PI};</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  std::vector&lt;double&gt; new_angle = acme_vik.<a class="code" href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">update_joint_angles</a></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                    (&amp;dt, &amp;jnt_angle, &amp;jnt_angle_dot);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nxt_angle.size(); i++) {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    ASSERT_EQ(nxt_angle[i], new_angle[i]);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="test_8cpp.html#a3878e57a66b91fc1cc3d1bb00a83d898">  253</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, updateAngle2) {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keywordtype">double</span> dt = 0.1;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  std::vector&lt;double&gt; jnt_angle =  {PI, 0, PI/4, 0, PI/6, PI};</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  std::vector&lt;double&gt; jnt_angle_dot = {10, 10, 10, 10, 10, 10};</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  std::vector&lt;double&gt; nxt_angle =  {PI+1, 1, 1+(PI/4), 1, 1+(PI/6), 1+PI};</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  std::vector&lt;double&gt; new_angle = acme_vik.<a class="code" href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">update_joint_angles</a></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    (&amp;dt, &amp;jnt_angle, &amp;jnt_angle_dot);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nxt_angle.size(); i++) {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    ASSERT_EQ(nxt_angle[i], new_angle[i]);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="test_8cpp.html#a2fee0ba176cdf9279974d0477c7795c3">  269</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(VelocityIKTest, cartesianVel1) {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keywordtype">double</span> th = 0;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  nc::NdArray&lt;double&gt; new_vel = {0, 0, 4*PI, 0, 0, 0};</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  ASSERT_EQ(nc::array_equal(new_vel, acme_vik.<a class="code" href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">cartesian_velocity</a>(&amp;th)), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">// Test cases for Simulator Methods</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="test_8cpp.html#ac66030187f3e711b79a5fdf3c0b3b3a0">  281</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(SimulatorTest, setAxes1) {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  std::vector&lt;double&gt; xl = {0, 10};</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  std::vector&lt;double&gt; yl = {0, 10};</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  std::vector&lt;double&gt; zl = {0, 10};</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  ASSERT_EQ(acme_sim.<a class="code" href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">set_axes</a>(&amp;xl, &amp;yl, &amp;zl), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">// Test cases for Controller Methods</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="test_8cpp.html#ac01d82d397b493ba29b0559a9b64e0dc">  294</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(ControllerTest, setGains) {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keywordtype">double</span> kp = 1.5;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keywordtype">double</span> ki = 0.01;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <span class="keywordtype">double</span> kd = 0.001;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  ASSERT_EQ(acme_cont.<a class="code" href="class_controller.html#a73a23885d522a0787792215ca3f34a64">set_gains</a>(&amp;kp, &amp;ki, &amp;kd), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="test_8cpp.html#a8d9935ff03f4b8374c634e3f1da3260a">  305</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(ControllerTest, getGains) {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordtype">double</span> kp = 1.6;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keywordtype">double</span> ki = 0.01;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="keywordtype">double</span> kd = 0.001;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  acme_cont.<a class="code" href="class_controller.html#a73a23885d522a0787792215ca3f34a64">set_gains</a>(&amp;kp, &amp;ki, &amp;kd);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  std::vector&lt;double&gt; gain_vector = {kp, ki, kd};</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="keyword">auto</span> res_gain = acme_cont.<a class="code" href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">get_gains</a>();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i =0; i &lt; gain_vector.size(); i++) {</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    ASSERT_EQ(gain_vector.at(i), res_gain.at(i));</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;}</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="test_8cpp.html#a68218fa0123c43e7e990e0c539593856">  321</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(ControllerTest, controlAction) {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keywordtype">double</span> kp = 1.5;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordtype">double</span> ki = 0.01;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keywordtype">double</span> kd = 0.001;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  acme_cont.<a class="code" href="class_controller.html#a73a23885d522a0787792215ca3f34a64">set_gains</a>(&amp;kp, &amp;ki, &amp;kd);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  std::vector&lt;double&gt; pos1 = {0};</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  std::vector&lt;double&gt; pos2 = {2};</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  ASSERT_EQ(acme_cont.<a class="code" href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">control_action</a>(&amp;pos1, &amp;pos2), 3.0);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="test_8cpp.html#a82ce1cda78b7dc6518c39c4c561b720b">  335</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(ControllerTest, saturation1) {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordtype">double</span> val1 = 0;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keywordtype">double</span> val2 = 5;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="keywordtype">double</span> val = 6;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  ASSERT_EQ(acme_cont.<a class="code" href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">saturation</a>(&amp;val1, &amp;val2, &amp;val), 0.0);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="test_8cpp.html#a2ac880c8999127c2193e5f37007a6609">  346</a></span>&#160;<a class="code" href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a>(ControllerTest, saturation2) {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="keywordtype">double</span> val1 = 0;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keywordtype">double</span> val2 = 5;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keywordtype">double</span> val = 2;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  ASSERT_EQ(acme_cont.<a class="code" href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">saturation</a>(&amp;val1, &amp;val2, &amp;val), 2);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_robot_html_a2be26e4c47c92a7a12659ccd607567e6"><div class="ttname"><a href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a></div><div class="ttdeci">bool execute_path()</div><div class="ttdoc">Generates and executes a trajectory for the robot's path from the initial pose to the final pose.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00022">Robot.cpp:22</a></div></div>
-<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00026">Robot.cpp:26</a></div></div>
+<div class="ttc" id="atest_8cpp_html_af3c4af929e94796208762d2b38a1865b"><div class="ttname"><a href="test_8cpp.html#af3c4af929e94796208762d2b38a1865b">TEST</a></div><div class="ttdeci">TEST(RobotTest, initialPose1)</div><div class="ttdoc">Tests the set_initial_pose() method with one set of pose values.</div><div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00040">test.cpp:40</a></div></div>
+<div class="ttc" id="aclass_robot_html_a2be26e4c47c92a7a12659ccd607567e6"><div class="ttname"><a href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a></div><div class="ttdeci">bool execute_path()</div><div class="ttdoc">Generates and executes a trajectory for the robot's path from the initial pose to the final pose.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00038">Robot.cpp:38</a></div></div>
+<div class="ttc" id="aclass_controller_html_a002fb930e8f0293156973752f1f2dd61"><div class="ttname"><a href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">Controller::control_action</a></div><div class="ttdeci">double control_action(std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</div><div class="ttdoc">Computes the error in pose (between present and target) and applies the PID control action on the err...</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00043">Controller.cpp:43</a></div></div>
+<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00118">Robot.cpp:118</a></div></div>
+<div class="ttc" id="aclass_simulator_html_abefb3e327854b9a79c8f0288a953d465"><div class="ttname"><a href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">Simulator::set_axes</a></div><div class="ttdeci">bool set_axes(std::vector&lt; double &gt; *xlim, std::vector&lt; double &gt; *ylim, std::vector&lt; double &gt; *zlim)</div><div class="ttdoc">Mutator function to set the axes limits of the simulation window.</div><div class="ttdef"><b>Definition:</b> <a href="_simulator_8cpp_source.html#l00064">Simulator.cpp:64</a></div></div>
+<div class="ttc" id="aclass_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Defines the PID controller class.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8hpp_source.html#l00022">Controller.hpp:22</a></div></div>
 <div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdoc">Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hpp_source.html#l00026">Robot.hpp:26</a></div></div>
-<div class="ttc" id="atest_8cpp_html_a382ae0203c35c4b80565ef72fc4cc317"><div class="ttname"><a href="test_8cpp.html#a382ae0203c35c4b80565ef72fc4cc317">TEST</a></div><div class="ttdeci">TEST(RobotTest, should_pass1)</div><div class="ttdoc">Tests the set_initial_pose() method.</div><div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00026">test.cpp:26</a></div></div>
-<div class="ttc" id="aclass_robot_html_a049df4bda1dcb2c4cea8125915acd0d7"><div class="ttname"><a href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00039">Robot.cpp:39</a></div></div>
-<div class="ttc" id="aclass_robot_html_ad03ee7e8edcc25b1f6522eb03586aecc"><div class="ttname"><a href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a></div><div class="ttdeci">bool set_final_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the desired final pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00030">Robot.cpp:30</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_a07075ab3433d75bfe09d05a3dbd57552"><div class="ttname"><a href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">VelocityIK::get_jacobian</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; get_jacobian()</div><div class="ttdoc">Accessor function to get the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00177">VelocityIK.cpp:177</a></div></div>
+<div class="ttc" id="aclass_simulator_html"><div class="ttname"><a href="class_simulator.html">Simulator</a></div><div class="ttdoc">Defines the Simulator class.</div><div class="ttdef"><b>Definition:</b> <a href="_simulator_8hpp_source.html#l00022">Simulator.hpp:22</a></div></div>
+<div class="ttc" id="aclass_controller_html_a73a23885d522a0787792215ca3f34a64"><div class="ttname"><a href="class_controller.html#a73a23885d522a0787792215ca3f34a64">Controller::set_gains</a></div><div class="ttdeci">bool set_gains(double *kp, double *ki, double *kd)</div><div class="ttdoc">Mutator function to set the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00026">Controller.cpp:26</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html_ab898a4fcab6460560d91fc9a58f04a21"><div class="ttname"><a href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">PositionFK::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8cpp_source.html#l00095">PositionFK.cpp:95</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html_a878416b9d5224d851437215e34d1237e"><div class="ttname"><a href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">PositionFK::link_transformation</a></div><div class="ttdeci">std::vector&lt; nc::NdArray&lt; double &gt; &gt; link_transformation()</div><div class="ttdoc">Computes all of the homogeneous transformation matrices between successive links on the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8cpp_source.html#l00035">PositionFK.cpp:35</a></div></div>
+<div class="ttc" id="aclass_controller_html_a20bb74e979c1a21ef56df18b5fdad7fe"><div class="ttname"><a href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">Controller::saturation</a></div><div class="ttdeci">double saturation(double *min_vel, double *max_vel, double *val)</div><div class="ttdoc">Saturates the controller output to within {min_vel, max_vel} for safety reasons.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00054">Controller.cpp:54</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae48fa2a2042a47a2c78170044573eb28"><div class="ttname"><a href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">VelocityIK::compute_jacobian</a></div><div class="ttdeci">bool compute_jacobian(std::vector&lt; double &gt; *joint_angle)</div><div class="ttdoc">Computes the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00053">VelocityIK.cpp:53</a></div></div>
+<div class="ttc" id="aclass_controller_html_a15e8c6de3ebf3abcf29e705f08c78e39"><div class="ttname"><a href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">Controller::get_gains</a></div><div class="ttdeci">std::vector&lt; double &gt; get_gains()</div><div class="ttdoc">Accessor function to get the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00034">Controller.cpp:34</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_adbbe686948ac7e77d00249ca6863bc75"><div class="ttname"><a href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">VelocityIK::cartesian_velocity</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; cartesian_velocity(double *theta)</div><div class="ttdoc">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be z...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00027">VelocityIK.cpp:27</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html"><div class="ttname"><a href="class_velocity_i_k.html">VelocityIK</a></div><div class="ttdoc">Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8hpp_source.html#l00021">VelocityIK.hpp:21</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae58a64243d86eeb8c3721d483789ead5"><div class="ttname"><a href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">VelocityIK::update_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; update_joint_angles(double *dt, std::vector&lt; double &gt; *present_joint_angle, std::vector&lt; double &gt; *joint_angle_dot)</div><div class="ttdoc">Performs numerical integration of the joint speed to obtain joint position for a small time-step usin...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00037">VelocityIK.cpp:37</a></div></div>
+<div class="ttc" id="aclass_robot_html_a049df4bda1dcb2c4cea8125915acd0d7"><div class="ttname"><a href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00143">Robot.cpp:143</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html_a2c82602e92bfe972b12ea2821a7329b3"><div class="ttname"><a href="class_position_f_k.html#a2c82602e92bfe972b12ea2821a7329b3">PositionFK::get_dh</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; get_dh()</div><div class="ttdoc">Accessor function to get the D-H table of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8cpp_source.html#l00021">PositionFK.cpp:21</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html"><div class="ttname"><a href="class_position_f_k.html">PositionFK</a></div><div class="ttdoc">Defines the Position Forward Kinematics solver class using the standard form of the Denavit-Hartenber...</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8hpp_source.html#l00022">PositionFK.hpp:22</a></div></div>
+<div class="ttc" id="aclass_robot_html_a3e489543ecc90e10881e7b035a04f01b"><div class="ttname"><a href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">Robot::get_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; get_joint_angles()</div><div class="ttdoc">Accessor function to get the joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00138">Robot.cpp:138</a></div></div>
+<div class="ttc" id="aclass_robot_html_ad03ee7e8edcc25b1f6522eb03586aecc"><div class="ttname"><a href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a></div><div class="ttdeci">bool set_final_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the desired final pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00128">Robot.cpp:128</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

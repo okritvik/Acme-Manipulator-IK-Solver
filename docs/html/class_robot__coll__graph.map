@@ -1,0 +1,8 @@
+<map id="Robot" name="Robot">
+<area shape="rect" id="node1" title="Defines the Robot class containing 3 children classes &#45; Controller, Kinematics and Simulator." alt="" coords="203,184,263,211"/>
+<area shape="rect" id="node2" href="$class_kinematics.html" title="Defines the Kinematics class containing 2 children classes &#45; PositionFK and VelocityIK." alt="" coords="58,95,153,121"/>
+<area shape="rect" id="node3" href="$class_velocity_i_k.html" title="Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked..." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node4" href="$class_position_f_k.html" title="Defines the Position Forward Kinematics solver class using the standard form of the Denavit&#45;Hartenber..." alt="" coords="117,5,208,32"/>
+<area shape="rect" id="node5" href="$class_controller.html" title="Defines the PID controller class." alt="" coords="190,95,277,121"/>
+<area shape="rect" id="node6" href="$class_simulator.html" title="Defines the Simulator class." alt="" coords="301,95,387,121"/>
+</map>

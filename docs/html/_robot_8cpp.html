@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/Robot.cpp File Reference</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/Robot.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('_robot_8cpp.html',''); initResizable()
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Robot.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -98,7 +100,13 @@ $(document).ready(function(){initNavTree('_robot_8cpp.html',''); initResizable()
 
 <p>Implementation of Acme's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> Manipulator's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;NumCpp/Core/Types.hpp&gt;</code><br />
+<code>#include &lt;NumCpp/Functions/identity.hpp&gt;</code><br />
+<code>#include &lt;NumCpp/Functions/linspace.hpp&gt;</code><br />
+<code>#include &lt;NumCpp/Linalg/inv.hpp&gt;</code><br />
+<code>#include &lt;NumCpp/NdArray/NdArrayCore.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="_controller_8hpp_source.html">../include/Controller.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_kinematics_8hpp_source.html">../include/Kinematics.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_simulator_8hpp_source.html">../include/Simulator.hpp</a>&quot;</code><br />
@@ -106,22 +114,36 @@ $(document).ready(function(){initNavTree('_robot_8cpp.html',''); initResizable()
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Robot.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_robot_8cpp__incl.png" border="0" usemap="#_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp" alt=""/></div>
-<map name="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp" id="_2media_2adarsh_2_h_d_d_2_ubuntu_2_mid-_term_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp">
-<area shape="rect" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="371,5,581,61"/>
-<area shape="rect" title=" " alt="" coords="423,333,486,360"/>
-<area shape="rect" href="_controller_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s PID controller." alt="" coords="518,184,695,211"/>
-<area shape="rect" href="_kinematics_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="56,184,243,211"/>
-<area shape="rect" href="_simulator_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="267,184,443,211"/>
-<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="401,109,551,136"/>
-<area shape="rect" title=" " alt="" coords="573,259,640,285"/>
-<area shape="rect" href="_position_f_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Forward Kinematics (Position) solver." alt="" coords="209,259,391,285"/>
-<area shape="rect" href="_velocity_i_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="5,259,184,285"/>
-<area shape="rect" title=" " alt="" coords="144,333,251,360"/>
+<div class="center"><img src="_robot_8cpp__incl.png" border="0" usemap="#_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp" alt=""/></div>
+<map name="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp" id="_2media_2okritvik_2_d_a_t_a_2_u_m_d_2_course___work_2_e_n_p_m808_x_2_assignments_2_acme-_manipulator-_i_k-_solver_2app_2_robot_8cpp">
+<area shape="rect" title="Implementation of Acme&#39;s Robot Manipulator&#39;s Robot class." alt="" coords="443,5,677,76"/>
+<area shape="rect" title=" " alt="" coords="5,124,80,151"/>
+<area shape="rect" title=" " alt="" coords="433,348,495,375"/>
+<area shape="rect" title=" " alt="" coords="597,124,779,151"/>
+<area shape="rect" title=" " alt="" coords="803,124,1027,151"/>
+<area shape="rect" title=" " alt="" coords="1051,124,1282,151"/>
+<area shape="rect" title=" " alt="" coords="1306,124,1478,151"/>
+<area shape="rect" title=" " alt="" coords="1503,124,1753,151"/>
+<area shape="rect" href="_controller_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s PID controller." alt="" coords="155,199,333,225"/>
+<area shape="rect" href="_kinematics_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Kinematics solver." alt="" coords="659,199,845,225"/>
+<area shape="rect" href="_simulator_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Simulator, to simulate the robot in action." alt="" coords="459,199,635,225"/>
+<area shape="rect" href="_robot_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator, to be used in the assembly of automobiles." alt="" coords="321,124,471,151"/>
+<area shape="rect" title=" " alt="" coords="201,273,268,300"/>
+<area shape="rect" href="_position_f_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Forward Kinematics (Position) solver." alt="" coords="661,273,843,300"/>
+<area shape="rect" href="_velocity_i_k_8hpp.html" title="Class definition for Acme&#39;s Robot Manipulator&#39;s Inverse Kinematics (Velocity) solver." alt="" coords="868,273,1047,300"/>
+<area shape="rect" title=" " alt="" coords="699,348,805,375"/>
+<area shape="rect" title=" " alt="" coords="394,273,534,300"/>
 </map>
 </div>
 </div>
 <p><a href="_robot_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top"><a id="a598a3330b3c21701223ee0ca14316eca"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PI</b>&#160;&#160;&#160;nc::constants::pi</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of Acme's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> Manipulator's <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> class. </p>
 <dl class="section author"><dt>Author</dt><dd>Adarsh Malapaka (<a href="#" onclick="location.href='mai'+'lto:'+'ama'+'la'+'pak'+'@t'+'erp'+'ma'+'il.'+'um'+'d.e'+'du'; return false;">amala<span style="display: none;">.nosp@m.</span>pak@<span style="display: none;">.nosp@m.</span>terpm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>umd.e<span style="display: none;">.nosp@m.</span>du</a>) </dd>

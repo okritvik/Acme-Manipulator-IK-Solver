@@ -11,7 +11,9 @@
  */
 #pragma once
 
+#include <matplot/matplot.h>
 #include <vector>
+#include <NumCpp.hpp>
 
 /**
  * @brief Defines the Simulator class.
@@ -28,9 +30,14 @@ class Simulator {
     /**
      * @brief Simulates the robot in a 3D environment for the given robot configuration.
      * 
-     * @param config Robot configuration
+     * @param x_0p std::vector<double> X-coordinate of the robot's end-effector
+     * @param y_0p std::vector<double> Y-coordinate of the robot's end-effector 
+     * @param z_0p std::vector<double> Z-coordinate of the robot's end-effector 
+     * @param tr std::vector<nc::NdArray<double>>  Link transformation matrices
      */
-    void simulate_robot(std::vector<double> *config);
+    void simulate_robot(const std::vector<double> *x_0p,
+        const std::vector<double> *y_0p, const std::vector<double> *z_0p,
+        const std::vector<nc::NdArray<double>> *tr);
 
     /**
      * @brief Mutator function to set the axes limits of the simulation window. 
@@ -38,11 +45,15 @@ class Simulator {
      * @param xlim X-axis limit
      * @param ylim Y-axis limit
      * @param zlim Z-axis limit
+     * 
+     * @return true If the axes are set correctly
+     * @return false If the axes are set incorrectly
      */
-    void set_axes(const double &xlim, const double &ylim, const double &zlim);
+    bool set_axes(std::vector<double> *xlim, std::vector<double> *ylim,
+         std::vector<double> *zlim);
 
  private:
-    double m_xlim;    // Simulation x-axis limit
-    double m_ylim;    // Simulation y-axis limit
-    double m_zlim;    // Simulation z-axis limit
+    std::vector<double> m_xlim;
+    std::vector<double> m_ylim;
+    std::vector<double> m_zlim;
 };

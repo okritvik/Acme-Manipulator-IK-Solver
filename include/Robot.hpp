@@ -11,7 +11,7 @@
  */
 #pragma once
 
-// #include <matplot/matplot.h>
+#include <matplot/matplot.h>
 #include <vector>
 
 #include "../include/Controller.hpp"
@@ -25,6 +25,9 @@
  */
 class Robot {
  public:
+    Controller m_control;
+    Kinematics m_kinematics;
+    Simulator m_sim;
     /**
      * @brief Construct a new Robot object
      * 
@@ -72,10 +75,6 @@ class Robot {
     std::vector<double> get_joint_angles();
 
  private:
-    Controller m_control;
-    Kinematics m_kinematics;
-    Simulator m_sim;
-
     unsigned int m_dof;    // Degrees of Freedom of the robot
     double m_max_vel;    // Max permissible joint velocity of the robot
     double m_min_vel;    // Min permissible joint velocity of the robot

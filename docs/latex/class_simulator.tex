@@ -14,9 +14,9 @@ Defines the \mbox{\hyperlink{class_simulator}{Simulator}} class.
 \item 
 \mbox{\hyperlink{class_simulator_a031573bfcfe2e0f5c9539bcc1c7fc5d9}{Simulator}} ()
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_simulator}{Simulator}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_simulator_ac6ab8c5f12bfc58fd8d42d14fe09fd38}{simulate\+\_\+robot}} (std\+::vector$<$ double $>$ $\ast$config)
+void \mbox{\hyperlink{class_simulator_a123605aac7c1292866ca2347e0f9751b}{simulate\+\_\+robot}} (const std\+::vector$<$ double $>$ $\ast$x\+\_\+0p, const std\+::vector$<$ double $>$ $\ast$y\+\_\+0p, const std\+::vector$<$ double $>$ $\ast$z\+\_\+0p, const std\+::vector$<$ nc\+::\+Nd\+Array$<$ double $>$$>$ $\ast$tr)
 \begin{DoxyCompactList}\small\item\em Simulates the robot in a 3D environment for the given robot configuration. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_simulator_a8326d504044b85eab22c1b1fbc81b131}{set\+\_\+axes}} (const double \&xlim, const double \&ylim, const double \&zlim)
+bool \mbox{\hyperlink{class_simulator_abefb3e327854b9a79c8f0288a953d465}{set\+\_\+axes}} (std\+::vector$<$ double $>$ $\ast$xlim, std\+::vector$<$ double $>$ $\ast$ylim, std\+::vector$<$ double $>$ $\ast$zlim)
 \begin{DoxyCompactList}\small\item\em Mutator function to set the axes limits of the simulation window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -25,7 +25,7 @@ Defines the \mbox{\hyperlink{class_simulator}{Simulator}} class.
 
 
 
-Definition at line 20 of file Simulator.\+hpp.
+Definition at line 22 of file Simulator.\+hpp.
 
 
 
@@ -47,11 +47,11 @@ Definition at line 17 of file Simulator.\+cpp.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_simulator_a8326d504044b85eab22c1b1fbc81b131}\label{class_simulator_a8326d504044b85eab22c1b1fbc81b131}} 
+\mbox{\Hypertarget{class_simulator_abefb3e327854b9a79c8f0288a953d465}\label{class_simulator_abefb3e327854b9a79c8f0288a953d465}} 
 \index{Simulator@{Simulator}!set\_axes@{set\_axes}}
 \index{set\_axes@{set\_axes}!Simulator@{Simulator}}
 \doxysubsubsection{\texorpdfstring{set\_axes()}{set\_axes()}}
-{\footnotesize\ttfamily void Simulator\+::set\+\_\+axes (\begin{DoxyParamCaption}\item[{const double \&}]{xlim,  }\item[{const double \&}]{ylim,  }\item[{const double \&}]{zlim }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Simulator\+::set\+\_\+axes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{xlim,  }\item[{std\+::vector$<$ double $>$ $\ast$}]{ylim,  }\item[{std\+::vector$<$ double $>$ $\ast$}]{zlim }\end{DoxyParamCaption})}
 
 
 
@@ -63,18 +63,23 @@ Mutator function to set the axes limits of the simulation window.
 \hline
 {\em ylim} & Y-\/axis limit \\
 \hline
-{\em zlim} & Z-\/axis limit \\
+{\em zlim} & Z-\/axis limit\\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the axes are set correctly 
+
+false If the axes are set incorrectly 
+\end{DoxyReturn}
 
 
-Definition at line 23 of file Simulator.\+cpp.
+Definition at line 64 of file Simulator.\+cpp.
 
-\mbox{\Hypertarget{class_simulator_ac6ab8c5f12bfc58fd8d42d14fe09fd38}\label{class_simulator_ac6ab8c5f12bfc58fd8d42d14fe09fd38}} 
+\mbox{\Hypertarget{class_simulator_a123605aac7c1292866ca2347e0f9751b}\label{class_simulator_a123605aac7c1292866ca2347e0f9751b}} 
 \index{Simulator@{Simulator}!simulate\_robot@{simulate\_robot}}
 \index{simulate\_robot@{simulate\_robot}!Simulator@{Simulator}}
 \doxysubsubsection{\texorpdfstring{simulate\_robot()}{simulate\_robot()}}
-{\footnotesize\ttfamily void Simulator\+::simulate\+\_\+robot (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ $\ast$}]{config }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Simulator\+::simulate\+\_\+robot (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ $\ast$}]{x\+\_\+0p,  }\item[{const std\+::vector$<$ double $>$ $\ast$}]{y\+\_\+0p,  }\item[{const std\+::vector$<$ double $>$ $\ast$}]{z\+\_\+0p,  }\item[{const std\+::vector$<$ nc\+::\+Nd\+Array$<$ double $>$$>$ $\ast$}]{tr }\end{DoxyParamCaption})}
 
 
 
@@ -82,7 +87,13 @@ Simulates the robot in a 3D environment for the given robot configuration.
 
 
 \begin{DoxyParams}{Parameters}
-{\em config} & \mbox{\hyperlink{class_robot}{Robot}} configuration \\
+{\em x\+\_\+0p} & std\+::vector$<$double$>$ X-\/coordinate of the robot\textquotesingle{}s end-\/effector \\
+\hline
+{\em y\+\_\+0p} & std\+::vector$<$double$>$ Y-\/coordinate of the robot\textquotesingle{}s end-\/effector \\
+\hline
+{\em z\+\_\+0p} & std\+::vector$<$double$>$ Z-\/coordinate of the robot\textquotesingle{}s end-\/effector \\
+\hline
+{\em tr} & std\+::vector$<$nc\+::\+Nd\+Array$<$double$>$$>$ Link transformation matrices \\
 \hline
 \end{DoxyParams}
 
@@ -93,5 +104,5 @@ Definition at line 20 of file Simulator.\+cpp.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_simulator_8hpp}{Simulator.\+hpp}}\item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_simulator_8cpp}{Simulator.\+cpp}}\end{DoxyCompactItemize}
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_simulator_8hpp}{Simulator.\+hpp}}\item 
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_simulator_8cpp}{Simulator.\+cpp}}\end{DoxyCompactItemize}

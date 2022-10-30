@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -109,15 +109,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a557cbe6c1d62dcffb49d49c7e27c5bce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#a557cbe6c1d62dcffb49d49c7e27c5bce">VelocityIK</a> ()</td></tr>
 <tr class="memdesc:a557cbe6c1d62dcffb49d49c7e27c5bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Velocity IK object.  <a href="class_velocity_i_k.html#a557cbe6c1d62dcffb49d49c7e27c5bce">More...</a><br /></td></tr>
 <tr class="separator:a557cbe6c1d62dcffb49d49c7e27c5bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6537b863f8f8498b206de2f5ec64c023"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#a6537b863f8f8498b206de2f5ec64c023">cartesian_velocity</a> ()</td></tr>
-<tr class="memdesc:a6537b863f8f8498b206de2f5ec64c023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be zero.  <a href="class_velocity_i_k.html#a6537b863f8f8498b206de2f5ec64c023">More...</a><br /></td></tr>
-<tr class="separator:a6537b863f8f8498b206de2f5ec64c023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a87cb4d3fb6be8ba696d317a0bebdd8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#a4a87cb4d3fb6be8ba696d317a0bebdd8">update_joint_angles</a> (double *dt, std::vector&lt; double &gt; *present_joint_angle)</td></tr>
-<tr class="memdesc:a4a87cb4d3fb6be8ba696d317a0bebdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs numerical integration of the joint speed to obtain joint position for a small time-step using the update equation, q_next = q_curr + q_dot * dt.  <a href="class_velocity_i_k.html#a4a87cb4d3fb6be8ba696d317a0bebdd8">More...</a><br /></td></tr>
-<tr class="separator:a4a87cb4d3fb6be8ba696d317a0bebdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a5182641fd73b1d652c1501459a336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#a75a5182641fd73b1d652c1501459a336">compute_jacobian</a> ()</td></tr>
-<tr class="memdesc:a75a5182641fd73b1d652c1501459a336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Jacobian matrix of the robot.  <a href="class_velocity_i_k.html#a75a5182641fd73b1d652c1501459a336">More...</a><br /></td></tr>
-<tr class="separator:a75a5182641fd73b1d652c1501459a336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbbe686948ac7e77d00249ca6863bc75"><td class="memItemLeft" align="right" valign="top">nc::NdArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">cartesian_velocity</a> (double *theta)</td></tr>
+<tr class="memdesc:adbbe686948ac7e77d00249ca6863bc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be zero.  <a href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">More...</a><br /></td></tr>
+<tr class="separator:adbbe686948ac7e77d00249ca6863bc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58a64243d86eeb8c3721d483789ead5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">update_joint_angles</a> (double *dt, std::vector&lt; double &gt; *present_joint_angle, std::vector&lt; double &gt; *joint_angle_dot)</td></tr>
+<tr class="memdesc:ae58a64243d86eeb8c3721d483789ead5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs numerical integration of the joint speed to obtain joint position for a small time-step using the update equation, q_next = q_curr + q_dot * dt.  <a href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">More...</a><br /></td></tr>
+<tr class="separator:ae58a64243d86eeb8c3721d483789ead5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae48fa2a2042a47a2c78170044573eb28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a> (std::vector&lt; double &gt; *joint_angle)</td></tr>
+<tr class="memdesc:ae48fa2a2042a47a2c78170044573eb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Jacobian matrix of the robot.  <a href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">More...</a><br /></td></tr>
+<tr class="separator:ae48fa2a2042a47a2c78170044573eb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07075ab3433d75bfe09d05a3dbd57552"><td class="memItemLeft" align="right" valign="top">nc::NdArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">get_jacobian</a> ()</td></tr>
 <tr class="memdesc:a07075ab3433d75bfe09d05a3dbd57552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor function to get the Jacobian matrix of the robot.  <a href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">More...</a><br /></td></tr>
 <tr class="separator:a07075ab3433d75bfe09d05a3dbd57552"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,51 +144,68 @@ Public Member Functions</h2></td></tr>
 
 <p>Construct a new Velocity IK object. </p>
 
-<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00018">18</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00024">24</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6537b863f8f8498b206de2f5ec64c023"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6537b863f8f8498b206de2f5ec64c023">&#9670;&nbsp;</a></span>cartesian_velocity()</h2>
+<a id="adbbe686948ac7e77d00249ca6863bc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbbe686948ac7e77d00249ca6863bc75">&#9670;&nbsp;</a></span>cartesian_velocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; double &gt; VelocityIK::cartesian_velocity </td>
+          <td class="memname">nc::NdArray&lt; double &gt; VelocityIK::cartesian_velocity </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>theta</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be zero. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt; Cartesian velocity of the robot's end effector. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">theta</td><td>Cylindrical co-ordinate system angle for the trajectory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nc::NdArray&lt;double&gt; Cartesian velocity of the robot's end effector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00021">21</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00027">27</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a75a5182641fd73b1d652c1501459a336"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75a5182641fd73b1d652c1501459a336">&#9670;&nbsp;</a></span>compute_jacobian()</h2>
+<a id="ae48fa2a2042a47a2c78170044573eb28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48fa2a2042a47a2c78170044573eb28">&#9670;&nbsp;</a></span>compute_jacobian()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void VelocityIK::compute_jacobian </td>
+          <td class="memname">bool VelocityIK::compute_jacobian </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>joint_angle</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Computes the Jacobian matrix of the robot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joint_angle</td><td>Current joint angles of the robot </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the Jacobian exists and is computed. </dd>
+<dd>
+false If the Jacobian is singular. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00032">32</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00053">53</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
 
 </div>
 </div>
@@ -210,12 +227,12 @@ Public Member Functions</h2></td></tr>
 <p>Accessor function to get the Jacobian matrix of the robot. </p>
 <dl class="section return"><dt>Returns</dt><dd>nc::NdArray&lt;double&gt; Jacobian matrix (6x6) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00035">35</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00177">177</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4a87cb4d3fb6be8ba696d317a0bebdd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a87cb4d3fb6be8ba696d317a0bebdd8">&#9670;&nbsp;</a></span>update_joint_angles()</h2>
+<a id="ae58a64243d86eeb8c3721d483789ead5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58a64243d86eeb8c3721d483789ead5">&#9670;&nbsp;</a></span>update_joint_angles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +247,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
-          <td class="paramname"><em>present_joint_angle</em>&#160;</td>
+          <td class="paramname"><em>present_joint_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>joint_angle_dot</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -245,18 +268,19 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">dt</td><td>Time-step (sec) </td></tr>
     <tr><td class="paramname">present_joint_angle</td><td>Current value of joint angle (rad) </td></tr>
+    <tr><td class="paramname">joint_angle_dot</td><td>Joint angular speed from inverse kinematics (rad/s) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt; Next value of joint angle (rad) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00026">26</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_velocity_i_k_8cpp_source.html#l00037">37</a> of file <a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/<a class="el" href="_velocity_i_k_8hpp_source.html">VelocityIK.hpp</a></li>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/<a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/<a class="el" href="_velocity_i_k_8hpp_source.html">VelocityIK.hpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/<a class="el" href="_velocity_i_k_8cpp_source.html">VelocityIK.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
