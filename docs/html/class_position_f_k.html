@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -112,12 +112,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c82602e92bfe972b12ea2821a7329b3"><td class="memItemLeft" align="right" valign="top">nc::NdArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_position_f_k.html#a2c82602e92bfe972b12ea2821a7329b3">get_dh</a> ()</td></tr>
 <tr class="memdesc:a2c82602e92bfe972b12ea2821a7329b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor function to get the D-H table of the robot.  <a href="class_position_f_k.html#a2c82602e92bfe972b12ea2821a7329b3">More...</a><br /></td></tr>
 <tr class="separator:a2c82602e92bfe972b12ea2821a7329b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7a510f06d29e9e6f7dfa8440850846e"><td class="memItemLeft" align="right" valign="top">nc::NdArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_position_f_k.html#ac7a510f06d29e9e6f7dfa8440850846e">link_transformation</a> ()</td></tr>
-<tr class="memdesc:ac7a510f06d29e9e6f7dfa8440850846e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the homogeneous transformation matrix between successive links on the robot.  <a href="class_position_f_k.html#ac7a510f06d29e9e6f7dfa8440850846e">More...</a><br /></td></tr>
-<tr class="separator:ac7a510f06d29e9e6f7dfa8440850846e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03382426b51c3ad629a89a35555d8275"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_position_f_k.html#a03382426b51c3ad629a89a35555d8275">set_joint_angles</a> (std::vector&lt; double &gt; *joint_angles)</td></tr>
-<tr class="memdesc:a03382426b51c3ad629a89a35555d8275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutator function to set the robot's joint angles.  <a href="class_position_f_k.html#a03382426b51c3ad629a89a35555d8275">More...</a><br /></td></tr>
-<tr class="separator:a03382426b51c3ad629a89a35555d8275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a878416b9d5224d851437215e34d1237e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; nc::NdArray&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">link_transformation</a> ()</td></tr>
+<tr class="memdesc:a878416b9d5224d851437215e34d1237e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes all of the homogeneous transformation matrices between successive links on the robot.  <a href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">More...</a><br /></td></tr>
+<tr class="separator:a878416b9d5224d851437215e34d1237e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab898a4fcab6460560d91fc9a58f04a21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a> (std::vector&lt; double &gt; *joint_angles)</td></tr>
+<tr class="memdesc:ab898a4fcab6460560d91fc9a58f04a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutator function to set the robot's joint angles.  <a href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">More...</a><br /></td></tr>
+<tr class="separator:ab898a4fcab6460560d91fc9a58f04a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the Position Forward <a class="el" href="class_kinematics.html" title="Defines the Kinematics class containing 2 children classes - PositionFK and VelocityIK.">Kinematics</a> solver class using the standard form of the Denavit-Hartenberg convention. </p>
@@ -168,14 +168,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac7a510f06d29e9e6f7dfa8440850846e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7a510f06d29e9e6f7dfa8440850846e">&#9670;&nbsp;</a></span>link_transformation()</h2>
+<a id="a878416b9d5224d851437215e34d1237e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a878416b9d5224d851437215e34d1237e">&#9670;&nbsp;</a></span>link_transformation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">nc::NdArray&lt; double &gt; PositionFK::link_transformation </td>
+          <td class="memname">std::vector&lt; nc::NdArray&lt; double &gt; &gt; PositionFK::link_transformation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -183,21 +183,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the homogeneous transformation matrix between successive links on the robot. </p>
-<dl class="section return"><dt>Returns</dt><dd>nc::NdArray&lt;double&gt; Transformation matrix between links 'i-1' and 'i' </dd></dl>
+<p>Computes all of the homogeneous transformation matrices between successive links on the robot. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;nc::NdArray&lt;double&gt;&gt; Transformation matrices between links 'i-1' and 'i' </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_position_f_k_8cpp_source.html#l00026">26</a> of file <a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_position_f_k_8cpp_source.html#l00035">35</a> of file <a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a03382426b51c3ad629a89a35555d8275"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03382426b51c3ad629a89a35555d8275">&#9670;&nbsp;</a></span>set_joint_angles()</h2>
+<a id="ab898a4fcab6460560d91fc9a58f04a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab898a4fcab6460560d91fc9a58f04a21">&#9670;&nbsp;</a></span>set_joint_angles()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PositionFK::set_joint_angles </td>
+          <td class="memname">bool PositionFK::set_joint_angles </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
           <td class="paramname"><em>joint_angles</em></td><td>)</td>
@@ -209,18 +209,21 @@ Public Member Functions</h2></td></tr>
 <p>Mutator function to set the robot's joint angles. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">joint_angles</td><td>Joint angles of the robot (rad) </td></tr>
+    <tr><td class="paramname">joint_angles</td><td>Joint angles of the robot (rad)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true If joint angles are set correctly, </dd>
+<dd>
+false If the joint angles are incorrectly set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_position_f_k_8cpp_source.html#l00031">31</a> of file <a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_position_f_k_8cpp_source.html#l00095">95</a> of file <a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/<a class="el" href="_position_f_k_8hpp_source.html">PositionFK.hpp</a></li>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/<a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/<a class="el" href="_position_f_k_8hpp_source.html">PositionFK.hpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/<a class="el" href="_position_f_k_8cpp_source.html">PositionFK.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

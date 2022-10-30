@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -109,17 +109,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a031573bfcfe2e0f5c9539bcc1c7fc5d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">Simulator</a> ()</td></tr>
 <tr class="memdesc:a031573bfcfe2e0f5c9539bcc1c7fc5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_simulator.html" title="Defines the Simulator class.">Simulator</a> object.  <a href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">More...</a><br /></td></tr>
 <tr class="separator:a031573bfcfe2e0f5c9539bcc1c7fc5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ab8c5f12bfc58fd8d42d14fe09fd38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#ac6ab8c5f12bfc58fd8d42d14fe09fd38">simulate_robot</a> (std::vector&lt; double &gt; *config)</td></tr>
-<tr class="memdesc:ac6ab8c5f12bfc58fd8d42d14fe09fd38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates the robot in a 3D environment for the given robot configuration.  <a href="class_simulator.html#ac6ab8c5f12bfc58fd8d42d14fe09fd38">More...</a><br /></td></tr>
-<tr class="separator:ac6ab8c5f12bfc58fd8d42d14fe09fd38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8326d504044b85eab22c1b1fbc81b131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a8326d504044b85eab22c1b1fbc81b131">set_axes</a> (const double &amp;xlim, const double &amp;ylim, const double &amp;zlim)</td></tr>
-<tr class="memdesc:a8326d504044b85eab22c1b1fbc81b131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutator function to set the axes limits of the simulation window.  <a href="class_simulator.html#a8326d504044b85eab22c1b1fbc81b131">More...</a><br /></td></tr>
-<tr class="separator:a8326d504044b85eab22c1b1fbc81b131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123605aac7c1292866ca2347e0f9751b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a123605aac7c1292866ca2347e0f9751b">simulate_robot</a> (const std::vector&lt; double &gt; *x_0p, const std::vector&lt; double &gt; *y_0p, const std::vector&lt; double &gt; *z_0p, const std::vector&lt; nc::NdArray&lt; double &gt;&gt; *tr)</td></tr>
+<tr class="memdesc:a123605aac7c1292866ca2347e0f9751b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates the robot in a 3D environment for the given robot configuration.  <a href="class_simulator.html#a123605aac7c1292866ca2347e0f9751b">More...</a><br /></td></tr>
+<tr class="separator:a123605aac7c1292866ca2347e0f9751b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefb3e327854b9a79c8f0288a953d465"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">set_axes</a> (std::vector&lt; double &gt; *xlim, std::vector&lt; double &gt; *ylim, std::vector&lt; double &gt; *zlim)</td></tr>
+<tr class="memdesc:abefb3e327854b9a79c8f0288a953d465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutator function to set the axes limits of the simulation window.  <a href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">More...</a><br /></td></tr>
+<tr class="separator:abefb3e327854b9a79c8f0288a953d465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the <a class="el" href="class_simulator.html" title="Defines the Simulator class.">Simulator</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="_simulator_8hpp_source.html#l00020">20</a> of file <a class="el" href="_simulator_8hpp_source.html">Simulator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_simulator_8hpp_source.html#l00022">22</a> of file <a class="el" href="_simulator_8hpp_source.html">Simulator.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a031573bfcfe2e0f5c9539bcc1c7fc5d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a031573bfcfe2e0f5c9539bcc1c7fc5d9">&#9670;&nbsp;</a></span>Simulator()</h2>
@@ -143,28 +143,28 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8326d504044b85eab22c1b1fbc81b131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8326d504044b85eab22c1b1fbc81b131">&#9670;&nbsp;</a></span>set_axes()</h2>
+<a id="abefb3e327854b9a79c8f0288a953d465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefb3e327854b9a79c8f0288a953d465">&#9670;&nbsp;</a></span>set_axes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Simulator::set_axes </td>
+          <td class="memname">bool Simulator::set_axes </td>
           <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
           <td class="paramname"><em>xlim</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
           <td class="paramname"><em>ylim</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
           <td class="paramname"><em>zlim</em>&#160;</td>
         </tr>
         <tr>
@@ -180,17 +180,20 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">xlim</td><td>X-axis limit </td></tr>
     <tr><td class="paramname">ylim</td><td>Y-axis limit </td></tr>
-    <tr><td class="paramname">zlim</td><td>Z-axis limit </td></tr>
+    <tr><td class="paramname">zlim</td><td>Z-axis limit</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the axes are set correctly </dd>
+<dd>
+false If the axes are set incorrectly </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_simulator_8cpp_source.html#l00023">23</a> of file <a class="el" href="_simulator_8cpp_source.html">Simulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_simulator_8cpp_source.html#l00064">64</a> of file <a class="el" href="_simulator_8cpp_source.html">Simulator.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ac6ab8c5f12bfc58fd8d42d14fe09fd38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6ab8c5f12bfc58fd8d42d14fe09fd38">&#9670;&nbsp;</a></span>simulate_robot()</h2>
+<a id="a123605aac7c1292866ca2347e0f9751b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123605aac7c1292866ca2347e0f9751b">&#9670;&nbsp;</a></span>simulate_robot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,9 +201,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Simulator::simulate_robot </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>x_0p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>y_0p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>z_0p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; nc::NdArray&lt; double &gt;&gt; *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,7 +233,10 @@ Public Member Functions</h2></td></tr>
 <p>Simulates the robot in a 3D environment for the given robot configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td><a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> configuration </td></tr>
+    <tr><td class="paramname">x_0p</td><td>std::vector&lt;double&gt; X-coordinate of the robot's end-effector </td></tr>
+    <tr><td class="paramname">y_0p</td><td>std::vector&lt;double&gt; Y-coordinate of the robot's end-effector </td></tr>
+    <tr><td class="paramname">z_0p</td><td>std::vector&lt;double&gt; Z-coordinate of the robot's end-effector </td></tr>
+    <tr><td class="paramname">tr</td><td>std::vector&lt;nc::NdArray&lt;double&gt;&gt; Link transformation matrices </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,8 +246,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/<a class="el" href="_simulator_8hpp_source.html">Simulator.hpp</a></li>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/<a class="el" href="_simulator_8cpp_source.html">Simulator.cpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/<a class="el" href="_simulator_8hpp_source.html">Simulator.hpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/<a class="el" href="_simulator_8cpp_source.html">Simulator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

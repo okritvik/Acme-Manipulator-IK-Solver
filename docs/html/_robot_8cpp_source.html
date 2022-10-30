@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/Robot.cpp Source File</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/Robot.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -96,44 +96,164 @@ $(document).ready(function(){initNavTree('_robot_8cpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="_robot_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../include/Controller.hpp&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../include/Kinematics.hpp&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../include/Simulator.hpp&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">   19</a></span>&#160;<a class="code" href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot::Robot</a>() {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">   22</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a>() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">   26</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a>(std::vector&lt;double&gt; *pose) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;NumCpp/Core/Types.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;NumCpp/Functions/identity.hpp&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;NumCpp/Functions/linspace.hpp&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;NumCpp/Linalg/inv.hpp&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;NumCpp/NdArray/NdArrayCore.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../include/Controller.hpp&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../include/Kinematics.hpp&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../include/Simulator.hpp&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define PI nc::constants::pi</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a>(std::vector&lt;double&gt; *pose) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">   34</a></span>&#160;std::vector&lt;double&gt; <a class="code" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">Robot::get_joint_angles</a>() {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;double&gt; ang;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> ang;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">   39</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a>(std::vector&lt;double&gt; *joint_angles) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">   30</a></span>&#160;<a class="code" href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot::Robot</a>() {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// Initialize the attributes</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    m_dof = 6;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    m_max_vel = 100;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_min_vel = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_current_angle =  {PI/2, 0, -PI/2, 0, 0.00001, 0};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a>() {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    nc::uint32 N = 40;  <span class="comment">// Number of data points</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// calculate the dt from control module</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;double&gt; curr_pose = {0};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::vector&lt;double&gt; tgt_pose = {5};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// Gains</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> prop_gain = 1;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">double</span> derivative_gain = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">double</span> integral_gain = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Set the gains in the controller module</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    m_control.<a class="code" href="class_controller.html#a73a23885d522a0787792215ca3f34a64">set_gains</a>(&amp;prop_gain, &amp;integral_gain, &amp;derivative_gain);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">double</span> error = m_control.<a class="code" href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">control_action</a>(&amp;curr_pose,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            &amp;tgt_pose);  <span class="comment">// Time interval between successive data points</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Check for saturation</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">double</span> vel_min = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">double</span> vel_max = N;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">double</span> vel = error/N;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> dt = m_control.<a class="code" href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">saturation</a>(&amp;vel_min, &amp;vel_max, &amp;vel);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Variables to use in the path generation and execution</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::vector&lt;nc::NdArray&lt;double&gt;&gt; tr;  <span class="comment">// transformation matrix</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    nc::NdArray&lt;double&gt; x_dot;  <span class="comment">// cartesian velocity</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::vector&lt;double&gt; next_j_angle;  <span class="comment">// next joint angles</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;double&gt; x_0p, y_0p, z_0p;  <span class="comment">// positions of end-effector</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// Axis limit for the figure plot</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::vector&lt;double&gt; x_limit = {-50, 50};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::vector&lt;double&gt; y_limit = {0, 65};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::vector&lt;double&gt; z_limit = {0, 80};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// Set axes limit in the simulator module</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    m_sim.<a class="code" href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">set_axes</a>(&amp;x_limit, &amp;y_limit, &amp;z_limit);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> theta : nc::linspace(PI/2, 3*PI/2, N)) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// Initialize the final transformation matrix with Identity</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        nc::NdArray&lt;double&gt; tr_0_n = nc::identity&lt;double&gt;(4);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">// Get the cartesian velocity</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        x_dot = m_kinematics.ik_solver.<a class="code" href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">cartesian_velocity</a>(&amp;theta);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        x_dot = x_dot.transpose();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// Get the jacobian for current joint angles</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        m_kinematics.ik_solver.<a class="code" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a>(&amp;m_current_angle);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        nc::NdArray&lt;double&gt; J = m_kinematics.ik_solver.<a class="code" href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">get_jacobian</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// use q_dot = J_inv * x_dot equation to get the joint velocities</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">auto</span> q_dot = nc::linalg::inv(J).dot(x_dot).toStlVector();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// Update the next joint angles from the joint velocities</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        next_j_angle = m_kinematics.ik_solver.<a class="code" href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">update_joint_angles</a>(&amp;dt,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                &amp;m_current_angle, &amp;q_dot);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a>(&amp;next_j_angle);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// Set the next joint angles for the forward kinematics calculations</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        m_kinematics.fk_solver.<a class="code" href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">set_joint_angles</a>(&amp;next_j_angle);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// Get the link transformations</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        tr = m_kinematics.fk_solver.<a class="code" href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">link_transformation</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">// Compute the end-effector transformation matrix</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> tr_i_j : tr) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            tr_0_n = tr_0_n.dot(tr_i_j);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">// Extract the translation component of the end-effector</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        x_0p.push_back(tr_0_n.at(0, 3));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        y_0p.push_back(tr_0_n.at(1, 3));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        z_0p.push_back(tr_0_n.at(2, 3));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// Simulate the robot in 3D plot</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_sim.<a class="code" href="class_simulator.html#a123605aac7c1292866ca2347e0f9751b">simulate_robot</a>(&amp;x_0p, &amp;y_0p, &amp;z_0p, &amp;tr);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">// Wait for a second before next computation to visualize better</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        sleep(1);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">  118</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a>(std::vector&lt;double&gt; *pose) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// Set the initial pose of the robot</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (pose != NULL) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        m_initial_pose = *pose;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">  128</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a>(std::vector&lt;double&gt; *pose) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">// Set the final pose of the robot</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">if</span> (pose != NULL) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        m_final_pose = *pose;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">  138</a></span>&#160;std::vector&lt;double&gt; <a class="code" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">Robot::get_joint_angles</a>() {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">// Return the current angle</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> m_current_angle;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">  143</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a>(std::vector&lt;double&gt; *joint_angles) {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">// Set the joint angles</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span> (joint_angles != NULL) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        m_current_angle = *joint_angles;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_robot_html_a2be26e4c47c92a7a12659ccd607567e6"><div class="ttname"><a href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a></div><div class="ttdeci">bool execute_path()</div><div class="ttdoc">Generates and executes a trajectory for the robot's path from the initial pose to the final pose.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00022">Robot.cpp:22</a></div></div>
-<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00026">Robot.cpp:26</a></div></div>
-<div class="ttc" id="aclass_robot_html_a4fc7c70ae20623f05e06f2ecb388b6c4"><div class="ttname"><a href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot::Robot</a></div><div class="ttdeci">Robot()</div><div class="ttdoc">Construct a new Robot object.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00019">Robot.cpp:19</a></div></div>
-<div class="ttc" id="aclass_robot_html_a049df4bda1dcb2c4cea8125915acd0d7"><div class="ttname"><a href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00039">Robot.cpp:39</a></div></div>
-<div class="ttc" id="aclass_robot_html_a3e489543ecc90e10881e7b035a04f01b"><div class="ttname"><a href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">Robot::get_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; get_joint_angles()</div><div class="ttdoc">Accessor function to get the joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00034">Robot.cpp:34</a></div></div>
-<div class="ttc" id="aclass_robot_html_ad03ee7e8edcc25b1f6522eb03586aecc"><div class="ttname"><a href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a></div><div class="ttdeci">bool set_final_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the desired final pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00030">Robot.cpp:30</a></div></div>
+<div class="ttc" id="aclass_robot_html_a2be26e4c47c92a7a12659ccd607567e6"><div class="ttname"><a href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a></div><div class="ttdeci">bool execute_path()</div><div class="ttdoc">Generates and executes a trajectory for the robot's path from the initial pose to the final pose.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00038">Robot.cpp:38</a></div></div>
+<div class="ttc" id="aclass_controller_html_a002fb930e8f0293156973752f1f2dd61"><div class="ttname"><a href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">Controller::control_action</a></div><div class="ttdeci">double control_action(std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</div><div class="ttdoc">Computes the error in pose (between present and target) and applies the PID control action on the err...</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00043">Controller.cpp:43</a></div></div>
+<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00118">Robot.cpp:118</a></div></div>
+<div class="ttc" id="aclass_simulator_html_abefb3e327854b9a79c8f0288a953d465"><div class="ttname"><a href="class_simulator.html#abefb3e327854b9a79c8f0288a953d465">Simulator::set_axes</a></div><div class="ttdeci">bool set_axes(std::vector&lt; double &gt; *xlim, std::vector&lt; double &gt; *ylim, std::vector&lt; double &gt; *zlim)</div><div class="ttdoc">Mutator function to set the axes limits of the simulation window.</div><div class="ttdef"><b>Definition:</b> <a href="_simulator_8cpp_source.html#l00064">Simulator.cpp:64</a></div></div>
+<div class="ttc" id="aclass_simulator_html_a123605aac7c1292866ca2347e0f9751b"><div class="ttname"><a href="class_simulator.html#a123605aac7c1292866ca2347e0f9751b">Simulator::simulate_robot</a></div><div class="ttdeci">void simulate_robot(const std::vector&lt; double &gt; *x_0p, const std::vector&lt; double &gt; *y_0p, const std::vector&lt; double &gt; *z_0p, const std::vector&lt; nc::NdArray&lt; double &gt;&gt; *tr)</div><div class="ttdoc">Simulates the robot in a 3D environment for the given robot configuration.</div><div class="ttdef"><b>Definition:</b> <a href="_simulator_8cpp_source.html#l00020">Simulator.cpp:20</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_a07075ab3433d75bfe09d05a3dbd57552"><div class="ttname"><a href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">VelocityIK::get_jacobian</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; get_jacobian()</div><div class="ttdoc">Accessor function to get the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00177">VelocityIK.cpp:177</a></div></div>
+<div class="ttc" id="aclass_controller_html_a73a23885d522a0787792215ca3f34a64"><div class="ttname"><a href="class_controller.html#a73a23885d522a0787792215ca3f34a64">Controller::set_gains</a></div><div class="ttdeci">bool set_gains(double *kp, double *ki, double *kd)</div><div class="ttdoc">Mutator function to set the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00026">Controller.cpp:26</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html_ab898a4fcab6460560d91fc9a58f04a21"><div class="ttname"><a href="class_position_f_k.html#ab898a4fcab6460560d91fc9a58f04a21">PositionFK::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8cpp_source.html#l00095">PositionFK.cpp:95</a></div></div>
+<div class="ttc" id="aclass_position_f_k_html_a878416b9d5224d851437215e34d1237e"><div class="ttname"><a href="class_position_f_k.html#a878416b9d5224d851437215e34d1237e">PositionFK::link_transformation</a></div><div class="ttdeci">std::vector&lt; nc::NdArray&lt; double &gt; &gt; link_transformation()</div><div class="ttdoc">Computes all of the homogeneous transformation matrices between successive links on the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_position_f_k_8cpp_source.html#l00035">PositionFK.cpp:35</a></div></div>
+<div class="ttc" id="aclass_controller_html_a20bb74e979c1a21ef56df18b5fdad7fe"><div class="ttname"><a href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">Controller::saturation</a></div><div class="ttdeci">double saturation(double *min_vel, double *max_vel, double *val)</div><div class="ttdoc">Saturates the controller output to within {min_vel, max_vel} for safety reasons.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00054">Controller.cpp:54</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae48fa2a2042a47a2c78170044573eb28"><div class="ttname"><a href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">VelocityIK::compute_jacobian</a></div><div class="ttdeci">bool compute_jacobian(std::vector&lt; double &gt; *joint_angle)</div><div class="ttdoc">Computes the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00053">VelocityIK.cpp:53</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_adbbe686948ac7e77d00249ca6863bc75"><div class="ttname"><a href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">VelocityIK::cartesian_velocity</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; cartesian_velocity(double *theta)</div><div class="ttdoc">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be z...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00027">VelocityIK.cpp:27</a></div></div>
+<div class="ttc" id="aclass_robot_html_a4fc7c70ae20623f05e06f2ecb388b6c4"><div class="ttname"><a href="class_robot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot::Robot</a></div><div class="ttdeci">Robot()</div><div class="ttdoc">Construct a new Robot object.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00030">Robot.cpp:30</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae58a64243d86eeb8c3721d483789ead5"><div class="ttname"><a href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">VelocityIK::update_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; update_joint_angles(double *dt, std::vector&lt; double &gt; *present_joint_angle, std::vector&lt; double &gt; *joint_angle_dot)</div><div class="ttdoc">Performs numerical integration of the joint speed to obtain joint position for a small time-step usin...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00037">VelocityIK.cpp:37</a></div></div>
+<div class="ttc" id="aclass_robot_html_a049df4bda1dcb2c4cea8125915acd0d7"><div class="ttname"><a href="class_robot.html#a049df4bda1dcb2c4cea8125915acd0d7">Robot::set_joint_angles</a></div><div class="ttdeci">bool set_joint_angles(std::vector&lt; double &gt; *joint_angles)</div><div class="ttdoc">Mutator function to set the robot's joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00143">Robot.cpp:143</a></div></div>
+<div class="ttc" id="aclass_robot_html_a3e489543ecc90e10881e7b035a04f01b"><div class="ttname"><a href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">Robot::get_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; get_joint_angles()</div><div class="ttdoc">Accessor function to get the joint angles.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00138">Robot.cpp:138</a></div></div>
+<div class="ttc" id="aclass_robot_html_ad03ee7e8edcc25b1f6522eb03586aecc"><div class="ttname"><a href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a></div><div class="ttdeci">bool set_final_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the desired final pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00128">Robot.cpp:128</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

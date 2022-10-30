@@ -1,5 +1,5 @@
-\hypertarget{test_8cpp}{}\doxysection{/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/test/test.cpp File Reference}
-\label{test_8cpp}\index{/media/adarsh/HDD/Ubuntu/Mid-\/Term/Acme-\/Manipulator-\/IK-\/Solver/test/test.cpp@{/media/adarsh/HDD/Ubuntu/Mid-\/Term/Acme-\/Manipulator-\/IK-\/Solver/test/test.cpp}}
+\hypertarget{test_8cpp}{}\doxysection{/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/test/test.cpp File Reference}
+\label{test_8cpp}\index{/media/okritvik/DATA/UMD/Course\_Work/ENPM808X/Assignments/Acme-\/Manipulator-\/IK-\/Solver/test/test.cpp@{/media/okritvik/DATA/UMD/Course\_Work/ENPM808X/Assignments/Acme-\/Manipulator-\/IK-\/Solver/test/test.cpp}}
 
 
 Implementation of Google Test cases framework for Acme\textquotesingle{}s \mbox{\hyperlink{class_robot}{Robot}} Manipulator.  
@@ -7,7 +7,14 @@ Implementation of Google Test cases framework for Acme\textquotesingle{}s \mbox{
 
 {\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Functions/array\+\_\+equal.\+hpp$>$}\newline
+{\ttfamily \#include $<$Num\+Cpp/\+Nd\+Array/\+Nd\+Array\+Core.\+hpp$>$}\newline
 {\ttfamily \#include \char`\"{}../include/\+Robot.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/\+Position\+F\+K.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/\+Velocity\+I\+K.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/\+Simulator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/\+Controller.\+hpp\char`\"{}}\newline
 Include dependency graph for test.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -16,28 +23,84 @@ Include dependency graph for test.\+cpp\+:
 \includegraphics[width=350pt]{test_8cpp__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{test_8cpp_a598a3330b3c21701223ee0ca14316eca}\label{test_8cpp_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~nc\+::constants\+::pi
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{test_8cpp_a382ae0203c35c4b80565ef72fc4cc317}{T\+E\+ST}} (Robot\+Test, should\+\_\+pass1)
-\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+initial\+\_\+pose() method. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{test_8cpp_adcf646d5b9d9c5b8c99bbb703354857b}{T\+E\+ST}} (Robot\+Test, should\+\_\+pass2)
-\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+final\+\_\+pose() method. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{test_8cpp_aabfeb0b67261c7bf26b264c4d6ebd6f8}{T\+E\+ST}} (Robot\+Test, should\+\_\+pass3)
-\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+joint\+\_\+angles() method. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{test_8cpp_a797de0ce924c73ea43ab8ca9ce9549e5}{T\+E\+ST}} (Robot\+Test, should\+\_\+pass4)
-\begin{DoxyCompactList}\small\item\em Tests the execute\+\_\+path() method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{test_8cpp_af3c4af929e94796208762d2b38a1865b}{T\+E\+ST}} (Robot\+Test, initial\+Pose1)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+initial\+\_\+pose() method with one set of pose values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a3b6f8a1bf45c2ff095de757397268cd4}{T\+E\+ST}} (Robot\+Test, initial\+Pose2)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+initial\+\_\+pose() method with another set of pose values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a8a95d9994d021aaba8d37eb2344e6424}{T\+E\+ST}} (Robot\+Test, final\+Pose1)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+final\+\_\+pose() method for one set of pose values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_afad852aa323c26ad8615755f55743216}{T\+E\+ST}} (Robot\+Test, final\+Pose2)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+final\+\_\+pose() method for another set of pose values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_ad31080a9751a9d4162adc1be37bd30bf}{T\+E\+ST}} (Robot\+Test, set\+Angle1)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+joint\+\_\+angles() method for one set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a4299f480d3879e69cdd83330de1801cb}{T\+E\+ST}} (Robot\+Test, set\+Angle2)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+joint\+\_\+angles() method for another set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a17bdbbff7d1eb77490ad88d788e89fdf}{T\+E\+ST}} (Robot\+Test, get\+Angle1)
+\begin{DoxyCompactList}\small\item\em Tests the get\+\_\+joint\+\_\+angles() method for one set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a8ebcc4c3b808bc88e877722b9dcac655}{T\+E\+ST}} (Robot\+Test, get\+Angle2)
+\begin{DoxyCompactList}\small\item\em Tests the get\+\_\+joint\+\_\+angles() method for another set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a554873ea2be359fa130c7c3425014715}{T\+E\+ST}} (Robot\+Test, execute1)
+\begin{DoxyCompactList}\small\item\em Tests the execute\+\_\+path() method for one set of initial angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a617416807ea694877ccac59904e97d85}{T\+E\+ST}} (Robot\+Test, execute2)
+\begin{DoxyCompactList}\small\item\em Tests the execute\+\_\+path() method for another set of initial angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a3bd245b8947b107ffe039dd4ac939aff}{T\+E\+ST}} (Position\+F\+K\+Test, get\+DH)
+\begin{DoxyCompactList}\small\item\em Tests the get\+\_\+dh() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a1f05d53018adc5fad44f275a11666a5a}{T\+E\+ST}} (Position\+F\+K\+Test, link\+Transform)
+\begin{DoxyCompactList}\small\item\em Tests the link\+\_\+transformation() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a6e2f8674bc7e224404bf90c49b229dfb}{T\+E\+ST}} (Position\+F\+K\+Test, set\+Angle1)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+joint\+\_\+angles() method for one set of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_ad830b43b5f3419dd5b4b258872e1da7c}{T\+E\+ST}} (Position\+F\+K\+Test, set\+Angle2)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+joint\+\_\+angles() method for another set of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a3c49e5f7efc53cc722e32a93d1d4f601}{T\+E\+ST}} (Velocity\+I\+K\+Test, get\+Jacobian)
+\begin{DoxyCompactList}\small\item\em Tests the get\+\_\+jacobian() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_aafcdcf2207a13c8b4f08544e2b444003}{T\+E\+ST}} (Velocity\+I\+K\+Test, compute\+Jacobian1)
+\begin{DoxyCompactList}\small\item\em Tests the compute\+\_\+jacobian() method for one set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a26d6e277bfe06cd08d6424ff4c1bf513}{T\+E\+ST}} (Velocity\+I\+K\+Test, compute\+Jacobian2)
+\begin{DoxyCompactList}\small\item\em Tests the compute\+\_\+jacobian() method for another set of angles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a59c19d4fb973fe6bf37bd8ac46756e53}{T\+E\+ST}} (Velocity\+I\+K\+Test, update\+Angle1)
+\begin{DoxyCompactList}\small\item\em Tests the update\+\_\+joint\+\_\+angles() method for one set of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a3878e57a66b91fc1cc3d1bb00a83d898}{T\+E\+ST}} (Velocity\+I\+K\+Test, update\+Angle2)
+\begin{DoxyCompactList}\small\item\em Tests the update\+\_\+joint\+\_\+angles() method for another set of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a2fee0ba176cdf9279974d0477c7795c3}{T\+E\+ST}} (Velocity\+I\+K\+Test, cartesian\+Vel1)
+\begin{DoxyCompactList}\small\item\em Tests the cartesian\+\_\+velocity() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_ac66030187f3e711b79a5fdf3c0b3b3a0}{T\+E\+ST}} (Simulator\+Test, set\+Axes1)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+axes() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_ac01d82d397b493ba29b0559a9b64e0dc}{T\+E\+ST}} (Controller\+Test, set\+Gains)
+\begin{DoxyCompactList}\small\item\em Tests the set\+\_\+gains() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a8d9935ff03f4b8374c634e3f1da3260a}{T\+E\+ST}} (Controller\+Test, get\+Gains)
+\begin{DoxyCompactList}\small\item\em Tests the get\+\_\+gains() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a68218fa0123c43e7e990e0c539593856}{T\+E\+ST}} (Controller\+Test, control\+Action)
+\begin{DoxyCompactList}\small\item\em Tests the control\+\_\+action() method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a82ce1cda78b7dc6518c39c4c561b720b}{T\+E\+ST}} (Controller\+Test, saturation1)
+\begin{DoxyCompactList}\small\item\em Tests the saturation() method for one set of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8cpp_a2ac880c8999127c2193e5f37007a6609}{T\+E\+ST}} (Controller\+Test, saturation2)
+\begin{DoxyCompactList}\small\item\em Tests the saturation() method for another set of values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{test_8cpp_a50f046eab3d54284c75df9491f31b420}\label{test_8cpp_a50f046eab3d54284c75df9491f31b420}} 
 \mbox{\hyperlink{class_robot}{Robot}} {\bfseries acme\+\_\+kuka}
 \item 
-\mbox{\Hypertarget{test_8cpp_a0d670f453b8fda667580b85fdf03b55f}\label{test_8cpp_a0d670f453b8fda667580b85fdf03b55f}} 
-std\+::vector$<$ double $>$ {\bfseries init\+\_\+pose} = \{1, 2, 3, 4, 5, 6\}
+\mbox{\Hypertarget{test_8cpp_aa47e824dca4136618ed54523c54011e7}\label{test_8cpp_aa47e824dca4136618ed54523c54011e7}} 
+\mbox{\hyperlink{class_simulator}{Simulator}} {\bfseries acme\+\_\+sim}
 \item 
-\mbox{\Hypertarget{test_8cpp_ae17f8815cf440135e7b9ccbf8243e5e0}\label{test_8cpp_ae17f8815cf440135e7b9ccbf8243e5e0}} 
-std\+::vector$<$ double $>$ {\bfseries fin\+\_\+pose} = \{1, 2, 3, 4, 5, 6\}
+\mbox{\Hypertarget{test_8cpp_a5a7d5e5649c596996a391dc497e614d1}\label{test_8cpp_a5a7d5e5649c596996a391dc497e614d1}} 
+\mbox{\hyperlink{class_velocity_i_k}{Velocity\+IK}} {\bfseries acme\+\_\+vik}
+\item 
+\mbox{\Hypertarget{test_8cpp_ac5132c3b85d95cc28ed321945ba8d657}\label{test_8cpp_ac5132c3b85d95cc28ed321945ba8d657}} 
+\mbox{\hyperlink{class_position_f_k}{Position\+FK}} {\bfseries acme\+\_\+pfk}
+\item 
+\mbox{\Hypertarget{test_8cpp_a79ce35e1b928aeac8b8bf5200424f6bc}\label{test_8cpp_a79ce35e1b928aeac8b8bf5200424f6bc}} 
+\mbox{\hyperlink{class_controller}{Controller}} {\bfseries acme\+\_\+cont}
 \end{DoxyCompactItemize}
 
 
@@ -61,59 +124,367 @@ Copyright (c) 2022
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{test_8cpp_a382ae0203c35c4b80565ef72fc4cc317}\label{test_8cpp_a382ae0203c35c4b80565ef72fc4cc317}} 
+\mbox{\Hypertarget{test_8cpp_a68218fa0123c43e7e990e0c539593856}\label{test_8cpp_a68218fa0123c43e7e990e0c539593856}} 
 \index{test.cpp@{test.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test.cpp@{test.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{should\+\_\+pass1}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Controller\+Test}]{,  }\item[{control\+Action}]{ }\end{DoxyParamCaption})}
 
 
 
-Tests the set\+\_\+initial\+\_\+pose() method. 
+Tests the control\+\_\+action() method. 
 
 
 
-Definition at line 26 of file test.\+cpp.
+Definition at line 321 of file test.\+cpp.
 
-\mbox{\Hypertarget{test_8cpp_adcf646d5b9d9c5b8c99bbb703354857b}\label{test_8cpp_adcf646d5b9d9c5b8c99bbb703354857b}} 
+\mbox{\Hypertarget{test_8cpp_a8d9935ff03f4b8374c634e3f1da3260a}\label{test_8cpp_a8d9935ff03f4b8374c634e3f1da3260a}} 
 \index{test.cpp@{test.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test.cpp@{test.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{should\+\_\+pass2}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Controller\+Test}]{,  }\item[{get\+Gains}]{ }\end{DoxyParamCaption})}
 
 
 
-Tests the set\+\_\+final\+\_\+pose() method. 
+Tests the get\+\_\+gains() method. 
 
 
 
-Definition at line 34 of file test.\+cpp.
+Definition at line 305 of file test.\+cpp.
 
-\mbox{\Hypertarget{test_8cpp_aabfeb0b67261c7bf26b264c4d6ebd6f8}\label{test_8cpp_aabfeb0b67261c7bf26b264c4d6ebd6f8}} 
+\mbox{\Hypertarget{test_8cpp_a82ce1cda78b7dc6518c39c4c561b720b}\label{test_8cpp_a82ce1cda78b7dc6518c39c4c561b720b}} 
 \index{test.cpp@{test.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test.cpp@{test.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{should\+\_\+pass3}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Controller\+Test}]{,  }\item[{saturation1}]{ }\end{DoxyParamCaption})}
 
 
 
-Tests the set\+\_\+joint\+\_\+angles() method. 
+Tests the saturation() method for one set of values. 
 
 
 
-Definition at line 42 of file test.\+cpp.
+Definition at line 335 of file test.\+cpp.
 
-\mbox{\Hypertarget{test_8cpp_a797de0ce924c73ea43ab8ca9ce9549e5}\label{test_8cpp_a797de0ce924c73ea43ab8ca9ce9549e5}} 
+\mbox{\Hypertarget{test_8cpp_a2ac880c8999127c2193e5f37007a6609}\label{test_8cpp_a2ac880c8999127c2193e5f37007a6609}} 
 \index{test.cpp@{test.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test.cpp@{test.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{should\+\_\+pass4}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Controller\+Test}]{,  }\item[{saturation2}]{ }\end{DoxyParamCaption})}
 
 
 
-Tests the execute\+\_\+path() method. 
+Tests the saturation() method for another set of values. 
 
 
 
-Definition at line 51 of file test.\+cpp.
+Definition at line 346 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_ac01d82d397b493ba29b0559a9b64e0dc}\label{test_8cpp_ac01d82d397b493ba29b0559a9b64e0dc}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Controller\+Test}]{,  }\item[{set\+Gains}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+gains() method. 
+
+
+
+Definition at line 294 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a3bd245b8947b107ffe039dd4ac939aff}\label{test_8cpp_a3bd245b8947b107ffe039dd4ac939aff}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Position\+F\+K\+Test}]{,  }\item[{get\+DH}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the get\+\_\+dh() method. 
+
+
+
+Definition at line 144 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a1f05d53018adc5fad44f275a11666a5a}\label{test_8cpp_a1f05d53018adc5fad44f275a11666a5a}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Position\+F\+K\+Test}]{,  }\item[{link\+Transform}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the link\+\_\+transformation() method. 
+
+
+
+Definition at line 164 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a6e2f8674bc7e224404bf90c49b229dfb}\label{test_8cpp_a6e2f8674bc7e224404bf90c49b229dfb}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [8/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Position\+F\+K\+Test}]{,  }\item[{set\+Angle1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+joint\+\_\+angles() method for one set of values. 
+
+
+
+Definition at line 181 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_ad830b43b5f3419dd5b4b258872e1da7c}\label{test_8cpp_ad830b43b5f3419dd5b4b258872e1da7c}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [9/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Position\+F\+K\+Test}]{,  }\item[{set\+Angle2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+joint\+\_\+angles() method for another set of values. 
+
+
+
+Definition at line 190 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a554873ea2be359fa130c7c3425014715}\label{test_8cpp_a554873ea2be359fa130c7c3425014715}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [10/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{execute1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the execute\+\_\+path() method for one set of initial angles. 
+
+
+
+Definition at line 122 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a617416807ea694877ccac59904e97d85}\label{test_8cpp_a617416807ea694877ccac59904e97d85}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [11/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{execute2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the execute\+\_\+path() method for another set of initial angles. 
+
+
+
+Definition at line 132 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a8a95d9994d021aaba8d37eb2344e6424}\label{test_8cpp_a8a95d9994d021aaba8d37eb2344e6424}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [12/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{final\+Pose1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+final\+\_\+pose() method for one set of pose values. 
+
+
+
+Definition at line 58 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_afad852aa323c26ad8615755f55743216}\label{test_8cpp_afad852aa323c26ad8615755f55743216}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [13/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{final\+Pose2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+final\+\_\+pose() method for another set of pose values. 
+
+
+
+Definition at line 67 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a17bdbbff7d1eb77490ad88d788e89fdf}\label{test_8cpp_a17bdbbff7d1eb77490ad88d788e89fdf}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [14/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{get\+Angle1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the get\+\_\+joint\+\_\+angles() method for one set of angles. 
+
+
+
+Definition at line 94 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a8ebcc4c3b808bc88e877722b9dcac655}\label{test_8cpp_a8ebcc4c3b808bc88e877722b9dcac655}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [15/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{get\+Angle2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the get\+\_\+joint\+\_\+angles() method for another set of angles. 
+
+
+
+Definition at line 108 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_af3c4af929e94796208762d2b38a1865b}\label{test_8cpp_af3c4af929e94796208762d2b38a1865b}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [16/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{initial\+Pose1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+initial\+\_\+pose() method with one set of pose values. 
+
+
+
+Definition at line 40 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a3b6f8a1bf45c2ff095de757397268cd4}\label{test_8cpp_a3b6f8a1bf45c2ff095de757397268cd4}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [17/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{initial\+Pose2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+initial\+\_\+pose() method with another set of pose values. 
+
+
+
+Definition at line 49 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_ad31080a9751a9d4162adc1be37bd30bf}\label{test_8cpp_ad31080a9751a9d4162adc1be37bd30bf}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [18/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{set\+Angle1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+joint\+\_\+angles() method for one set of angles. 
+
+
+
+Definition at line 76 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a4299f480d3879e69cdd83330de1801cb}\label{test_8cpp_a4299f480d3879e69cdd83330de1801cb}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [19/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Robot\+Test}]{,  }\item[{set\+Angle2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+joint\+\_\+angles() method for another set of angles. 
+
+
+
+Definition at line 85 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_ac66030187f3e711b79a5fdf3c0b3b3a0}\label{test_8cpp_ac66030187f3e711b79a5fdf3c0b3b3a0}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [20/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Simulator\+Test}]{,  }\item[{set\+Axes1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the set\+\_\+axes() method. 
+
+
+
+Definition at line 281 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a2fee0ba176cdf9279974d0477c7795c3}\label{test_8cpp_a2fee0ba176cdf9279974d0477c7795c3}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [21/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{cartesian\+Vel1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the cartesian\+\_\+velocity() method. 
+
+
+
+Definition at line 269 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_aafcdcf2207a13c8b4f08544e2b444003}\label{test_8cpp_aafcdcf2207a13c8b4f08544e2b444003}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [22/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{compute\+Jacobian1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the compute\+\_\+jacobian() method for one set of angles. 
+
+
+
+Definition at line 219 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a26d6e277bfe06cd08d6424ff4c1bf513}\label{test_8cpp_a26d6e277bfe06cd08d6424ff4c1bf513}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [23/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{compute\+Jacobian2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the compute\+\_\+jacobian() method for another set of angles. 
+
+
+
+Definition at line 228 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a3c49e5f7efc53cc722e32a93d1d4f601}\label{test_8cpp_a3c49e5f7efc53cc722e32a93d1d4f601}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [24/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{get\+Jacobian}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the get\+\_\+jacobian() method. 
+
+
+
+Definition at line 201 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a59c19d4fb973fe6bf37bd8ac46756e53}\label{test_8cpp_a59c19d4fb973fe6bf37bd8ac46756e53}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [25/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{update\+Angle1}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the update\+\_\+joint\+\_\+angles() method for one set of values. 
+
+
+
+Definition at line 237 of file test.\+cpp.
+
+\mbox{\Hypertarget{test_8cpp_a3878e57a66b91fc1cc3d1bb00a83d898}\label{test_8cpp_a3878e57a66b91fc1cc3d1bb00a83d898}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [26/26]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{Velocity\+I\+K\+Test}]{,  }\item[{update\+Angle2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the update\+\_\+joint\+\_\+angles() method for another set of values. 
+
+
+
+Definition at line 253 of file test.\+cpp.
 

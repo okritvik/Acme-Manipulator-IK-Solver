@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/Controller.hpp Source File</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/Controller.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('_controller_8hpp_source.html',''); ini
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">control_action</a>(std::vector&lt;double&gt; *present_pose,</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::vector&lt;double&gt; *target_pose);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4">saturation</a>(<span class="keywordtype">double</span> *min_vel, <span class="keywordtype">double</span> *max_vel);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">saturation</a>(<span class="keywordtype">double</span> *min_vel, <span class="keywordtype">double</span> *max_vel, <span class="keywordtype">double</span> *val);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">double</span> m_kp;    <span class="comment">// Proportional gain</span></div>
@@ -123,12 +123,12 @@ $(document).ready(function(){initNavTree('_controller_8hpp_source.html',''); ini
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_controller_html_a95c56822d667e94b031451729ce069a9"><div class="ttname"><a href="class_controller.html#a95c56822d667e94b031451729ce069a9">Controller::Controller</a></div><div class="ttdeci">Controller()</div><div class="ttdoc">Construct a new Controller object.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00018">Controller.cpp:18</a></div></div>
-<div class="ttc" id="aclass_controller_html_a002fb930e8f0293156973752f1f2dd61"><div class="ttname"><a href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">Controller::control_action</a></div><div class="ttdeci">double control_action(std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</div><div class="ttdoc">Computes the error in pose (between present and target) and applies the PID control action on the err...</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00030">Controller.cpp:30</a></div></div>
-<div class="ttc" id="aclass_controller_html_adb8cd16dcd8269d4a72502b4005a7ef4"><div class="ttname"><a href="class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4">Controller::saturation</a></div><div class="ttdeci">double saturation(double *min_vel, double *max_vel)</div><div class="ttdoc">Saturates the controller output to within {min_vel, max_vel} for safety reasons.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00035">Controller.cpp:35</a></div></div>
+<div class="ttc" id="aclass_controller_html_a95c56822d667e94b031451729ce069a9"><div class="ttname"><a href="class_controller.html#a95c56822d667e94b031451729ce069a9">Controller::Controller</a></div><div class="ttdeci">Controller()</div><div class="ttdoc">Construct a new Controller object.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00017">Controller.cpp:17</a></div></div>
+<div class="ttc" id="aclass_controller_html_a002fb930e8f0293156973752f1f2dd61"><div class="ttname"><a href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">Controller::control_action</a></div><div class="ttdeci">double control_action(std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</div><div class="ttdoc">Computes the error in pose (between present and target) and applies the PID control action on the err...</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00043">Controller.cpp:43</a></div></div>
 <div class="ttc" id="aclass_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Defines the PID controller class.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8hpp_source.html#l00022">Controller.hpp:22</a></div></div>
-<div class="ttc" id="aclass_controller_html_a73a23885d522a0787792215ca3f34a64"><div class="ttname"><a href="class_controller.html#a73a23885d522a0787792215ca3f34a64">Controller::set_gains</a></div><div class="ttdeci">bool set_gains(double *kp, double *ki, double *kd)</div><div class="ttdoc">Mutator function to set the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00021">Controller.cpp:21</a></div></div>
-<div class="ttc" id="aclass_controller_html_a15e8c6de3ebf3abcf29e705f08c78e39"><div class="ttname"><a href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">Controller::get_gains</a></div><div class="ttdeci">std::vector&lt; double &gt; get_gains()</div><div class="ttdoc">Accessor function to get the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00025">Controller.cpp:25</a></div></div>
+<div class="ttc" id="aclass_controller_html_a73a23885d522a0787792215ca3f34a64"><div class="ttname"><a href="class_controller.html#a73a23885d522a0787792215ca3f34a64">Controller::set_gains</a></div><div class="ttdeci">bool set_gains(double *kp, double *ki, double *kd)</div><div class="ttdoc">Mutator function to set the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00026">Controller.cpp:26</a></div></div>
+<div class="ttc" id="aclass_controller_html_a20bb74e979c1a21ef56df18b5fdad7fe"><div class="ttname"><a href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">Controller::saturation</a></div><div class="ttdeci">double saturation(double *min_vel, double *max_vel, double *val)</div><div class="ttdoc">Saturates the controller output to within {min_vel, max_vel} for safety reasons.</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00054">Controller.cpp:54</a></div></div>
+<div class="ttc" id="aclass_controller_html_a15e8c6de3ebf3abcf29e705f08c78e39"><div class="ttname"><a href="class_controller.html#a15e8c6de3ebf3abcf29e705f08c78e39">Controller::get_gains</a></div><div class="ttdeci">std::vector&lt; double &gt; get_gains()</div><div class="ttdoc">Accessor function to get the values of controller gains (Kp, Ki, Kd)</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8cpp_source.html#l00034">Controller.cpp:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -118,9 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a002fb930e8f0293156973752f1f2dd61"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">control_action</a> (std::vector&lt; double &gt; *present_pose, std::vector&lt; double &gt; *target_pose)</td></tr>
 <tr class="memdesc:a002fb930e8f0293156973752f1f2dd61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the error in pose (between present and target) and applies the PID control action on the error to drive it to zero.  <a href="class_controller.html#a002fb930e8f0293156973752f1f2dd61">More...</a><br /></td></tr>
 <tr class="separator:a002fb930e8f0293156973752f1f2dd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb8cd16dcd8269d4a72502b4005a7ef4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4">saturation</a> (double *min_vel, double *max_vel)</td></tr>
-<tr class="memdesc:adb8cd16dcd8269d4a72502b4005a7ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saturates the controller output to within {min_vel, max_vel} for safety reasons.  <a href="class_controller.html#adb8cd16dcd8269d4a72502b4005a7ef4">More...</a><br /></td></tr>
-<tr class="separator:adb8cd16dcd8269d4a72502b4005a7ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb74e979c1a21ef56df18b5fdad7fe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">saturation</a> (double *min_vel, double *max_vel, double *val)</td></tr>
+<tr class="memdesc:a20bb74e979c1a21ef56df18b5fdad7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saturates the controller output to within {min_vel, max_vel} for safety reasons.  <a href="class_controller.html#a20bb74e979c1a21ef56df18b5fdad7fe">More...</a><br /></td></tr>
+<tr class="separator:a20bb74e979c1a21ef56df18b5fdad7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the PID controller class. </p>
@@ -144,7 +144,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Construct a new <a class="el" href="class_controller.html" title="Defines the PID controller class.">Controller</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00018">18</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00017">17</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +185,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double Control action (sec) to change the numerical integration time-step </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00030">30</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00043">43</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -207,12 +207,12 @@ Public Member Functions</h2></td></tr>
 <p>Accessor function to get the values of controller gains (Kp, Ki, Kd) </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt; <a class="el" href="class_controller.html" title="Defines the PID controller class.">Controller</a> gains (Kp, Ki, Kd) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00025">25</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00034">34</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
-<a id="adb8cd16dcd8269d4a72502b4005a7ef4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb8cd16dcd8269d4a72502b4005a7ef4">&#9670;&nbsp;</a></span>saturation()</h2>
+<a id="a20bb74e979c1a21ef56df18b5fdad7fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20bb74e979c1a21ef56df18b5fdad7fe">&#9670;&nbsp;</a></span>saturation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +227,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>max_vel</em>&#160;</td>
+          <td class="paramname"><em>max_vel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -247,7 +253,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double Saturated controller output </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00035">35</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00054">54</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
@@ -296,13 +302,13 @@ Public Member Functions</h2></td></tr>
 <dd>
 false Gain values are invalid </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00021">21</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_controller_8cpp_source.html#l00026">26</a> of file <a class="el" href="_controller_8cpp_source.html">Controller.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/<a class="el" href="_controller_8hpp_source.html">Controller.hpp</a></li>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/<a class="el" href="_controller_8cpp_source.html">Controller.cpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/<a class="el" href="_controller_8hpp_source.html">Controller.hpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/<a class="el" href="_controller_8cpp_source.html">Controller.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

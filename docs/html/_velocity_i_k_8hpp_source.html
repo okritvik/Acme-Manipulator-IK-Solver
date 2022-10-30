@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/VelocityIK.hpp Source File</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/VelocityIK.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -105,26 +105,27 @@ $(document).ready(function(){initNavTree('_velocity_i_k_8hpp_source.html',''); i
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_velocity_i_k.html#a557cbe6c1d62dcffb49d49c7e27c5bce">VelocityIK</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;double&gt; <a class="code" href="class_velocity_i_k.html#a6537b863f8f8498b206de2f5ec64c023">cartesian_velocity</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::vector&lt;double&gt; <a class="code" href="class_velocity_i_k.html#a4a87cb4d3fb6be8ba696d317a0bebdd8">update_joint_angles</a>(<span class="keywordtype">double</span> *dt,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::vector&lt;double&gt; *present_joint_angle);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_velocity_i_k.html#a75a5182641fd73b1d652c1501459a336">compute_jacobian</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    nc::NdArray&lt;double&gt; <a class="code" href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">get_jacobian</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    nc::NdArray&lt;double&gt; m_jacobian;    <span class="comment">// Jacobian matrix (6x6) of the robot</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    nc::NdArray&lt;double&gt; <a class="code" href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">cartesian_velocity</a>(<span class="keywordtype">double</span> *theta);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::vector&lt;double&gt; <a class="code" href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">update_joint_angles</a>(<span class="keywordtype">double</span> *dt,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                std::vector&lt;double&gt; *present_joint_angle,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                std::vector&lt;double&gt; *joint_angle_dot);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">compute_jacobian</a>(std::vector&lt;double&gt; *joint_angle);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    nc::NdArray&lt;double&gt; <a class="code" href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">get_jacobian</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    nc::NdArray&lt;double&gt; m_jacobian;    <span class="comment">// Jacobian matrix (6x6) of the robot</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_velocity_i_k_html_a6537b863f8f8498b206de2f5ec64c023"><div class="ttname"><a href="class_velocity_i_k.html#a6537b863f8f8498b206de2f5ec64c023">VelocityIK::cartesian_velocity</a></div><div class="ttdeci">std::vector&lt; double &gt; cartesian_velocity()</div><div class="ttdoc">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be z...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00021">VelocityIK.cpp:21</a></div></div>
-<div class="ttc" id="aclass_velocity_i_k_html_a75a5182641fd73b1d652c1501459a336"><div class="ttname"><a href="class_velocity_i_k.html#a75a5182641fd73b1d652c1501459a336">VelocityIK::compute_jacobian</a></div><div class="ttdeci">void compute_jacobian()</div><div class="ttdoc">Computes the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00032">VelocityIK.cpp:32</a></div></div>
-<div class="ttc" id="aclass_velocity_i_k_html_a4a87cb4d3fb6be8ba696d317a0bebdd8"><div class="ttname"><a href="class_velocity_i_k.html#a4a87cb4d3fb6be8ba696d317a0bebdd8">VelocityIK::update_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; update_joint_angles(double *dt, std::vector&lt; double &gt; *present_joint_angle)</div><div class="ttdoc">Performs numerical integration of the joint speed to obtain joint position for a small time-step usin...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00026">VelocityIK.cpp:26</a></div></div>
-<div class="ttc" id="aclass_velocity_i_k_html_a557cbe6c1d62dcffb49d49c7e27c5bce"><div class="ttname"><a href="class_velocity_i_k.html#a557cbe6c1d62dcffb49d49c7e27c5bce">VelocityIK::VelocityIK</a></div><div class="ttdeci">VelocityIK()</div><div class="ttdoc">Construct a new Velocity IK object.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00018">VelocityIK.cpp:18</a></div></div>
-<div class="ttc" id="aclass_velocity_i_k_html_a07075ab3433d75bfe09d05a3dbd57552"><div class="ttname"><a href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">VelocityIK::get_jacobian</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; get_jacobian()</div><div class="ttdoc">Accessor function to get the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00035">VelocityIK.cpp:35</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_a557cbe6c1d62dcffb49d49c7e27c5bce"><div class="ttname"><a href="class_velocity_i_k.html#a557cbe6c1d62dcffb49d49c7e27c5bce">VelocityIK::VelocityIK</a></div><div class="ttdeci">VelocityIK()</div><div class="ttdoc">Construct a new Velocity IK object.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00024">VelocityIK.cpp:24</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_a07075ab3433d75bfe09d05a3dbd57552"><div class="ttname"><a href="class_velocity_i_k.html#a07075ab3433d75bfe09d05a3dbd57552">VelocityIK::get_jacobian</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; get_jacobian()</div><div class="ttdoc">Accessor function to get the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00177">VelocityIK.cpp:177</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae48fa2a2042a47a2c78170044573eb28"><div class="ttname"><a href="class_velocity_i_k.html#ae48fa2a2042a47a2c78170044573eb28">VelocityIK::compute_jacobian</a></div><div class="ttdeci">bool compute_jacobian(std::vector&lt; double &gt; *joint_angle)</div><div class="ttdoc">Computes the Jacobian matrix of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00053">VelocityIK.cpp:53</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_adbbe686948ac7e77d00249ca6863bc75"><div class="ttname"><a href="class_velocity_i_k.html#adbbe686948ac7e77d00249ca6863bc75">VelocityIK::cartesian_velocity</a></div><div class="ttdeci">nc::NdArray&lt; double &gt; cartesian_velocity(double *theta)</div><div class="ttdoc">Defines the cartesian velocity trajectory of the robot's end-effector, assuming angular speed to be z...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00027">VelocityIK.cpp:27</a></div></div>
 <div class="ttc" id="aclass_velocity_i_k_html"><div class="ttname"><a href="class_velocity_i_k.html">VelocityIK</a></div><div class="ttdoc">Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8hpp_source.html#l00021">VelocityIK.hpp:21</a></div></div>
+<div class="ttc" id="aclass_velocity_i_k_html_ae58a64243d86eeb8c3721d483789ead5"><div class="ttname"><a href="class_velocity_i_k.html#ae58a64243d86eeb8c3721d483789ead5">VelocityIK::update_joint_angles</a></div><div class="ttdeci">std::vector&lt; double &gt; update_joint_angles(double *dt, std::vector&lt; double &gt; *present_joint_angle, std::vector&lt; double &gt; *joint_angle_dot)</div><div class="ttdoc">Performs numerical integration of the joint speed to obtain joint position for a small time-step usin...</div><div class="ttdef"><b>Definition:</b> <a href="_velocity_i_k_8cpp_source.html#l00037">VelocityIK.cpp:37</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

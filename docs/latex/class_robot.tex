@@ -9,6 +9,16 @@ Defines the \mbox{\hyperlink{class_robot}{Robot}} class containing 3 children cl
 
 {\ttfamily \#include $<$Robot.\+hpp$>$}
 
+
+
+Collaboration diagram for Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_robot__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,6 +34,18 @@ bool \mbox{\hyperlink{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}{set\+\_\+jo
 \begin{DoxyCompactList}\small\item\em Mutator function to set the robot\textquotesingle{}s joint angles. \end{DoxyCompactList}\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{class_robot_a3e489543ecc90e10881e7b035a04f01b}{get\+\_\+joint\+\_\+angles}} ()
 \begin{DoxyCompactList}\small\item\em Accessor function to get the joint angles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_robot_a069039af46b036f7cdce3b07394bbccc}\label{class_robot_a069039af46b036f7cdce3b07394bbccc}} 
+\mbox{\hyperlink{class_controller}{Controller}} {\bfseries m\+\_\+control}
+\item 
+\mbox{\Hypertarget{class_robot_ae3a73f6d8ede0bc9c8e96e01f65fbe15}\label{class_robot_ae3a73f6d8ede0bc9c8e96e01f65fbe15}} 
+\mbox{\hyperlink{class_kinematics}{Kinematics}} {\bfseries m\+\_\+kinematics}
+\item 
+\mbox{\Hypertarget{class_robot_aba4bb5e4149c94437762f7ddffe9894d}\label{class_robot_aba4bb5e4149c94437762f7ddffe9894d}} 
+\mbox{\hyperlink{class_simulator}{Simulator}} {\bfseries m\+\_\+sim}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -48,7 +70,7 @@ Construct a new \mbox{\hyperlink{class_robot}{Robot}} object.
 
 
 
-Definition at line 19 of file Robot.\+cpp.
+Definition at line 30 of file Robot.\+cpp.
 
 
 
@@ -70,7 +92,7 @@ false When the path is invalid.
 \end{DoxyReturn}
 
 
-Definition at line 22 of file Robot.\+cpp.
+Definition at line 38 of file Robot.\+cpp.
 
 \mbox{\Hypertarget{class_robot_a3e489543ecc90e10881e7b035a04f01b}\label{class_robot_a3e489543ecc90e10881e7b035a04f01b}} 
 \index{Robot@{Robot}!get\_joint\_angles@{get\_joint\_angles}}
@@ -87,7 +109,7 @@ std\+::vector$<$double$>$ Joint angles of the robot (rad)
 \end{DoxyReturn}
 
 
-Definition at line 34 of file Robot.\+cpp.
+Definition at line 138 of file Robot.\+cpp.
 
 \mbox{\Hypertarget{class_robot_ad03ee7e8edcc25b1f6522eb03586aecc}\label{class_robot_ad03ee7e8edcc25b1f6522eb03586aecc}} 
 \index{Robot@{Robot}!set\_final\_pose@{set\_final\_pose}}
@@ -111,7 +133,7 @@ false Final position value is invalid
 \end{DoxyReturn}
 
 
-Definition at line 30 of file Robot.\+cpp.
+Definition at line 128 of file Robot.\+cpp.
 
 \mbox{\Hypertarget{class_robot_ae25c61db69c5f1fd0df2f743521be033}\label{class_robot_ae25c61db69c5f1fd0df2f743521be033}} 
 \index{Robot@{Robot}!set\_initial\_pose@{set\_initial\_pose}}
@@ -135,7 +157,7 @@ false Initial position value is invalid
 \end{DoxyReturn}
 
 
-Definition at line 26 of file Robot.\+cpp.
+Definition at line 118 of file Robot.\+cpp.
 
 \mbox{\Hypertarget{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}\label{class_robot_a049df4bda1dcb2c4cea8125915acd0d7}} 
 \index{Robot@{Robot}!set\_joint\_angles@{set\_joint\_angles}}
@@ -154,11 +176,11 @@ Mutator function to set the robot\textquotesingle{}s joint angles.
 \end{DoxyParams}
 
 
-Definition at line 39 of file Robot.\+cpp.
+Definition at line 143 of file Robot.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_robot_8hpp}{Robot.\+hpp}}\item 
-/media/adarsh/\+H\+D\+D/\+Ubuntu/\+Mid-\/\+Term/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/include/\mbox{\hyperlink{_robot_8hpp}{Robot.\+hpp}}\item 
+/media/okritvik/\+D\+A\+T\+A/\+U\+M\+D/\+Course\+\_\+\+Work/\+E\+N\+P\+M808\+X/\+Assignments/\+Acme-\/\+Manipulator-\/\+I\+K-\/\+Solver/app/\mbox{\hyperlink{_robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}

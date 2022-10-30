@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACME-IK-Solver: /media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/main.cpp Source File</title>
+<title>ACME-IK-Solver: /media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/main.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -97,19 +97,32 @@ $(document).ready(function(){initNavTree('app_2main_8cpp_source.html',''); initR
 <div class="contents">
 <a href="app_2main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">int</span> main() {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_robot.html">Robot</a> acme_kuka;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;double&gt; start_pose;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> test = acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;start_pose);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::cout &lt;&lt; test &lt;&lt; <span class="stringliteral">&quot; DONE&quot;</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../include/Robot.hpp&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> main() {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_robot.html">Robot</a> acme_kuka;  <span class="comment">// Instantiate Robot object</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::vector&lt;double&gt; start_pose = {0, 0, 78};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Set initial pose</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    acme_kuka.<a class="code" href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">set_initial_pose</a>(&amp;start_pose);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// set final pose</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::vector&lt;double&gt; end_pose = {0, 0, 58};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    acme_kuka.<a class="code" href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">set_final_pose</a>(&amp;end_pose);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Execute the path from initial position to target position</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// by considering the parameters of the manipulator.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    acme_kuka.<a class="code" href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">execute_path</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00026">Robot.cpp:26</a></div></div>
+<div class="ttc" id="aclass_robot_html_a2be26e4c47c92a7a12659ccd607567e6"><div class="ttname"><a href="class_robot.html#a2be26e4c47c92a7a12659ccd607567e6">Robot::execute_path</a></div><div class="ttdeci">bool execute_path()</div><div class="ttdoc">Generates and executes a trajectory for the robot's path from the initial pose to the final pose.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00038">Robot.cpp:38</a></div></div>
+<div class="ttc" id="aclass_robot_html_ae25c61db69c5f1fd0df2f743521be033"><div class="ttname"><a href="class_robot.html#ae25c61db69c5f1fd0df2f743521be033">Robot::set_initial_pose</a></div><div class="ttdeci">bool set_initial_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the initial pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00118">Robot.cpp:118</a></div></div>
 <div class="ttc" id="aclass_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdoc">Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hpp_source.html#l00026">Robot.hpp:26</a></div></div>
+<div class="ttc" id="aclass_robot_html_ad03ee7e8edcc25b1f6522eb03586aecc"><div class="ttname"><a href="class_robot.html#ad03ee7e8edcc25b1f6522eb03586aecc">Robot::set_final_pose</a></div><div class="ttdeci">bool set_final_pose(std::vector&lt; double &gt; *pose)</div><div class="ttdoc">Mutator function to set the desired final pose of the robot.</div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00128">Robot.cpp:128</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

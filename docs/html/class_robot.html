@@ -34,9 +34,9 @@
   <td id="projectlogo"><img alt="Logo" src="acme.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME-IK-Solver
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
-   <div id="projectbrief">Phase 1 implementation of ACME Manipulator&#39;s API.</div>
+   <div id="projectbrief">Phase 2 implementation of ACME Manipulator&#39;s API.</div>
   </td>
  </tr>
  </tbody>
@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_robot.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_robot-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Robot Class Reference</div>  </div>
@@ -103,6 +104,19 @@ $(document).ready(function(){initNavTree('class_robot.html',''); initResizable()
  <a href="class_robot.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_robot_8hpp_source.html">Robot.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Robot:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_robot__coll__graph.png" border="0" usemap="#_robot_coll__map" alt="Collaboration graph"/></div>
+<map name="_robot_coll__map" id="_robot_coll__map">
+<area shape="rect" title="Defines the Robot class containing 3 children classes &#45; Controller, Kinematics and Simulator." alt="" coords="203,184,263,211"/>
+<area shape="rect" href="class_kinematics.html" title="Defines the Kinematics class containing 2 children classes &#45; PositionFK and VelocityIK." alt="" coords="58,95,153,121"/>
+<area shape="rect" href="class_velocity_i_k.html" title="Defines the Velocity Inverse Kinematics solver class using the Jacobian method (with one joint locked..." alt="" coords="5,5,93,32"/>
+<area shape="rect" href="class_position_f_k.html" title="Defines the Position Forward Kinematics solver class using the standard form of the Denavit&#45;Hartenber..." alt="" coords="117,5,208,32"/>
+<area shape="rect" href="class_controller.html" title="Defines the PID controller class." alt="" coords="190,95,277,121"/>
+<area shape="rect" href="class_simulator.html" title="Defines the Simulator class." alt="" coords="301,95,387,121"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,6 +138,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e489543ecc90e10881e7b035a04f01b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">get_joint_angles</a> ()</td></tr>
 <tr class="memdesc:a3e489543ecc90e10881e7b035a04f01b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor function to get the joint angles.  <a href="class_robot.html#a3e489543ecc90e10881e7b035a04f01b">More...</a><br /></td></tr>
 <tr class="separator:a3e489543ecc90e10881e7b035a04f01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a069039af46b036f7cdce3b07394bbccc"><td class="memItemLeft" align="right" valign="top"><a id="a069039af46b036f7cdce3b07394bbccc"></a>
+<a class="el" href="class_controller.html">Controller</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_control</b></td></tr>
+<tr class="separator:a069039af46b036f7cdce3b07394bbccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a73f6d8ede0bc9c8e96e01f65fbe15"><td class="memItemLeft" align="right" valign="top"><a id="ae3a73f6d8ede0bc9c8e96e01f65fbe15"></a>
+<a class="el" href="class_kinematics.html">Kinematics</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_kinematics</b></td></tr>
+<tr class="separator:ae3a73f6d8ede0bc9c8e96e01f65fbe15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba4bb5e4149c94437762f7ddffe9894d"><td class="memItemLeft" align="right" valign="top"><a id="aba4bb5e4149c94437762f7ddffe9894d"></a>
+<a class="el" href="class_simulator.html">Simulator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_sim</b></td></tr>
+<tr class="separator:aba4bb5e4149c94437762f7ddffe9894d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines the <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> class containing 3 children classes - <a class="el" href="class_controller.html" title="Defines the PID controller class.">Controller</a>, <a class="el" href="class_kinematics.html" title="Defines the Kinematics class containing 2 children classes - PositionFK and VelocityIK.">Kinematics</a> and <a class="el" href="class_simulator.html" title="Defines the Simulator class.">Simulator</a>. </p>
@@ -147,7 +173,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Construct a new <a class="el" href="class_robot.html" title="Defines the Robot class containing 3 children classes - Controller, Kinematics and Simulator.">Robot</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00019">19</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00030">30</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -172,7 +198,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 false When the path is invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00022">22</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00038">38</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +220,7 @@ false When the path is invalid. </dd></dl>
 <p>Accessor function to get the joint angles. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt; Joint angles of the robot (rad) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00034">34</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00138">138</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -225,7 +251,7 @@ false When the path is invalid. </dd></dl>
 <dd>
 false Final position value is invalid </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00030">30</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00128">128</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +282,7 @@ false Final position value is invalid </dd></dl>
 <dd>
 false Initial position value is invalid </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00026">26</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00118">118</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,13 +310,13 @@ false Initial position value is invalid </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00039">39</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_robot_8cpp_source.html#l00143">143</a> of file <a class="el" href="_robot_8cpp_source.html">Robot.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/include/<a class="el" href="_robot_8hpp_source.html">Robot.hpp</a></li>
-<li>/media/adarsh/HDD/Ubuntu/Mid-Term/Acme-Manipulator-IK-Solver/app/<a class="el" href="_robot_8cpp_source.html">Robot.cpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/include/<a class="el" href="_robot_8hpp_source.html">Robot.hpp</a></li>
+<li>/media/okritvik/DATA/UMD/Course_Work/ENPM808X/Assignments/Acme-Manipulator-IK-Solver/app/<a class="el" href="_robot_8cpp_source.html">Robot.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
