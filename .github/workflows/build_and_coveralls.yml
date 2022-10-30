@@ -73,6 +73,9 @@ jobs:
         working-directory: ${{github.workspace}}/NumCpp/build
         run: sudo cmake --build . --target install .
 
+      - name: Install 8
+        run: sudo apt-get install libxcb-xinerama0
+        
       - name: Install Boost
         run: sudo apt-get install libboost-all-dev
 
