@@ -30,8 +30,8 @@
 Robot::Robot() {
     // Initialize the attributes
     m_dof = 6;
-    m_max_vel = 100;  // stub
-    m_min_vel = 0;  // stub
+    m_max_vel = 100;
+    m_min_vel = 0;
     m_current_angle =  {PI/2, 0, -PI/2, 0, 0.00001, 0};
 }
 
