@@ -2,7 +2,7 @@ set(GTEST_SHUFFLE 1)
 find_package(Matplot++ REQUIRED)
 if (Matplot++_FOUND)
     add_executable(
-        cpp-test
+        acme-test
         main.cpp
         test.cpp
         ../app/Controller.cpp
@@ -12,8 +12,8 @@ if (Matplot++_FOUND)
         ../app/VelocityIK.cpp
     )
 
-    target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 
+    target_include_directories(acme-test PUBLIC ../vendor/googletest/googletest/include 
                                             ${CMAKE_SOURCE_DIR}/include)
-    target_link_libraries(cpp-test PUBLIC gtest)
-    target_link_libraries(cpp-test PUBLIC Matplot++::matplot)
+    target_link_libraries(acme-test PUBLIC gtest)
+    target_link_libraries(acme-test PUBLIC Matplot++::matplot)
 endif ()
