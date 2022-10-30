@@ -109,7 +109,9 @@ bool Robot::execute_path() {
         m_sim.simulate_robot(&x_0p, &y_0p, &z_0p, &tr);
 
         // Wait for a second before next computation to visualize better
+#if !defined (DONT_SHOW_PLOT)
         sleep(1);
+#endif
     }
 
     return true;

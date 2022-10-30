@@ -24,9 +24,11 @@ void Simulator::simulate_robot(const std::vector<double> *x_0p,
     nc::NdArray<double> tr_0_i = nc::identity<double>(4);
     std::vector<std::vector<double>> origins;
 
+#if !defined (DONT_SHOW_PLOT)
     // Plot the end-effector position
     matplot::scatter3(*x_0p, *y_0p, *z_0p);
     matplot::hold(matplot::on);
+#endif
 
     // Base link position
     origins.push_back({0, 0, 0});
@@ -49,16 +51,18 @@ void Simulator::simulate_robot(const std::vector<double> *x_0p,
         auto ox = {o1.at(0), o2.at(0)};
         auto oy = {o1.at(1), o2.at(1)};
         auto oz = {o1.at(2), o2.at(2)};
-
+#if !defined (DONT_SHOW_PLOT)
         auto l = matplot::plot3(ox, oy, oz);
         l->line_width(6);
+#endif
     }
-
+#if !defined (DONT_SHOW_PLOT)
     matplot::xlim({m_xlim.at(0), m_xlim.at(1)});
     matplot::ylim({m_ylim.at(0), m_ylim.at(1)});
     matplot::zlim({m_zlim.at(0), m_zlim.at(1)});
     // Hold is off to clear the links visualization for next iteration
     matplot::hold(matplot::off);
+#endif
 }
 
 bool Simulator::set_axes(std::vector<double> *xlim, std::vector<double> *ylim,
