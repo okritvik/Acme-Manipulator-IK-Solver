@@ -45,6 +45,14 @@ Thus, the following personnel shall implement the above using pair-programming w
     Contact: okritvik@terpmail.umd.edu  </br>
     Website: https://www.okritvik.com/
 
+
+## Demo
+3D visualization of the implemented IK solver for the KUKA robot. The robot is seen to go from one zone (top) to another zone (bottom) of the assembly line along a smoothly generated trajectory.
+
+<p align="center">
+<img width="60%" alt="Demo" src="https://user-images.githubusercontent.com/40534801/198892745-9fbeb47f-2cbf-464a-bb37-3ca9b9784fa5.gif">
+
+    
 ## Agile-Iterative Process (AIP) Resources
 
 ### Phase 02 Video
@@ -227,7 +235,9 @@ If `kcachegrind` doesn't open the required file, open the file `callgrind.out.xx
     │   └── quad_chart_v1.png             # Proposal Quad chart  
     ├── results                    
     │   ├── cppcheck.txt                  # Results of cppcheck
-    │   └── cpplint.txt                   # Results of cpplint
+    │   ├── cpplint.txt                   # Results of cpplint
+    │   ├── kcachegrind_result.png        # Screenshot of kcachegrind output   
+    │   └── valgrind_result.txt           # Results of valgrind
     ├── test                    
     │   ├── main.cpp                      # Main script to run tests
     │   └── test.cpp                      # Initial implemenatation of Google Test cases 
@@ -236,7 +246,8 @@ If `kcachegrind` doesn't open the required file, open the file `callgrind.out.xx
         │   ├── activity_diagram_v1.pdf   # Activity diagram for proposed implementation
         │   └── class_diagram_v1          # Class diagram for proposed implementation 
         └── revised           
-            └── activity_diagram_v2.pdf   # Revised Activity diagram (Phase 1)
+            ├── activity_diagram_v2.pdf   # Revised Activity diagram (Phase 1 & Phase 2)
+            └── class_diagram_v2          # Revised Class diagram (Phase 2) 
     
 ## License
 
